@@ -1,0 +1,106 @@
+#!/bin/sh
+# $Log: rpkg,v $
+# Revision 1.2  2006/09/13 22:23:51  code
+# Fixed bug in determining if there is a message to display.
+#
+# Revision 1.1  2006/09/13 21:44:40  code
+# Initial revision
+#
+#
+
+
+# rpkg 
+# ====
+#
+# The version of the rpkg format uses allows pre and post install
+# actions. The action scripts and message files are in plain sight and
+# not hidden behind a "." filename.
+# 
+# The rpkg file consists of:
+#
+# rpkg.pre-message.txt    A text file displayed before the software
+#                         is installed
+# rpkg.pre-setup.sh       A shell script that is run before the software is 
+#                         installed
+# rpkg archive.tar        software tar archive
+# rpkg post-message.txt   A text file displayed after the software is installed
+# rpkg post-setup.sh      A shell script that is run after the software is
+#                         installed
+#
+#
+# The rpkg script performs the following operations
+#
+# * extract the scripts and archive from the rpkg
+# * display the rpkg.pre-message.txt using cat
+# * run rpkg.pre-setup.sh - this should return 0 if the installation is to 
+#   precede
+# * untar the rpkg.archive.tar in the current directory
+# * display the rpkg.post-message.txt using cat
+# * run rpkg.post-setup.sh - this should return 0 if the installation was a 
+#   success
+# * remove the file extracted from the archive.  
+
+
+fname=$1
+rm -f rpkg.pre-message.txt
+rm -f rpkg.pre-setup.sh
+rm -f rpkg.post-message.txt
+rm -f rpkg.post-setup.sh
+rm -f rpkg.archive.tar
+
+gunzip -c $fname | tar -xvf -
+
+if test -f rpkg.pre-message.txt 
+then                                                                         
+    cat rpkg.pre-message.txt                                                             
+fi
+
+if test -x rpkg.pre-setup.sh 
+then                                                                         
+  ./rpkg.pre-setup.sh
+if test $? -ne 0
+  then
+    echo "Installation aborted"
+    rm -f rpkg.pre-message.txt
+    rm -f rpkg.pre-setup.sh
+    rm -f rpkg.post-message.txt
+    rm -f rpkg.post-setup.sh
+    rm -f rpkg.archive.tar
+    exit -1
+  fi
+fi
+
+tar -xvf rpkg.archive.tar
+
+if test -f rpkg.post-message.txt 
+then                                                                         
+    cat rpkg.post-message.txt         
+fi
+
+if test -x rpkg.pre-setup.sh 
+then                                                                         
+  ./rpkg.post-setup.sh
+  if test $? -ne 0
+  then
+    echo "Installation failed"
+    rm -f rpkg.pre-message.txt
+    rm -f rpkg.pre-setup.sh
+    rm -f rpkg.post-message.txt
+    rm -f rpkg.post-setup.sh
+    rm -f rpkg.archive.tar
+
+
+    exit -1
+  fi
+fi
+
+rm -f rpkg.pre-message.txt
+rm -f rpkg.pre-setup.sh
+rm -f rpkg.post-message.txt
+rm -f rpkg.post-setup.sh
+rm -f rpkg.archive.tar
+
+
+
+
+

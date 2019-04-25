@@ -1,0 +1,13 @@
+# $Log: version.info,v $
+# Revision 1.2  2004/04/26 20:29:26  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.1  2003/03/01 17:54:08  barnes
+# Initial revision
+#
+#
+build.c 1.02
+getstring.c 1.01
+make.c 1.01
+render.c 1.02
+set.c 1.01

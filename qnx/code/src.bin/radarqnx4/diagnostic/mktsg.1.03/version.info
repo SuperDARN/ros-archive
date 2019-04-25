@@ -1,0 +1,13 @@
+# $Log: version.info,v $
+# Revision 1.3  2007/05/24 13:56:08  code
+# Added scope sync and fixed missing parameters.
+#
+# Revision 1.2  2006/04/12 18:48:47  barnes
+# Changed 'o' to 'z' for consistency.
+#
+# Revision 1.1  2006/04/12 18:29:40  barnes
+# Initial revision
+#
+#
+
+mktsg.c 1.03

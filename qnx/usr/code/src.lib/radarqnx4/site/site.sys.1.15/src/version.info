@@ -1,0 +1,46 @@
+# $Log: version.info,v $
+# Revision 1.15  2008/03/21 16:47:55  code
+# Added I&Q capture.
+#
+# Revision 1.14  2008/03/12 20:35:55  code
+# Changed the clear frequency functions.
+#
+# Revision 1.13  2008/03/12 18:03:19  code
+# Fixes from the code review.
+#
+# Revision 1.12  2008/03/10 16:58:16  code
+# Removed redundant extended code.
+#
+# Revision 1.11  2008/03/07 21:04:25  code
+# Modification for Stereo and digital receivers.
+#
+# Revision 1.10  2007/08/08 20:23:06  code
+# Synchronized version numbers.
+#
+# Revision 1.7  2007/03/01 15:50:25  code
+# Forced stdelay to zero to prevent it being undefined.
+#
+# Revision 1.6  2007/02/08 16:43:32  code
+# Added lagnum.
+#
+# Revision 1.5  2006/08/17 20:30:28  code
+# Added support for extended lag tables.
+#
+# Revision 1.4  2006/04/12 16:42:57  barnes
+# Adopted rawfeed.
+#
+# Revision 1.3  2006/02/08 16:05:06  barnes
+# Changes to the lag table.
+#
+# Revision 1.2  2004/07/06 17:07:43  barnes
+# Passed attenuator stepping to intergration library.
+#
+# Revision 1.1  2004/06/15 20:33:51  barnes
+# Initial revision
+#
+#
+globals.c 1.02
+hdw.c 1.10
+interface.c 1.02
+builds.c 1.01
+tmseq.c 1.06

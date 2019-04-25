@@ -1,0 +1,3 @@
+export SD_RADARID=01
+export SD_RADARCODE='gbr'
+export SD_FREQ_TABLE=$HOMEPATH/tables/site/site.gbr/restrict.dat

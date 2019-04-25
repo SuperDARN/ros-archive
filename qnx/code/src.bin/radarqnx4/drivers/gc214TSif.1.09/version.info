@@ -1,0 +1,38 @@
+# $Log: version.info,v $
+# Revision 1.9  2008/03/12 17:45:05  code
+# Fixes from Blackstone build.
+#
+# Revision 1.8  2008/03/12 17:44:12  code
+# Fixed from Blackstone testing.
+#
+# Revision 1.7  2008/03/12 15:09:37  code
+# More fixes from Blackstone.
+#
+# Revision 1.6  2008/03/12 14:55:39  code
+# Further correction from blackstone.
+#
+# Revision 1.5  2008/03/12 14:21:09  code
+# Changes at blackstone from Todd.
+#
+# Revision 1.4  2008/03/11 19:39:45  code
+# Fixed missing variable.
+#
+# Revision 1.3  2007/11/19 16:49:43  code
+# Added back dummy routine for setting frequency.
+#
+# Revision 1.2  2007/11/13 16:02:37  code
+# Sample at same rate on C&D temporarily.
+#
+# Revision 1.1  2007/10/30 14:05:16  code
+# Initial revision
+#
+#
+build.c 1.04
+dma-alloc.c 1.02
+dma.c 1.01
+filter.c 1.03
+gc214.c 1.05
+gc4016.c 1.01
+io.c 1.02
+main.c 1.06
+pci.c 1.01

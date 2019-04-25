@@ -1,0 +1,21 @@
+#!/bin/sh
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+log="ros.usr.lib.1.25.beta"
+dtval=`date +%Y%m%d.%H%M`
+
+
+$BINPATH/makeall -vb $USR_CODEBASE src.lib/radarqnx4/ops > $LOGPATH/${log}.${dtval}
+test_exit
+$BINPATH/makeall -vb $USR_CODEBASE src.lib/radarqnx4/site/site.$SD_RADARCODE >> $LOGPATH/${log}.${dtval}
+test_exit
+
+
+

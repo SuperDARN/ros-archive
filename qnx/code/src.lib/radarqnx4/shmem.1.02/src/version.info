@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.2  2008/03/14 23:39:49  code
+# Added the ability to control unlinking when freeing memory.
+#
+# Revision 1.1  2008/03/14 21:26:44  code
+# Initial revision
+#
+#
+shmem.c 1.03

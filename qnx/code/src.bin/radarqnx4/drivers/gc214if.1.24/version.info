@@ -1,0 +1,83 @@
+# $Log: version.info,v $
+# Revision 1.24  2008/03/14 18:26:04  code
+# Removed debug code.
+#
+# Revision 1.23  2008/03/12 21:29:56  code
+# Fixed unterminated comment.
+#
+# Revision 1.22  2008/03/12 21:23:19  code
+# Changed to Todd's version of the driver.
+#
+# Revision 1.21  2008/03/11 19:40:09  code
+# Fixed missing variable.
+#
+# Revision 1.20  2007/11/19 16:48:31  code
+# Added back dummy code for setting the frequency.
+#
+# Revision 1.19  2007/11/13 18:20:58  code
+# Removed redundant variable.
+#
+# Revision 1.18  2007/11/13 18:09:24  code
+# Removed HF specific code.
+#
+# Revision 1.17  2007/11/12 20:25:27  code
+# Removed HF specific code.
+#
+# Revision 1.16  2007/11/12 18:51:55  code
+# Removed HF specific code.
+#
+# Revision 1.15  2007/03/28 17:50:23  code
+# Changed the sample rate to a float (Todd Parris correction).
+#
+# Revision 1.14  2007/02/08 16:01:32  code
+# Changed PFIR and CFIR filters.
+#
+# Revision 1.13  2006/10/24 17:55:39  code
+#  Todd Parris's modification to prevent bus halts.
+#
+# Revision 1.12  2006/01/25 16:21:11  barnes
+# Added test to see if receiver is overloaded.
+#
+# Revision 1.11  2005/09/28 16:33:58  barnes
+# Removed redundant variable.
+#
+# Revision 1.10  2005/07/27 18:41:12  barnes
+# Removed code for HF operation.
+#
+# Revision 1.9  2005/07/27 18:07:45  barnes
+# Modification to CFIR and PFIR coefficients.
+#
+# Revision 1.8  2005/07/14 18:58:17  barnes
+# Fixed bug in command line options.
+#
+# Revision 1.7  2005/06/16 18:45:53  barnes
+# Fixed typo of clock speed.
+#
+# Revision 1.6  2005/06/16 15:51:55  barnes
+# Dieter Andre's modifications to work with HF.
+#
+# Revision 1.5  2005/03/03 15:29:45  barnes
+# Fixed FIFO code.
+#
+# Revision 1.4  2004/09/01 14:26:01  barnes
+# Opend bandwidth of filter for the clear frequency search.
+#
+# Revision 1.3  2004/06/22 12:39:02  barnes
+# QNX4 Code audit.
+#
+# Revision 1.2  2004/05/11 14:22:11  barnes
+# Changed version handling.
+#
+# Revision 1.1  2004/05/10 15:08:14  barnes
+# Initial revision
+#
+#
+build.c 1.04
+dma-alloc.c 1.01
+dma.c 1.02
+filter.c 1.03
+gc214.c 1.03
+gc4016.c 1.02
+io.c 1.02
+main.c 1.20
+pci.c 1.04

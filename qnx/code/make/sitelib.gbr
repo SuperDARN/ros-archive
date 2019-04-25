@@ -1,0 +1,1 @@
+SLIB=-lfitacfex.1 -lintegrategc214ex.1 -lacfex.1 -lfclrgc214.1 -lintegrategc214.1 -lgc214.1 -ldio.1

@@ -1,0 +1,8 @@
+#$Log: version.info,v $
+# Revision 2.0  2012/01/16 17:00:00  barnes
+# Initial revision
+#
+#
+hdw.c 1.26
+interface.c 1.09
+tmseq.c 1.04

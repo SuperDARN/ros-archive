@@ -1,0 +1,49 @@
+# $Log: version.info,v $
+# Revision 1.14  2008/03/21 17:12:20  code
+# Added I&Q capture.
+#
+# Revision 1.13  2008/03/14 14:59:56  code
+# Added I&Q samples.
+#
+# Revision 1.12  2007/08/08 16:37:02  code
+# Fixed missing backward=1.
+#
+# Revision 1.11  2007/08/08 13:46:36  code
+# Fixed bugs in setting the structure.
+#
+# Revision 1.10  2007/08/07 20:35:59  code
+# Fixed ACF table and added beam azimuth and origin.
+#
+# Revision 1.9  2007/07/11 17:31:48  code
+# Fixed problem in setting rtoxmin.
+#
+# Revision 1.8  2007/03/01 15:50:25  code
+# Forced stdelay to zero to prevent it being undefined.
+#
+# Revision 1.7  2007/02/08 16:28:02  code
+# Added lagnum.
+#
+# Revision 1.6  2006/08/17 20:12:47  code
+# Added support for extended lag tables.
+#
+# Revision 1.5  2006/04/07 18:05:38  barnes
+# Modified the calling sequence to the stereo library.
+#
+# Revision 1.4  2006/03/30 11:11:33  barnes
+# Modifications for stereo mode.
+#
+# Revision 1.3  2006/02/08 16:05:06  barnes
+# Changes to the lag table.
+#
+# Revision 1.2  2004/07/06 17:07:43  barnes
+# Passed attenuator stepping to intergration library.
+#
+# Revision 1.1  2004/06/15 20:33:51  barnes
+# Initial revision
+#
+#
+builds.c 1.01
+hdw.c 1.09
+interface.c 1.04
+tmseq.c 1.07
+globals.c 1.04

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>diopio48c</name>
+<location>src.bin/radarqnx4/drivers/diopio48c</location>
+<syntax>diopio48c --help</syntax>
+<syntax>diopio48c [<ar>options</ar>] [<ar>dioname</ar>]</syntax>
+<syntax>diopio48c -db [<ar>options</ar>] [<ar>dioname</ar>]</syntax>
+<syntax>diopio48c -d [<ar>options</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-cf <ar>configfile</ar></on><od>read the configuration from the file <ar>configfile</ar>.</od>
+</option>
+<option><on>-ft <ar>freqfile</ar></on><od>read the forbidden frequencies from the file <ar>freqfile</ar>.</od>
+</option>
+<option><on>-p <ar>port</ar></on><od>use the comma separated list <ar>dio</ar> as the list of port addresses of DIO cards.</od>
+</option>
+<option><on>-wd <ar>watchdog</ar></on><od>use <ar>watchdog</ar> as the port address of the watchdog device.</od>
+</option>
+<option><on>-q</on><od>operate in quiet mode, do not log information to the terminal.</od>
+</option>
+<option><on>-c</on><od>include a command ticker that lists the most recent operations.</od>
+</option>
+<option><on>-s</on><od>stereo mode radar.</od>
+</option>
+<option><on>-ph</on><od>phase coding radar.</od>
+</option>
+<option><on><ar>dioname</ar></on><od>register the process with the Operating System under the name <ar>dioname</ar>.</od>
+</option>
+
+<option><on>-db</on><od>run in debug mode, do not operate the hardware.</od>
+</option>
+<option><on>-d</on><od>write the configuration to standard output and exit.</od></option>
+
+
+<synopsis><p>Device driver for the PIO48C DIO card.</p></synopsis>
+</binary>

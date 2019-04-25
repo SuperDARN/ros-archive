@@ -1,0 +1,1 @@
+SLIB= -lfclrs.1 -lfclr.1 -lintegrates.1 -lintegrate.1 -lad.1 -ldio.1

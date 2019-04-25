@@ -1,0 +1,29 @@
+# $Log: version.info,v $
+# Revision 1.8  2008/03/14 18:58:38  code
+# Removed smpdelay - see note in C module.
+#
+# Revision 1.7  2007/04/17 17:21:54  code
+# Fixed typo.
+#
+# Revision 1.6  2007/04/17 17:21:02  code
+# Ray's changes to the algorithm
+#
+# Revision 1.5  2007/03/15 14:01:09  code
+# Fixed problem of underestimatting noise due to including transmitter
+# pulses in the calculation.
+#
+# Revision 1.4  2007/02/19 15:29:18  code
+# Fixed ACF calculation.
+#
+# Revision 1.3  2007/02/15 21:51:49  code
+# Fixed imaginary component of the ACF.
+#
+# Revision 1.2  2007/02/13 16:33:58  code
+# Fixed bugs.
+#
+# Revision 1.1  2007/02/12 18:05:05  code
+# Initial revision
+#
+#
+
+acfex.c 1.08

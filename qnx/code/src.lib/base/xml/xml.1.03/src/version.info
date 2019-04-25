@@ -1,0 +1,13 @@
+# $Log: version.info,v $
+# Revision 1.3  2004/06/16 21:41:37  barnes
+# Added missing header.
+#
+# Revision 1.2  2004/04/26 20:25:06  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.1  2003/03/01 17:35:56  barnes
+# Initial revision
+#
+# 
+call.c 1.01
+rxml.c 1.03

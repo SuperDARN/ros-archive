@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>rawdump</name>
+<location>src.bin/radarqnx4/main/rawdump</location>
+<syntax>rawdump --help</syntax>
+<syntax>rawdump [<ar>options</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-e <ar>echoname</ar></on><od>request data from the task registered under the name <ar>echoname</ar> with the Operating System.</od>
+</option>
+<option><on>-ascii</on><od>Write the output as ASCII.</od>
+</option>
+<option><on>-f <ar>fname</ar></on><od>Write the output to the file <ar>fname</ar>.</od>
+</option>
+
+
+<synopsis><p>Writes raw I&Q samples to disk.</p></synopsis>
+</binary>

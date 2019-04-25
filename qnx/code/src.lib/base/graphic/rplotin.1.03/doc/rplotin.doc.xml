@@ -1,0 +1,1386 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>rplotin</name>
+<location>src.lib/base/graphic/rplotin</location>
+<function>
+<name>RplotInBezierEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInBezierEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInBezierStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInBezierStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInClipEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInClipEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInClipPointEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInClipPointEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInClipPointStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInClipPointStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInClipStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInClipStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInDimensionEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInDimensionEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInDimensionStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInDimensionStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInEmbedEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInEmbedEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInEmbedStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInEmbedStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInFloatEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInFloatEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInFloatStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInFloatStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInFloatText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInFloatText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInFree</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>void RplotInFree(struct RplotInPlot *ptr);</syntax>
+</function>
+<function>
+<name>RplotInIgnoreEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIgnoreEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIgnoreStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIgnoreStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIgnoreText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIgnoreText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageNameEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageNameEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageNameStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageNameStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageXMLEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageXMLEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageXMLStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageXMLStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInImageXMLText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInImageXMLText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIncludeEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIncludeEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIncludeStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIncludeStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIncludeUser</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIncludeUser(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInInfoEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInInfoEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInInfoStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInInfoStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInInfoText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInInfoText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIntEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIntEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIntStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIntStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInIntText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInIntText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInLineEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInLineEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInLineStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInLineStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInMake</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>struct RplotInPlot *RplotInMake(struct XMLdata *xml);</syntax>
+</function>
+<function>
+<name>RplotInMatrixMultiply</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInMatrixMultiply(struct RplotInMatrix *x,struct RplotInMatrix *y, struct RplotInMatrix *z);</syntax>
+</function>
+<function>
+<name>RplotInMatrixString</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>struct RplotInMatrix *RplotInMatrixString(char *str);</syntax>
+</function>
+<function>
+<name>RplotInMatrixTransform</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInMatrixTransform(struct RplotInMatrix *ptr,float ix,float iy, float *ox,float *oy);</syntax>
+</function>
+<function>
+<name>RplotInPlotEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPlotEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPlotStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPlotStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPointEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPointEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPointStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPointStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPointString</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPointString(char *str,float *x,float *y);</syntax>
+</function>
+<function>
+<name>RplotInPolygonEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPolygonEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPolygonStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPolygonStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPolyPointEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPolyPointEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInPolyPointStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInPolyPointStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInRestore</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInRestore(struct RplotInBlock *ptr);</syntax>
+</function>
+<function>
+<name>RplotInSave</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>struct RplotInBlock *RplotInSave(struct XMLdata *xml,char *name,void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetBezier</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetBezier(struct RplotInPlot *ptr, int (*text)(float,float,float,float,float,float,float,float, unsigned int,unsigned char,float,void *), void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetClip</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetClip(struct RplotInPlot *ptr, int (*text)(int,float *,float *,int *,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetDash</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetDash(struct RplotInPlot *ptr, int (*text)(char *,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetEnd(struct RplotInPlot *ptr, int (*text)(void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetImage</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetImage(struct RplotInPlot *ptr, int (*text)(struct FrameBuffer *,struct RplotInMatrix *, float,float,unsigned char, int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetImageName</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetImageName(struct RplotInPlot *ptr, int (*text)(char *,struct RplotInMatrix *, float,float,unsigned char, int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetInclude</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetInclude(struct RplotInPlot *ptr,int (*text)(char *,int (*)(char *,int,void *), void *,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetInfoEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetInfoEnd(struct RplotInPlot *ptr, int (*user)(char *,char *,int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetInfoStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetInfoStart(struct RplotInPlot *ptr,int (*user)(char *,int,char **,char **, char *,int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetInfoText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetInfoText(struct RplotInPlot *ptr, int (*user)(char *,int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetLine</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetLine(struct RplotInPlot *ptr, int (*text)(float,float,float,float,unsigned int, unsigned char,float,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetMake</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetMake(struct RplotInPlot *ptr, int (*text)(char *,int,float,float,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetPass</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetPass(struct RplotInPlot *ptr, int (*text)(char *,int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetPolygon</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetPolygon(struct RplotInPlot *ptr, int (*text)(struct RplotInMatrix *, float,float,int,float *,float *,int *, int,unsigned int, unsigned char,float,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetShape</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetShape(struct RplotInPlot *ptr, int (*text)(char *,struct RplotInMatrix *, float,float,float,float,int,unsigned int, unsigned char,float,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInSetText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInSetText(struct RplotInPlot *ptr, int (*text)(char *,float,struct RplotInMatrix *, float,float,int,char *,unsigned int, unsigned char,int,void *),void *data);</syntax>
+</function>
+<function>
+<name>RplotInShapeEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInShapeEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInShapeStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInShapeStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInStringEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInStringEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInStringStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInStringStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInStringText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInStringText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInText</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInText(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInTextEnd</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInTextEnd(char *name,char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>RplotInTextStart</name>
+<location>src.lib/base/graphic/rplotin</location>
+<header>base/rplotin.h</header>
+<syntax>int RplotInTextStart(char *name,int atnum,char **atname,char **atval, char *buf,int sze,void *data);</syntax>
+</function>
+
+<structure>
+ <name>RplotInBezier</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned int color;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float width;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x1;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x2;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x3;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x4;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y1;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y2;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y3;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y4;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInClip</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInPlot *plot;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int num;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *px;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *py;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int *t;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInClipPoint</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int *t;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInDimension</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *w;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *h;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+
+<structure>
+ <name>RplotInEmbed</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInFloat</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *tag;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *buf;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *val;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInImage</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int smooth;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct FrameBuffer *img;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInImageName</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int smooth;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *name;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInInclude</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *name;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInIncludeBlock</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int (*user)(char *name,int (*user)(char *buf,int sze,void *data),void *udata,void *data);</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>void *data;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInInt</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *tag;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *buf;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int *val;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInLine</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned int color;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float width;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x1;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x2;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y1;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y2;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInMatrix</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>float a;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float b;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float c;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float d;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInPlot</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct XMLdata *xml;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>void *data;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <struct>
+         <member>
+           <code>int num;</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>float *px;</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>float *py;</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>int *t;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>clp;</code>
+       <description>None.</description>
+     </member>
+
+     <member>
+       <struct>
+         <member>
+           <struct> 
+             <member>
+               <code>int (*user)(char *buf,int size,void *data);</code>
+               <description>None.</description>
+             </member>
+             <member>
+               <code>void *data;</code>
+               <description>None.</description>
+             </member>
+           </struct>
+           <code>text;</code>
+           <description>None.</decscription>
+         </member>
+
+         <member>
+           <struct> 
+             <member>
+               <code>int (*user)(char *buf,int size,void *data);</code>
+               <description>None.</description>
+             </member>
+             <member>
+               <code>void *data;</code>
+               <description>None.</description>
+             </member>
+           </struct>
+           <code>start;</code>
+           <description>None.</decscription>
+         </member>
+
+         <member>
+           <struct> 
+             <member>
+               <code>int (*user)(char *buf,int size,void *data);</code>
+               <description>None.</description>
+             </member>
+             <member>
+               <code>void *data;</code>
+               <description>None.</description>
+             </member>
+           </struct>
+           <code>end;</code>
+           <description>None.</decscription>
+         </member>
+        </struct>
+        <code>info;</code>
+        <description>None.</description>
+     </member>
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(char *buf,int size,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>pass;</code>
+       <description>None.</decscription>
+     </member>
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(char *str,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>dash;</code>
+       <description>None.</decscription>
+     </member>
+
+
+   <member>
+       <struct> 
+         <member>
+           <code>int (*user)(int num,float *px,float *py,int *t,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>clip;</code>
+       <description>None.</decscription>
+     </member>
+
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>end;</code>
+       <description>None.</decscription>
+     </member>
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(char *name,int depth,float width,float height,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>make;</code>
+       <description>None.</decscription>
+     </member>
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(float x1,float y1,float x2,float y2,unsigned int color,unsigned char mask,float width,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>line;</code>
+       <description>None.</decscription>
+     </member>
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(float x1,float y1,float x2,float y2,float x3,float y3,float x4,float y4,unsigned int color,unsigned char mask,float width,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>bezier;</code>
+       <description>None.</decscription>
+     </member>
+
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(char *name,struct RplotInMatrix *matrix,float x,float y,float w,float h,int fill,unsigned int color,unsigned char mask,float width,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>shape;</code>
+       <description>None.</decscription>
+     </member>
+
+
+    <member>
+       <struct> 
+         <member>
+           <code>int (*user)(struct RplotInMatrix *matrix,float x,float y,int num,float *px,float *py,int *t,int fill,unsigned int color,unsigned char mask,float width,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>polygon;</code>
+       <description>None.</decscription>
+     </member>
+
+
+    <member>
+       <struct> 
+         <member>
+           <code>int (*user)(char *fname,float fsize,struct RplotInMatrix *matrix,float x,float y,int num,char *txt,unsigned int color,unsigned char mask,int smooth,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>text;</code>
+       <description>None.</decscription>
+     </member>
+
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(struct FrameBuffer *img,struct RplotInMatrix *matrix,float x,float y,unsigned char mask,int smooth,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>image;</code>
+       <description>None.</decscription>
+     </member>
+
+     <member>
+       <struct> 
+         <member>
+           <code>int (*user)(char *name,struct RplotInMatrix *matrix,float x,float y,unsigned char mask,int smooth,void *data);</code>
+           <description>None.</description>
+         </member>
+         <member>
+           <code>void *data;</code>
+           <description>None.</description>
+         </member>
+       </struct>
+       <code>imagename;</code>
+       <description>None.</decscription>
+     </member>
+
+     <member>
+       <code>struct RplotInIncludeBlock inc;</code>
+       <description>None.</decscription>
+     </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInPolyPoint</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int *t;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+
+<structure>
+ <name>RplotInPolygon</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+   <member>
+      <code>int fill;</code>
+      <description>None.</description>
+    </member>
+
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned int color;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float width;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int num;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *px;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float *py;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int *t;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInShape</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+   <member>
+      <code>int fill;</code>
+      <description>None.</description>
+    </member>
+
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned int color;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float width;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float w;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float h;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>RplotInString</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>struct RplotInIncludeBlock *inc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *tag;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *buf;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char **val;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+<structure>
+ <name>RplotInText</name>
+ <location>src.lib/base/graphic/rplotin</location>
+ <header>base/rplotin.h</header>
+ <struct>
+    <member>
+      <code>int state;</code>
+      <description>None.</description>
+    </member>
+   <member>
+      <code>int fill;</code>
+      <description>None.</description>
+    </member>
+
+    <member>
+      <code>struct RplotInPlot *plt;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned int color;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>unsigned char mask;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>struct RplotInMatrix *matrix;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float x;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float y;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int smooth;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *fname;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>float fsize;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char *txt;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+</structure>
+
+
+</library>

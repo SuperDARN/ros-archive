@@ -1,0 +1,40 @@
+# $Log: version.info,v $
+# Revision 1.12  2008/03/21 15:04:20  code
+# Fixed typo.
+#
+# Revision 1.11  2008/03/21 14:28:01  code
+# Fixed bug in setting pointers.
+#
+# Revision 1.10  2008/03/21 14:27:39  code
+# Fixed bug in setting pointers.
+#
+# Revision 1.9  2008/03/20 21:44:03  code
+# Added IQCopy.
+#
+# Revision 1.8  2008/03/18 23:28:48  code
+# Fixed bug in setting the skip sample number.
+#
+# Revision 1.7  2008/03/18 21:47:39  code
+# Removed redundant lagmax variable.
+#
+# Revision 1.6  2008/03/14 20:07:45  code
+# Fixed the setting of the IQ sample data.
+#
+# Revision 1.5  2008/03/14 19:00:16  code
+# Removed the rawdump functionality and added the passing of the I&Q samples back to the control program.
+#
+# Revision 1.4  2007/07/09 20:35:07  code
+# Added rawdump features to write out the raw samples.
+#
+# Revision 1.3  2007/02/19 15:31:39  code
+# Passed roff and ioff to the ACF library.
+#
+# Revision 1.2  2007/02/13 16:36:55  code
+# Fixed bugs.
+#
+# Revision 1.1  2007/02/12 18:07:27  code
+# Initial revision
+#
+#
+integrategc214ex.c 1.10
+pulse.c 1.01

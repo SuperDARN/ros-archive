@@ -1,0 +1,20 @@
+# $Log: version.info,v $
+# Revision 1.5  2008/03/21 16:30:46  code
+# Added support for I&Q capture.
+#
+# Revision 1.4  2007/03/01 15:50:25  code
+# Forced stdelay to zero to prevent it being undefined.
+#
+# Revision 1.3  2007/02/08 16:41:59  code
+# Added lagnum.
+#
+# Revision 1.2  2006/08/17 20:28:51  code
+# Added support for extended lag tables.
+#
+# Revision 1.1  2006/06/23 13:24:57  code
+# Initial revision
+#
+# 
+hdw.c 1.04
+interface.c 1.02
+tmseq.c 1.04

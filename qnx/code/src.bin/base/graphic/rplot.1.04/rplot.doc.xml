@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>rplot</name>
+<location>src.bin/base/graphic/rplot</location>
+<syntax>rplot --help</syntax>
+<syntax>rplot [<ar>options</ar>] [<ar>name</ar>]</syntax>
+<syntax>rplot -ps [-land] [-xp <ar>xoff</ar>] [-yp <ar>yoff</ar>] [<ar>options</ar>] [<ar>name</ar>]</syntax>
+<syntax>rplot -ppm [<ar>options</ar>] [<ar>name</ar>]</syntax>
+
+<syntax>rplot -ppmx  [<ar>options</ar>] [<ar>name</ar>]</syntax>
+<syntax>rplot -xml [<ar>options</ar>] [<ar>name</ar>]</syntax>
+<syntax>rplot -x [<ar>options</ar>] [-display <ar>display</ar>] [-xoff <ar>xoff</ar>] [-yoff <ar>yoff</ar>] [<ar>name</ar>]</syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-ippm <ar>ppmfile</ar></on><od>name of a Portable PixMap (PPM) image file that will be used in the rPlot document. This option can be included on the command line multiple times to add more images</od>
+</option>
+<option><on>-ippmx <ar>ppmfiles</ar></on><od>name of an extended Portable PixMap (PPMX) image file that will be used in the rPlot document. This option can be included on the command line multiple times to add more images</od>
+</option>
+<option><on>-ixml <ar>ppmfiles</ar></on><od>name of an XML image representation file that will be used in the rPlot document. This option can be included on the command line multiple times to add more images</od>
+</option>
+<option><on>-fdb <ar>fonts</ar></on><od>read the font database from the XML document <ar>font</ar>. By default, the file specified by the environment variable <code>FONTDB</code> is used.</od>
+</option>
+<option><on>-ps</on><od>produce a PostScript plot as the output.</od>
+</option>
+<option><on>-land</on><od>set the orientation of the PostScript plot to landscape.</od>
+</option>
+<option><on>-xp <ar>xoff</ar></on><od>set the X offset of the PostScript plot to <ar>xoff</ar>.</od>
+</option>
+<option><on>-yp <ar>xoff</ar></on><od>set the Y offset of the PostScript plot to <ar>yoff</ar>.</od>
+</option>
+<option><on>-ppm</on><od>produce a Portable PixMap (PPM) image as the output.</od>
+</option>
+<option><on>-ppmx</on><od>produce an extended Portable PixMap (PPMX) image as the output.</od>
+</option>
+<option><on>-xml</on><od>produce an XML image representation as the output.</od>
+</option>
+
+<option><on>-x</on><od>plot on an X-terminal.</od></option>
+
+<option><on>-display <ar>display</ar></on><od>connect to the xterminal named <ar>display</ar>.</od>
+</option>
+
+<option><on>-xoff <ar>xoff</ar></on><od>open the window, <ar>xoff</ar> pixels from the left edge of the screen.</od>
+</option>
+
+<option><on>-yoff <ar>yoff</ar></on><od>open the window <ar>ypad</ar> pixels from the top edge of the screen.</od>
+</option>
+
+<option><on><ar>name</ar></on><od>name of the rPlot document to plot, if this is omitted the document will be read from standard input.</od>
+</option>
+
+
+<synopsis><p>An rPlot rendering engine.</p></synopsis>
+
+<description><p>An rPlot rendering engine.</p>
+<p>The output can be to an X terminal, XML rplot file, Portable PixMap (PPM) file, extended Portable PixMap (PPMX) file, XML image representation, or PostScript file. The default output is XML.</p>
+<p>The rPlot language specification is given <a href="http://superdarn.jhuapl.edu/devel/doc/rfc/rfc.0010.html">here</a>.</p>
+<p>At first glance the ability of the task to produce rPlot output appears redundant, but this feature allows rPlot files that contain redirected input to be "flattened" into a self contained file.</p>
+
+</description>
+
+<example>
+<command>rplot -x -ippm bg.ppm -ippmx aurora.ppmx image.rp.xml</command>
+<description>Plot the rPlot XML file "<code>image.rp.xml</code>" on the X terminal. Load the Portable PixMap (PPM) "<code>bg.ppm</code>" and the extended Portable PixMap (PPMX) "<code>aurora.ppmx</code>".</description>
+</example>
+
+<example>
+<command>rplot -ps globe.rp.xml &gt; globe.ps</command>
+<description>Generate a PostScript plot called "<code>globe.ps</code> from the rPlot XML file "<code>globe.rp.xml</code>".</description>
+</example>
+<example type="rplot">example1</example>
+
+
+
+
+
+
+
+</binary>

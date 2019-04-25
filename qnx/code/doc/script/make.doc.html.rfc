@@ -1,0 +1,121 @@
+#!/bin/sh
+
+# make.doc.html.rfc
+# =================
+# Author: R.J.Barnes
+#
+# Purpose: Constructs web pages from XML documentation
+#
+# Syntax:  make.lib.doc xmlfile url www pgsfx
+#
+# Description:
+#
+# Uses xmldoc to generate HTML web pages from the XML RFC source.
+# The script uses a series of configuration scripts which tell xmldoc what
+# information should be extracted from the XML source and how it should
+# be formatted.
+#
+
+tmp=/tmp
+
+# build is the source directory for configuration and scripts
+# fname is the XML source file
+# url is the URL pathname where the webpages will reside
+# www is the pathname to the directory which will store the html
+# pgsfx is the suffix to apply to the page generator script
+
+#
+# $Log: make.doc.html.rfc,v $
+# Revision 1.5  2007/04/05 20:20:39  code
+# Fixed missing newline.
+#
+# Revision 1.4  2007/03/06 01:15:20  code
+# Switched to URLBASE
+#
+# Revision 1.3  2007/03/05 22:21:30  code
+# Make documentation for RFCs (low level script)
+#
+# Revision 1.2  2007/03/02 20:56:15  code
+# Added author
+#
+# Revision 1.1  2007/03/02 20:51:29  code
+# Initial revision
+#
+#
+
+build=${1}
+fname=${2}
+url=${3}
+www=${4}
+pgsfx=${5}
+
+#
+# tmp is the working directory
+#
+
+tmp=${build}/tmp
+
+#
+# nmexml - a temporary XML file containing the document homepage.
+#
+
+nmexml="${tmp}/rfcname.xml"
+
+
+# These configuration files are used to get information from the
+# XML for use later on.
+#
+#  idcfg - extracts the RFC ID.
+
+idcfg="${build}/cfg/rfc/rfcid.cfg.xml"
+
+# These configuration files generate the HTML pages.
+#
+#  prcfg - page for a RFC document
+
+prcfg="${build}/cfg/rfc/rfc.page.${pgsfx}.cfg.xml"
+
+echo "make.doc.html.rfc"
+echo "================="
+date
+echo "build:" ${build}
+echo "source:" ${fname}
+echo "URL:" ${url}
+echo "www path"${www}
+echo "page  suffix:"${pgsfx}
+
+
+
+home=${url}/index.html
+root=${url}/rfc/index.html
+
+echo "<table>" > ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>HOME</search>" >> ${nmexml}
+echo "<replace>&lt;a href="${home}"&gt;Home&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>ROOT</search>" >> ${nmexml}
+echo "<replace>&lt;a href="${root}"&gt;Index&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>${url}</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "</table>" >> ${nmexml}
+
+id=`$BINPATH/xmldoc . ${idcfg} ${fname}`
+echo $id
+
+$BINPATH/xmldoc ${build} ${prcfg} ${fname} \
+                    > ${www}/rfc/rfc.${id}.html
+chmod a+x ${www}/rfc/rfc.${id}.html
+
+rm -f ${nmexml}

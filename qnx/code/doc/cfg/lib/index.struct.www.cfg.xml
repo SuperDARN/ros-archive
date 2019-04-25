@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+
+  <tree>
+     <delim>/</delim>
+     <path>library/structure</path>
+  </tree>
+
+<xmldoc>
+
+  <xml>
+    <element>
+    <name>name</name>  
+    <default type="text">None</default>
+    </element>
+  </xml>
+</xmldoc>
+
+<map>
+     <entry>
+        <search>NAME</search>
+        <replace>name</replace>
+     </entry>
+</map>
+
+<external type="file">tmp/libname.xml</external>
+
+<script type="file">sc/lib/index.struct.www.sc</script>
+
+<match>
+  <element>name</element>
+</match>
+
+</config>
+
+
+
+
+
+
+
+

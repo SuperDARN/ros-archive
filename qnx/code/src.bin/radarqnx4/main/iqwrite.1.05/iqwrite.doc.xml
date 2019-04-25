@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>iqwrite</name>
+<location>src.bin/radarqnx4/main/iqwrite</location>
+<syntax>iqwrite --help</syntax>
+<syntax>iqwrite [<ar>options</ar>] [<ar>taskname</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-e <ar>errlogname</ar></on><od>send error messages to the task registered under the name <ar>errlogname</ar> with the Operating System.</od>
+</option>
+<option><on>-t <ar>thr</ar></on><od>apply a threshold of <ar>thr</ar> to determine if the data is saved.</od>
+</option>
+<option><on><ar>taskname</ar></on><od>register the task under the name <ar>taskname</ar> with the Operating System.</od>
+</option>
+
+
+<synopsis><p>Stores raw I&Q sample data in <code>iqdat</code> files.</p></synopsis>
+</binary>

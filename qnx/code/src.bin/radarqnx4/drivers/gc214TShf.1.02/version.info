@@ -1,0 +1,18 @@
+# $Log: version.info,v $
+# Revision 1.2  2007/10/29 20:51:29  code
+# Modification to support multiple cards.
+#
+# Revision 1.1  2007/05/17 19:19:44  code
+# Initial revision
+#
+#
+
+build.c 1.01
+dma-alloc.c 1.01
+dma.c 1.01
+filter.c 1.01
+gc214.c 1.01
+gc4016.c 1.01
+io.c 1.01
+main.c 1.02
+pci.c 1.02

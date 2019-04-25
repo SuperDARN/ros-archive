@@ -1,0 +1,60 @@
+# Makefile for binary files
+# =========================
+# by R.J.Barnes
+#
+#
+
+# QNX (Watcom)
+#
+
+ifdef DRIVER
+CFLAGS := $(CFLAGS) -wx -T1 -D_QNX4 -D_COMPLEX $(INCLUDE)
+else
+CFLAGS := $(CFLAGS) -wx -N16384k -Oneaxt -D_QNX4 -D_COMPLEX $(INCLUDE)
+endif
+  
+LFLAGS := $(LFLAGS) -L $(LIBPATH) -L$(USR_LIBPATH)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+
+$(OUTPUT): version $(OBJS)
+	rm -f $(OUTPUT)
+	$(LINK.c) $(LFLAGS) $(OBJS) $(LIBS) $(SLIB) -o $(OUTPUT) 
+ifdef SUDO
+	/usr/local/bin/makesudo $(OUTPUT)
+endif
+
+ifdef IGNVER
+
+version: $(SRC)
+
+else
+
+version: version.info $(SRC)
+	$(BINPATH)/rcsv -t version.info
+	$(BINPATH)/rcsv -h version.info > version.h
+endif
+
+clean:
+	rm -f *.o
+	rm -f $(OUTPUT)
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

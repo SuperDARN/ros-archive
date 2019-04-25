@@ -1,0 +1,11 @@
+# $Log: version.info,v $
+# Revision 1.2  2008/03/21 18:41:56  code
+# Added I&Q Capture.
+#
+# Revision 1.1  2008/03/21 18:37:49  code
+# Initial revision
+#
+#
+hdw.c 1.02
+interface.c 1.02
+tmseq.c 1.02

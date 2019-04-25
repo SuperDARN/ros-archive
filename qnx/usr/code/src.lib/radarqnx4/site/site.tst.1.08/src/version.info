@@ -1,0 +1,31 @@
+# $Log: version.info,v $
+# Revision 1.8  2008/03/21 17:01:12  code
+# Added I&Q capture.
+#
+# Revision 1.7  2008/03/12 20:37:03  code
+# Changed the clear frequency functions.
+#
+# Revision 1.6  2007/10/30 16:24:16  code
+# Added missing header.
+#
+# Revision 1.5  2007/10/30 16:15:49  code
+# Added missing routine for stereo timing sequence.
+#
+# Revision 1.4  2007/10/30 15:42:38  code
+# Fixed problems with stereo digital receiver code.
+#
+# Revision 1.3  2007/05/24 13:41:06  code
+# Added scope sync trigger.
+#
+# Revision 1.2  2007/05/23 17:17:54  code
+# Changed the hardware for a digital receiver.
+#
+# Revision 1.1  2007/05/22 16:49:27  code
+# Initial revision
+#
+#
+globals.c 1.02
+hdw.c 1.06
+interface.c 1.02
+builds.c 1.01
+tmseq.c 1.05

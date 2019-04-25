@@ -1,0 +1,426 @@
+#!/bin/sh
+
+# make.doc.html.lib
+# =================
+# Author: R.J.Barnes
+#
+# Purpose: Constructs web pages from XML documentation
+#
+# Syntax:  make.doc.html.lib xmlfile url www pgsfx
+#
+# Description:
+#
+# Uses xmldoc to generate HTML web pages from the XML documentation source.
+# The script uses a series of configuration scripts which tell xmldoc what
+# information should be extracted from the XML source and how it should
+# be formatted. Some of these configuration scripts are used to find
+# out information from the XML - eg, the library name, the list of functions
+# it contains.
+# 
+
+
+# build is the source directory for configuration and scripts
+# xmlname is the original name of the XML source file
+# fname is XML source file actually read
+# url is the URL pathname where the webpages will reside 
+# www is the pathname to the directory which will store the html
+# pgsfx is the suffix to apply to the page generator script
+
+#
+# $Log: make.doc.html.lib,v $
+# Revision 1.11  2007/04/18 18:23:12  code
+# Added code to test for presence of ppmtogif or use dummy file instead.
+#
+# Revision 1.10  2007/04/17 20:58:47  code
+# Removed redundant "tail" on selecting directory.
+#
+# Revision 1.9  2007/04/10 17:03:50  code
+# Removed -v option from mkdir
+#
+# Revision 1.8  2007/04/05 20:05:25  code
+# Fixed some problems under QNX4
+#
+# Revision 1.7  2007/03/06 13:50:50  code
+# Fixed missing BINPATH
+#
+# Revision 1.6  2007/03/06 02:04:06  code
+# Moved everything to BINPATH
+#
+# Revision 1.5  2007/03/06 01:15:20  code
+# Switched to URLBASE
+#
+# Revision 1.4  2007/03/05 22:21:30  code
+# Make documentation for libraries (low level script)
+#
+# Revision 1.3  2007/03/02 20:56:15  code
+# Added author
+#
+# Revision 1.2  2007/03/02 20:51:29  code
+# General purpose for both web and local documentation
+#
+# Revision 1.1  2007/03/02 00:47:20  code
+# Initial revision
+#
+#
+
+build=${1}
+xmlname=${2}
+fname=${3}
+url=${4}
+www=${5}
+pgsfx=${6}
+ppmtogif=${7}
+
+#
+# tmp is the working directory
+#
+
+tmp=${build}/tmp
+
+# These configuration files are used to get information from the
+# XML for use later on.
+#
+#  nmecfg - extracts the library name.
+#  lctcfg - extracts the location of the library.
+#  flcfg  - extracts a list of function names
+#  slcfg  - extracts a list of structures
+
+nmecfg="${build}/cfg/lib/libname.cfg.xml"
+lctcfg="${build}/cfg/lib/liblocation.cfg.xml"
+flcfg="${build}/cfg/lib/function.list.cfg.xml"
+slcfg="${build}/cfg/lib/struct.list.cfg.xml"
+ulcfg="${build}/cfg/lib/union.list.cfg.xml"
+
+# These configuration files generate the HTML pages.
+#
+#  pfcfg - page for a function definition
+#  pscfg - page for a structure definition
+#  ifcfg - index of function definitions
+#  iscfg - index of structure definitions
+#  ipcfg - index of function prototypes
+
+pfcfg="${build}/cfg/lib/function.page.${pgsfx}.cfg.xml"
+pscfg="${build}/cfg/lib/struct.page.${pgsfx}.cfg.xml"
+pucfg="${build}/cfg/lib/union.page.${pgsfx}.cfg.xml"
+
+ifcfg="${build}/cfg/lib/index.function.${pgsfx}.cfg.xml"
+iscfg="${build}/cfg/lib/index.struct.${pgsfx}.cfg.xml"
+ipcfg="${build}/cfg/lib/index.proto.${pgsfx}.cfg.xml"
+
+# These scripts are used to make the index page
+#
+# itopsc = top of the page
+# imid0sc = divider between functions and structures
+# imid1sc = divider betweeen structures and function prototypes
+# itailsc = end of the page
+
+itopsc="${build}/sc/lib/index.top.${pgsfx}.sc"
+imid0sc="${build}/sc/lib/index.middle.0.${pgsfx}.sc"
+imid1sc="${build}/sc/lib/index.middle.1.${pgsfx}.sc"
+itailsc="${build}/sc/lib/index.tail.${pgsfx}.sc"
+
+#
+# nmexml - a temporary XML file containing the library name.
+#
+
+nmexml="${tmp}/libname.xml"
+
+libname=`$BINPATH/xmldoc . ${nmecfg} ${fname}`
+libloct=`$BINPATH/xmldoc . ${lctcfg} ${fname}`
+flist=`$BINPATH/xmldoc . ${flcfg} ${fname}`
+slist=`$BINPATH/xmldoc . ${slcfg} ${fname}`
+ulist=`$BINPATH/xmldoc . ${ulcfg} ${fname}`
+
+
+
+echo "make.doc.html.lib"
+echo "================="
+date
+echo "build:" ${build}
+echo "source:" ${fname}
+echo "URL:" ${url}
+echo "www path:"${www}
+echo "page  suffix:"${pgsfx}
+  
+
+echo "Library Name:" ${libname}
+echo "Library Location:" ${libloct}
+echo
+echo "Function List:"
+echo 
+for fn in $flist
+  do
+     echo $fn
+  done
+echo 
+echo "Structure List:"
+echo
+for sn in $slist
+  do
+     echo $sn
+  done
+echo
+echo "Union List:"
+echo
+for un in $ulist
+  do
+     echo $un
+  done
+echo
+
+
+# 
+# Take apart the location string so that we can build a navigation link
+#
+
+ltree=${libloct}/
+path=""
+str=""
+while test -n "${ltree}"
+  do
+    dir=${ltree%%/*}
+    path=${path}"/"${dir}
+    str=${str}"&lt;a href="${url}${path}"/index.html&gt;"${dir}"&lt;/a&gt;/"
+    ltree=${ltree#*/}
+  done
+
+#
+# Create the temporary XML file containing the library name and
+# the URL of the library index page.
+#
+
+home=${url}/index.html
+root=${url}/src.lib/root.html
+
+echo "<table>" > ${nmexml}
+echo "<entry>" >> ${nmexml}
+echo "<search>LIBRARY</search>" >> ${nmexml}
+echo "<replace>"${libname}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>HOME</search>" >> ${nmexml}
+echo "<replace>&lt;a href="${home}"&gt;Home&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>PATH</search>" >> ${nmexml}
+echo "<replace>"${str}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>ROOT</search>" >> ${nmexml}
+echo "<replace>&lt;a href="${root}"&gt;Index&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>${url}</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+
+echo "<entry>" >> ${nmexml}
+echo "<search>XML</search>" >> ${nmexml}
+echo "<replace>&lt;a href="${xmlname}"&gt;"${xmlname}"&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+
+
+echo "</table>" >> ${nmexml}
+
+#
+# Each library is installed in a unique directory which contains
+# sub-directories for extra files such as source code and images.
+#
+
+echo "Building directory structure:"
+echo ${www}/${libloct}
+
+if test ! -d ${www}/${libloct}
+  then 
+    mkdir -p ${www}/${libloct}
+  fi
+
+if test ! -d ${www}/${libloct}/src
+  then 
+    mkdir ${www}/${libloct}/src
+  fi
+
+if test ! -d ${www}/${libloct}/img
+  then 
+    mkdir ${www}/${libloct}/img
+  fi
+
+# Determine if the library has a version number. If it has
+# use the highest version number as the source
+#
+#
+
+
+libpath=${CODEBASE}/${libloct}
+
+if test ! -d ${libpath}
+then
+  lpath=${libloct%/*}
+  lname=${libloct##*/}
+  llist=`find ${CODEBASE}/${lpath} -name "${lname}.?.??" | sort`
+  libpath=${llist##* }
+fi
+
+#
+# Find the source code for the examples. If there is an RCS
+# directory then check out the code, otherwise copy it into
+# the temporary directory and the web directory
+#
+
+for fn in $flist
+do
+  echo ${libpath}/doc/src/${fn}/${fn}.c
+
+  if test -d ${libpath}/doc/src/${fn}/RCS
+  then
+     co -p ${libpath}/doc/src/${fn}/RCS/${fn}.c,v \
+           > ${tmp}/${fn}.c 
+     cp ${tmp}/${fn}.c ${www}/${libloct}/src
+
+  elif test -s ${libpath}/doc/src/${fn}/${fn}.c
+  then    
+     cp ${libpath}/doc/src/${fn}/${fn}.c ${tmp}/${fn}.c
+     cp ${tmp}/${fn}.c ${www}/${libloct}/src
+
+  fi
+done
+
+#
+# If rplot files exist, render them as PostScript and gif, and copy them to
+# the web
+
+for fn in $flist
+do
+  if test -s ${libpath}/doc/rplot/${fn}.rp.xml.gz
+  then
+     gunzip -c  ${libpath}/doc/rplot/${fn}.rp.xml.gz > \
+                ${tmp}/${fn}.rp.xml
+     if test -n "${ppmtogif}" 
+     then 
+       rplot -ppm ${tmp}/${fn}.rp.xml | \
+                  ppmquant 256 | ppmtogif > ${www}/${libloct}/img/${fn}.gif
+     else
+       cp ${build}/img/dummy.gif ${www}/${libloct}/img/${fn}.gif
+     fi
+     rplot -ps ${tmp}/${fn}.rp.xml | \
+           gzip -c > ${www}/${libloct}/img/${fn}.ps.gz
+
+     cp ${libpath}/doc/rplot/${fn}.rp.xml.gz ${www}/${libloct}/img
+     rm -f ${tmp}/${fn}.rp.xml
+  fi
+done
+
+
+#
+# If postscript files exist, and copy them to
+# the web
+
+for fn in $flist
+do
+  if test -s ${libpath}/doc/postscript/${fn}.ps.gz
+  then
+     cp ${libpath}/doc/postscript/${fn}.ps.gz ${www}/${libloct}/img
+  fi
+done
+
+#
+# If ppm files exist, copy them to
+# the web
+
+for fn in $flist
+do
+  if test -s ${libpath}/doc/ppm/${fn}.ppm.gz
+  then
+    if test -n "${ppmtogif}" 
+    then 
+      gunzip -c ${libpath}/doc/ppm/${fn}.ppm.gz | ppmquant 256 | \
+                ppmtogif > ${www}/${libloct}/img/${fn}.gif
+    else
+       cp ${build}/img/dummy.gif  ${www}/${libloct}/img/${fn}.gif
+    fi
+  fi
+done
+
+
+
+
+#
+# Build the HTML for each function in the library
+#
+
+for fn in $flist
+  do
+    echo "Building:${www}/${libloct}/${fn}.html" 
+    $BINPATH/xmldoc ${build} ${pfcfg} ${fname} ${fn} \
+                     > ${www}/${libloct}/${fn}.html
+    chmod a+x ${www}/${libloct}/${fn}.html
+    rm -f ${tmp}/${fn}.c
+  done
+
+
+
+#
+# Build the HTML for each structure in the library
+#
+
+for sn in $slist
+  do
+    echo "Building:${www}/${libloct}/struct${sn}.html" 
+    $BINPATH/xmldoc ${build} ${pscfg} ${fname} ${sn} \
+                     > ${www}/${libloct}/struct${sn}.html
+    chmod a+x ${www}/${libloct}/struct${sn}.html
+  done
+
+
+#
+# Build the HTML for each union in the library
+#
+
+for un in $ulist
+  do
+    echo "Building:${www}/${libloct}/union${un}.html" 
+    $BINPATH/xmldoc ${build} ${pucfg} ${fname} ${un} \
+                     > ${www}/${libloct}/union${un}.html
+    chmod a+x ${www}/${libloct}/union${un}.html
+  done
+
+
+
+#
+# Build the index page
+#
+
+$BINPATH/scdoc ${nmexml} ${itopsc} > ${www}/${libloct}/index.html
+$BINPATH/xmldoc ${build} ${ifcfg} ${fname} >> ${www}/${libloct}/index.html
+$BINPATH/scdoc ${nmexml} ${imid0sc} >> ${www}/${libloct}/index.html
+$BINPATH/xmldoc ${build} ${iscfg} ${fname} >> ${www}/${libloct}/index.html
+$BINPATH/scdoc ${nmexml} ${imid1sc}  >> ${www}/${libloct}/index.html
+$BINPATH/xmldoc ${build} ${ipcfg} ${fname} ${www}/${libloct}/index.html
+$BINPATH/scdoc ${nmexml} ${itailsc} >> ${www}/${libloct}/index.html
+
+
+chmod a+x ${www}/${libloct}/index.html
+
+
+#
+# Copy the xml version of the documentation
+#
+
+cp ${fname} ${www}/${libloct}/${xmlname}
+
+rm -f ${nmexml}
+
+
+
+
+

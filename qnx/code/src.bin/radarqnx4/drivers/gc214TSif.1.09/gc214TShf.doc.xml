@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>gc214TShf</name>
+<location>src.bin/radarqnx4/drivers/gc214TSif</location>
+<syntax>gc214TSif --help</syntax>
+<syntax>gc214TSif [<ar>name</ar>]</syntax>
+<syntax>gc214TSif -db [<ar>options</ar>] [<ar>adname</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on><ar>name</ar></on><od>register the driver under the name <ar>name</ar> with the Operating System.</od>
+</option>
+<option><on>-db</on><od>run in debug mode, do not operate the hardware.</od>
+</option>
+<synopsis><p>Device driver for the GC214TS digital receiver card (IF Mode of Operation).</p></synopsis>
+</binary>

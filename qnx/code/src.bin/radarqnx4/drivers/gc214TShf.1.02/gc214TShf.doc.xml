@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>gc214TShf</name>
+<location>src.bin/radarqnx4/drivers/gc214TShf</location>
+<syntax>gc214TShf --help</syntax>
+<syntax>gc214TShf [<ar>name</ar>]</syntax>
+<syntax>gc214TShf -db [<ar>options</ar>] [<ar>adname</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on><ar>name</ar></on><od>register the driver under the name <ar>name</ar> with the Operating System.</od>
+</option>
+<option><on>-db</on><od>run in debug mode, do not operate the hardware.</od>
+</option>
+<synopsis><p>Device driver for the GC214TS digital receiver card (HF Mode of Operation).</p></synopsis>
+</binary>

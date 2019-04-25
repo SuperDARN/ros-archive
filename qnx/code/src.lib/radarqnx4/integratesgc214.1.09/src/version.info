@@ -1,0 +1,32 @@
+# $Log: version.info,v $
+# Revision 1.9  2008/03/21 14:32:51  code
+# Fixed bug in last samples from channel B.
+#
+# Revision 1.8  2008/03/20 21:41:35  code
+# Added IQCopy.
+#
+# Revision 1.7  2008/03/18 21:45:38  code
+# Removed redundant lagmax variables.
+#
+# Revision 1.6  2008/03/15 15:04:04  code
+#  In stereo the I&Q buffer is split between channels so is only have as big.
+#
+# Revision 1.5  2008/03/14 19:05:06  code
+# Fixed bug in setting the I&Q buffer sizes.
+#
+# Revision 1.4  2008/03/14 16:52:09  code
+# Changed variable name.
+#
+# Revision 1.3  2008/03/14 16:11:04  code
+# Added the skip sample term.
+#
+# Revision 1.2  2008/03/14 00:07:53  code
+# Added the ability to capture I&Q samples.
+#
+# Revision 1.1  2007/10/29 15:53:14  code
+# Initial revision
+#
+# 
+
+integratesgc214.c 1.10
+pulsesgc214.c 1.01

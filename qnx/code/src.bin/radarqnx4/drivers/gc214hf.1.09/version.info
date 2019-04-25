@@ -1,0 +1,38 @@
+# $Log: version.info,v $
+# Revision 1.9  2008/03/14 18:28:36  code
+# Removed debug code.
+#
+# Revision 1.8  2008/03/12 21:46:53  code
+# Adapted Todd's IF code to HF.
+#
+# Revision 1.7  2007/11/19 16:43:51  code
+# Removed redundant code.
+#
+# Revision 1.6  2007/03/28 17:49:02  code
+# Changed the sample rate to a float (Todd Parris correction).
+#
+# Revision 1.5  2006/11/07 21:48:31  code
+# Fixed bug in PCI code.
+#
+# Revision 1.4  2006/10/24 17:56:29  code
+# Todd Parris's modification to prevent bus halts.
+#
+# Revision 1.3  2006/02/07 16:10:15  barnes
+# Used fixed coefficient set from the data sheet.
+#
+# Revision 1.2  2005/07/25 15:31:26  barnes
+# Removed redundant variable.
+#
+# Revision 1.1  2005/07/25 15:20:30  barnes
+# Initial revision
+#
+#
+build.c 1.02
+dma-alloc.c 1.01
+dma.c 1.02
+filter.c 1.02
+gc214.c 1.02
+gc4016.c 1.02
+io.c 1.02
+main.c 1.08
+pci.c 1.04
