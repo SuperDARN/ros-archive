@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>oldraw</name>
+<location>src.lib/superdarn/oldraw</location>
+<function>
+<name>OldRawClose</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawread.h</header>
+<syntax>void OldRawClose(struct OldRawFp *ptr);</syntax>
+</function>
+<function>
+<name>OldRawFwrite</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawread.h</header>
+<syntax>int OldRawFwrite(FILE *rawfp,char *name,struct RadarParm *prm,struct RawData *raw,int32 recnum);</syntax>
+</function>
+<function>
+<name>OldFitHeaderFwrite</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldRawHeaderFwrite(FILE *rawp,char *name, char *version,int thr,char *text);</syntax>
+</function>
+<function>
+<name>OldRawHeaderWrite</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawwrite.h</header>
+<syntax>int OldRawHeaderWrite(int rawfp,char *name,char *version,int thr,char *text);</syntax>
+</function>
+<function>
+<name>OldRawOpen</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawread.h</header>
+<syntax>struct OldRawFp *OldRawOpen(char *fitfile,char *inxfile);</syntax>
+</function>
+<function>
+<name>OldRawRead</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawread.h</header>
+<syntax>int OldRawRead(struct OldRawFp *ptr,struct RadarParm *prm, struct RawData *raw);</syntax>
+</function>
+<function>
+<name>OldRawReadCurrent</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawread.h</header>
+<syntax>int OldRawReadCurrent(struct OldRawFp *ptr,  struct RadarParm *prm,struct RawData *raw);</syntax>
+</function>
+<function>
+<name>OldRawSeek</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldRawSeek(struct OldRawFp *fp, int yr,int mo,int dy,int hr,int mt,int sc,double *atme);</syntax>
+</function>
+<function>
+<name>OldRawWrite</name>
+<location>src.lib/superdarn/oldraw</location>
+<header>general/oldrawwrite.h</header>
+<syntax>int OldRawWrite(int rawfp,char *name,struct RadarParm *prm,struct RawData *fit,int32 recnum);</syntax>
+</function>
+</library>

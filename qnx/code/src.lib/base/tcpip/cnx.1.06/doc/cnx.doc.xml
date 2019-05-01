@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>cnx</name>
+<location>src.lib/base/tcpip/cnx</location>
+<function>
+<name>ConnexClose</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>void ConnexClose(int msgin_sock);</syntax>
+</function>
+<function>
+<name>ConnexOpen</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>int ConnexOpen(char *host,int remote_port);</syntax>
+</function>
+<function>
+<name>ConnexRead</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>int ConnexRead(int num,int *sock,unsigned char **buffer,int *size,int *flag, struct timeval *tmout);</syntax>
+</function>
+<function>
+<name>ConnexReadIP</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>int ConnexReadIP(int fildes,unsigned char **buffer);</syntax>
+</function>
+<function>
+<name>ConnexReadMem</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>int ConnexReadMem(unsigned char *inbuf,unsigned int insize, unsigned char **buffer);</syntax>
+</function>
+<function>
+<name>ConnexWriteIP</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>int ConnexWriteIP(int fildes,unsigned char *buffer,unsigned int size);</syntax>
+</function>
+<function>
+<name>ConnexWriteMem</name>
+<location>src.lib/base/tcpip/cnx</location>
+<header>base/connex.h</header>
+<syntax>int ConnexWriteMem(unsigned char *outbuf,unsigned int outsize, unsigned char *buffer,unsigned int size);</syntax>
+</function>
+</library>

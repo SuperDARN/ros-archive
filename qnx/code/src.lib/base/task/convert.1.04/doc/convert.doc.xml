@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>rcnv</name>
+<location>src.lib/base/task/convert</location>
+<function>
+<name>ConvertBitOrder</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertBitOrder();</syntax>
+</function>
+<function>
+<name>ConvertBlock</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertBlock(unsigned char *cnv,int *pattern);</syntax>
+</function>
+<function>
+<name>ConvertFreadDouble</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFreadDouble(FILE *fp,double *val);</syntax>
+</function>
+<function>
+<name>ConvertFreadFloat</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFreadFloat(FILE *fp,float *val);</syntax>
+</function>
+<function>
+<name>ConvertFreadInt</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFreadInt(FILE *fp,int32 *val);</syntax>
+</function>
+<function>
+<name>ConvertFreadShort</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFreadShort(FILE *fp,int16 *val);</syntax>
+</function>
+<function>
+<name>ConvertFromDouble</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertFromDouble(double val,unsigned char *cnv);</syntax>
+</function>
+<function>
+<name>ConvertFromFloat</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertFromFloat(float val,unsigned char *cnv);</syntax>
+</function>
+<function>
+<name>ConvertFromInt</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertFromInt(int32 val,unsigned char *cnv);</syntax>
+</function>
+<function>
+<name>ConvertFromShort</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertFromShort(int16 val,unsigned char *cnv);</syntax>
+</function>
+<function>
+<name>ConvertFwriteDouble</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFwriteDouble(FILE *fp,double val);</syntax>
+</function>
+<function>
+<name>ConvertFwriteFloat</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFwriteFloat(FILE *fp,float val);</syntax>
+</function>
+<function>
+<name>ConvertFwriteInt</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFwriteInt(FILE *fp,int32 val);</syntax>
+</function>
+<function>
+<name>ConvertFwriteShort</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertFwriteShort(FILE *fp,int16 val);</syntax>
+</function>
+<function>
+<name>ConvertReadDouble</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertReadDouble(int fp,double *val);</syntax>
+</function>
+<function>
+<name>ConvertReadFloat</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertReadFloat(int fp,float *val);</syntax>
+</function>
+<function>
+<name>ConvertReadInt</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertReadInt(int fp,int32 *val);</syntax>
+</function>
+<function>
+<name>ConvertReadShort</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertReadShort(int fp,int16 *val);</syntax>
+</function>
+<function>
+<name>ConvertToDouble</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertToDouble(unsigned char *cnv,double *val);</syntax>
+</function>
+<function>
+<name>ConvertToFloat</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertToFloat(unsigned char *cnv,float *val);</syntax>
+</function>
+<function>
+<name>ConvertToInt</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertToInt(unsigned char *cnv,int32 *val);</syntax>
+</function>
+<function>
+<name>ConvertToShort</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>void ConvertToShort(unsigned char *cnv,int16 *val);</syntax>
+</function>
+<function>
+<name>ConvertWriteDouble</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertWriteDouble(int fp,double val);</syntax>
+</function>
+<function>
+<name>ConvertWriteFloat</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertWriteFloat(int fp,float val);</syntax>
+</function>
+<function>
+<name>ConvertWriteInt</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertWriteInt(int fp,int32 val);</syntax>
+</function>
+<function>
+<name>ConvertWriteShort</name>
+<location>src.lib/base/task/convert</location>
+<header>base/rconvert.h</header>
+<syntax>int ConvertWriteShort(int fp,int16 val);</syntax>
+</function>
+</library>

@@ -1,0 +1,18 @@
+# Makefile for AACGMInit
+# ======================
+# by R.J.Barnes
+#
+#
+
+INCLUDE=-I$(IPATH)/analysis 
+OBJS = AACGMInit.o
+OUTPUT = AACGMInit
+LIBS= -laacgm.1  
+SLIB=-lm
+include $(MAKEBIN)
+ 
+
+
+
+
+

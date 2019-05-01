@@ -1,0 +1,12 @@
+.
+./log
+./log/cp.1.04.content
+./usr
+./usr/code
+./usr/code/src.bin
+./usr/code/src.bin/radar
+./usr/code/src.bin/radar/normalscan.1.02
+./usr/code/src.bin/radar/normalscan.1.02/version.info
+./usr/code/src.bin/radar/normalscan.1.02/makefile
+./usr/code/src.bin/radar/normalscan.1.02/normalscan.c
+./version.tmp

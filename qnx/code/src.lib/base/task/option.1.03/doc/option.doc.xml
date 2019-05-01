@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>opt</name>
+<location>src.lib/base/task/option</location>
+<function>
+<name>OptionAdd</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>int OptionAdd(<a href="OptionData.html">struct OptionData</a> *opt,char *name,char type,void *data);</syntax>
+</function>
+<function>
+<name>OptionFree</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>void OptionFree(<a href="OptionData.html">struct OptionData</a> *opt);</syntax>
+</function>
+<function>
+<name>OptionFreeFile</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>void OptionFreeFile(<a href="OptionFile.html">struct OptionFile</a> *ptr);</syntax>
+</function>
+<function>
+<name>OptionFreeText</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>void OptionFreeText(<a href="OptionText.html">struct OptionText</a> *ptr);</syntax>
+</function>
+<function>
+<name>OptionPrintInfo</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>void OptionPrintInfo(FILE *fp,char *str[]);</syntax>
+</function>
+<function>
+<name>OptionProcess</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>int OptionProcess(int offset,int argc,char *argv[], <a href="OptionData.html">struct OptionData</a> *opt,int (*opterr)(char *));</syntax>
+</function>
+<function>
+<name>OptionProcessFile</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax><a href="OptionFile.html">struct OptionFile</a> *OptionProcessFile(FILE *fp);</syntax>
+</function>
+<function>
+<name>OptionScanFileArg</name>
+<location>src.lib/base/task/option</location>
+<header>base/option.h</header>
+<syntax>char *OptionScanFileArg(FILE *file);</syntax>
+</function>
+
+
+<structure>
+ <name>OptionData</name>
+ <location>src.lib/base/task/option</location>
+ <header>base/option.h</header>
+ <struct>
+    <member>
+      <code>int num;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code><a href="OptionEntry.html">struct OptionEntry</a> *ptr;</code>
+      <description>None.</description>
+    </member>
+ </struct>
+</structure>
+
+<structure>
+ <name>OptionEntry</name>
+ <location>src.lib/base/task/option</location>
+ <header>base/option.h</header>
+ <struct>
+    <member>
+      <code>char *name;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char type;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>int set;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>void *ptr;</code>
+      <description>None.</description>
+    </member>
+ </struct>
+</structure>
+
+<structure>
+ <name>OptionFile</name>
+ <location>src.lib/base/task/option</location>
+ <header>base/option.h</header>
+ <struct>
+    <member>
+      <code>int argc;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char **argv;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+ </structure>
+
+<structure>
+ <name>OptionText</name>
+ <location>src.lib/base/task/option</location>
+ <header>base/option.h</header>
+ <struct>
+    <member>
+      <code>int num;</code>
+      <description>None.</description>
+    </member>
+    <member>
+      <code>char **txt;</code>
+      <description>None.</description>
+    </member>
+  </struct>
+ </structure>
+</library>

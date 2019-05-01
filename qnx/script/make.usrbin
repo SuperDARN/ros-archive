@@ -1,0 +1,26 @@
+#!/bin/sh
+
+
+
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+log="ros.usr.bin.1.05"
+dtval=`date +%Y%m%d.%H%M`
+
+
+
+$BINPATH/makeall -vb $USR_CODEBASE/src.bin/radar > $LOGPATH/${log}.${dtval}
+test_exit
+
+
+
+
+
+

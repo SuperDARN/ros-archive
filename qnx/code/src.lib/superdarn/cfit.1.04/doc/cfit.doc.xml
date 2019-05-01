@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>cfit</name>
+<location>src.lib/superdarn/cfit</location>
+<function>
+<name>CFitClose</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>void CFitClose(struct CFitfp *fptr);</syntax>
+</function>
+<function>
+<name>CFitFwrite</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitFwrite(FILE *fp,struct CFitdata *ptr);</syntax>
+</function>
+<function>
+<name>CFitOpen</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>struct CFitfp *CFitOpen(char *name);</syntax>
+</function>
+<function>
+<name>CFitRead</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitRead(struct CFitfp *fptr,struct CFitdata *ptr);</syntax>
+</function>
+<function>
+<name>CFitReadRadarScan</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitReadRadarScan(struct CFitfp *fp,int *state, struct RadarScan *ptr,struct CFitdata *cfit,int tlen, int lock,int chn);</syntax>
+</function>
+<function>
+<name>CFitSeek</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitSeek(struct CFitfp *ptr, int yr,int mo,int dy,int hr,int mt,int sc,double *atme);</syntax>
+</function>
+<function>
+<name>CFitToCSD</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitToCSD(int store,double min_pwr, double pmax,double vmax,double wmax,struct CFitdata *cfit, struct CSDdata *ptr);</syntax>
+</function>
+<function>
+<name>CFitToRadarScan</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitToRadarScan(struct RadarScan *ptr,struct CFitdata *cfit);</syntax>
+</function>
+<function>
+<name>CFitWrite</name>
+<location>src.lib/superdarn/cfit</location>
+<header>general/cfitdata.h</header>
+<syntax>int CFitWrite(int fp,struct CFitdata *ptr);</syntax>
+</function>
+</library>

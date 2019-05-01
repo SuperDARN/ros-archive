@@ -1,0 +1,19 @@
+#!/bin/sh
+
+. $HOME/.profile
+
+bin=$HOME/bin
+
+ontty /dev/con10 $bin/diopio48c -db
+ontty /dev/con9 $bin/dt2828 -db 
+
+ontty /dev/con10 $bin/errlog 
+ontty /dev/con9 $bin/echo_data 
+ontty /dev/con6 $bin/fit_write 
+ontty /dev/con6 $bin/raw_write -t 3
+ontty /dev/con6 $bin/fitacfwrite
+ontty /dev/con6 $bin/rawacfwrite -t 3
+ontty /dev/con6 $bin/rtserver 1024
+
+ontty /dev/con5 $bin/schedule -l /data/scdlogs/scdlog $HOME/debug.scd
+

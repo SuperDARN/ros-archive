@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>radar</name>
+<location>src.lib/superdarn/radar</location>
+<function>
+<name>RadarEpochGetSite</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>struct RadarSite *RadarEpochGetSite(struct Radar *ptr,double tval);</syntax>
+</function>
+<function>
+<name>RadarFree</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>struct RadarSite *RadarFree(struct Radar *ptr);</syntax>
+</function>
+
+<function>
+<name>RadarGetCode</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>char *RadarGetCode(struct RadarNetwork *ptr,int stid);</syntax>
+</function>
+
+<function>
+<name>RadarGetCodeNum</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>int RadarGetCodeNum(struct RadarNetwork *ptr,int stid);</syntax>
+</function>
+
+<function>
+<name>RadarGetID</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>int RadarGetID(struct RadarNetwork *ptr,char *code);</syntax>
+</function>
+<function>
+<name>RadarGetName</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>char *RadarGetName(struct RadarNetwork *ptr,int stid);</syntax>
+</function>
+<function>
+<name>RadarGetOperator</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>char *RadarGetOperator(struct RadarNetwork *ptr,int stid);</syntax>
+</function>
+<function>
+<name>RadarGetRadar</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>struct Radar *RadarGetRadar(struct RadarNetwork *ptr,int stid);</syntax>
+</function>
+<function>
+<name>RadarGetStatus</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>int RadarGetStatus(struct RadarNetwork *ptr,int stid);</syntax>
+</function>
+<function>
+<name>RadarLoad</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>struct RadarNetwork *RadarLoad(FILE *fp);</syntax>
+</function>
+<function>
+<name>RadarLoadHardware</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>int RadarLoadHardware(char *hdwpath,struct RadarNetwork *ptr);</syntax>
+</function>
+<function>
+<name>RadarYMDHMSGetSite</name>
+<location>src.lib/superdarn/radar</location>
+<header>general/limit.h</header>
+<syntax>struct RadarSite *RadarYMDHMSGetSite(struct Radar *ptr,int yr, int mo,int dy,int hr,int mt,int sc);</syntax>
+</function>
+</library>

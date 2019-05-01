@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>raw</name>
+<location>src.lib/superdarn/raw</location>
+<function>
+<name>RawFread</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>int RawFread(FILE *fp,struct RadarParm *prm, struct RawData *raw);</syntax>
+</function>
+<function>
+<name>RawFseek</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>int RawFseek(FILE *fp, int yr,int mo,int dy,int hr,int mt,int sc,double *atme, struct RawIndex *inx);</syntax>
+</function>
+<function>
+<name>RawFwrite</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>int RawFwrite(FILE *fp,struct RadarParm *prm, struct RawData *raw);</syntax>
+</function>
+<function>
+<name>RawGetTime</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>double RawGetTime(struct DataMap *ptr);</syntax>
+</function>
+<function>
+<name>RawIndexFload</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>struct RawIndex *RawIndexFload(FILE *fp);</syntax>
+</function>
+<function>
+<name>RawIndexFree</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>void RawIndexFree(struct RawIndex *ptr);</syntax>
+</function>
+<function>
+<name>RawIndexLoad</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>struct RawIndex *RawIndexLoad(int fid);</syntax>
+</function>
+<function>
+<name>RawRead</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>int RawRead(int fid,struct RadarParm *prm, struct RawData *raw);</syntax>
+</function>
+<function>
+<name>RawSeek</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>int RawSeek(int fid, int yr,int mo,int dy,int hr,int mt,int sc,double *atme, struct RawIndex *inx);</syntax>
+</function>
+<function>
+<name>RawWrite</name>
+<location>src.lib/superdarn/raw</location>
+<header>general/rawdata.h</header>
+<syntax>int RawWrite(int fid,struct RadarParm *prm, struct RawData *raw);</syntax>
+</function>
+</library>

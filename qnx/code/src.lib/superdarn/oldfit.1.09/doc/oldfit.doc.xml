@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>oldfit</name>
+<location>src.lib/superdarn/oldfit</location>
+<function>
+<name>OldFitClose</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>void OldFitClose(struct OldFitFp *ptr);</syntax>
+</function>
+<function>
+<name>OldFitFwrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitFwrite(FILE *fitfp,struct RadarParm *prm,struct FitData *fit);</syntax>
+</function>
+<function>
+<name>OldFitHeaderFwrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitHeaderFwrite(FILE *fitfp, char *text, char *name, char *version);</syntax>
+</function>
+<function>
+<name>OldFitHeaderWrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitHeaderWrite(int fitfp, char *text, char *name, char *version);</syntax>
+</function>
+<function>
+<name>OldFitInxClose</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitInxClose(int inxfp,struct RadarParm *prm,int irec);</syntax>
+</function>
+<function>
+<name>OldFitInxFclose</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitInxFclose(FILE *inxfp,struct RadarParm *prm,int irec);</syntax>
+</function>
+<function>
+<name>OldFitInxFwrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitInxFwrite(FILE *inxfp,int drec,int dnum,struct RadarParm *prm);</syntax>
+</function>
+<function>
+<name>OldFitInxHeaderFwrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitInxHeaderFwrite(FILE *inxfp,struct RadarParm *prm);</syntax>
+</function>
+<function>
+<name>OldFitInxHeaderWrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitInxHeaderWrite(int inxfp,struct RadarParm *prm);</syntax>
+</function>
+<function>
+<name>OldFitInxWrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitInxWrite(int inxfp,int drec,int dnum,struct RadarParm *prm);</syntax>
+</function>
+<function>
+<name>OldFitOpen</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>struct OldFitFp *OldFitOpen(char *fitfile,char *inxfile);</syntax>
+</function>
+<function>
+<name>OldFitRead</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitRead(struct OldFitFp *ptr,struct RadarParm *prm, struct FitData *fit);</syntax>
+</function>
+<function>
+<name>OldFitReadCurrent</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitReadCurrent(struct OldFitFp *ptr,  struct RadarParm *prm,struct FitData *fit);</syntax>
+</function>
+<function>
+<name>OldFitReadInx</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitReadInx(struct OldFitFp *ptr,int32 *buffer,int recno);</syntax>
+</function>
+<function>
+<name>OldFitReadRadarScan</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitReadRadarScan(struct OldFitFp *fp,int *state, struct RadarScan *ptr, struct RadarParm *prm,struct FitData *fit, int tlen, int lock,int chn);</syntax>
+</function>
+<function>
+<name>OldFitSeek</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitSeek(struct OldFitFp *fp, int yr,int mo,int dy,int hr,int mt,int sc,double *atme);</syntax>
+</function>
+<function>
+<name>OldFitWrite</name>
+<location>src.lib/superdarn/oldfit</location>
+<header>general/oldfitread.h</header>
+<syntax>int OldFitWrite(int fitfp,struct RadarParm *prm,struct FitData *fit);</syntax>
+</function>
+</library>

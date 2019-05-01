@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>dmap</name>
+<location>src.lib/general/dmap</location>
+
+
+
+<function>
+<name>DataMapAddArray</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>int DataMapAddArray(struct DataMap *ptr, char *name,int type,int dim, int32 *rng,void *data);</syntax>
+</function>
+
+
+<function>
+<name>DataMapAddScalar</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>int DataMapAddScalar(struct DataMap *ptr, char *name,int type,void *data);</syntax>
+</function>
+
+<function>
+<name>DataMapDecodeBuffer</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>struct DataMap *DataMapDecodeBuffer(unsigned char *buf,int size);</syntax>
+</function>
+
+
+<function>
+<name>DataMapEncodeBuffer</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>unsigned char*DataMapEncodeBuffer(struct DataMap *ptr,int *size);</syntax>
+</function>
+
+
+
+<function>
+<name>DataMapFread</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>struct DataMap *DataMapFread(FILE *fp);</syntax>
+</function>
+<function>
+<name>DataMapFree</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>void DataMapFree(struct DataMap *ptr);</syntax>
+</function>
+
+<function>
+<name>DataMapFreeArray</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>void DataMapFreeArray(struct DataMapArray *ptr);</syntax>
+</function>
+
+<function>
+<name>DataMapFreeScalar</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>void DataMapFreeScalar(struct DataMapScalar *ptr);</syntax>
+</function>
+<function>
+<name>DataMapFwrite</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>int DataMapFwrite(FILE *fp,struct DataMap *ptr);</syntax>
+</function>
+<function>
+<name>DataMapMake</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>struct DataMap *DataMapMake();</syntax>
+</function>
+
+<function>
+<name>DataMapMakeArray</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>struct DataMapArray* DataMapMakeArray(char *name,int type,int dim, int32 *rng,void *data);</syntax>
+</function>
+
+<function>
+<name>DataMapMakeScalar</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>struct DataMapScalar* DataMapMakeScalar(char *name,int type, void *data);</syntax>
+</function>
+
+<function>
+<name>DataMapRead</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>struct DataMap *DataMapRead(int fid);</syntax>
+</function>
+<function>
+<name>DataMapReadName</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>char *DataMapReadName(int fid);</syntax>
+</function>
+<function>
+<name>DataMapReadString</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>char *DataMapReadString(int fid);</syntax>
+</function>
+<function>
+<name>DataMapSize</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>int DataMapSize(struct DataMap *ptr);</syntax>
+</function>
+<function>
+<name>DataMapWrite</name>
+<location>src.lib/general/dmap</location>
+<header>general/dmap.h</header>
+<syntax>int DataMapWrite(int fid,struct DataMap *ptr);</syntax>
+</function>
+</library>

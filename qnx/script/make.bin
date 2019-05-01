@@ -1,0 +1,32 @@
+#!/bin/sh
+
+
+
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+log="ros.bin.1.05"
+dtval=`date +%Y%m%d.%H%M`
+
+
+$BINPATH/makeall -vb $CODEBASE/src.bin/general > $LOGPATH/${log}.${dtval}
+test_exit
+$BINPATH/makeall -vb $CODEBASE/src.bin/superdarn >> $LOGPATH/${log}.${dtval} 
+test_exit
+$BINPATH/makeall -vb $CODEBASE/src.bin/radar${OSTYPE} >> $LOGPATH/${log}.${dtval}
+test_exit
+
+
+
+
+
+
+
+
+

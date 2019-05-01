@@ -1,0 +1,21 @@
+# $Log: version.info,v $
+# Revision 1.3  2004/06/22 12:39:02  barnes
+# QNX4 Code audit.
+#
+# Revision 1.2  2004/05/11 14:22:11  barnes
+# Changed version handling.
+#
+# Revision 1.1  2004/05/10 15:08:14  barnes
+# Initial revision
+#
+#
+build.c 1.01
+coef.c 1.01
+dma-alloc.c 1.01
+dma.c 1.01
+filter.c 1.02
+gc214.c 1.01
+gc4016.c 1.01
+io.c 1.01
+main.c 1.03
+pci.c 1.02

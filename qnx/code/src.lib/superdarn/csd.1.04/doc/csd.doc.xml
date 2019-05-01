@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>csd</name>
+<location>src.lib/superdarn/csd</location>
+<function>
+<name>CSDClose</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>void CSDClose(struct CSDfp *fptr);</syntax>
+</function>
+<function>
+<name>CSDFwrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDFwrite(FILE *fp,struct CSDdata *ptr);</syntax>
+</function>
+<function>
+<name>CSDHeaderFwrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDHeaderFwrite(FILE *fp,struct CSDdata *ptr);</syntax>
+</function>
+<function>
+<name>CSDHeaderRead</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDHeaderRead(struct CSDfp *fptr,struct CSDdata *ptr,int size);</syntax>
+</function>
+<function>
+<name>CSDHeaderWrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDHeaderWrite(int fp,struct CSDdata *ptr);</syntax>
+</function>
+<function>
+<name>CSDHighExpand</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDHighExpand(struct CSDfp *fptr,int32 *size,int32 *id);</syntax>
+</function>
+<function>
+<name>CSDOpen</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>struct CSDfp *CSDOpen(char *name);</syntax>
+</function>
+<function>
+<name>CSDRead</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDRead(struct CSDfp *fptr,struct CSDdata *ptr);</syntax>
+</function>
+<function>
+<name>CSDReadBlock</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDReadBlock(struct CSDfp *fptr,struct CSDdata *ptr);</syntax>
+</function>
+<function>
+<name>CSDReadRadarScan</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDReadRadarScan(struct CSDfp *fp,int *state, struct RadarScan *ptr,struct CSDdata *csd,int tlen, int lock,int chn);</syntax>
+</function>
+<function>
+<name>CSDSeek</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDSeek(struct CSDfp *ptr, int yr,int mo,int dy,int hr,int mt,int sc,double *atme);</syntax>
+</function>
+<function>
+<name>CSDWrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>general/csddata.h</header>
+<syntax>int CSDWrite(int fp,struct CSDdata *ptr);</syntax>
+</function>
+</library>

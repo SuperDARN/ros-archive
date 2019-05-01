@@ -1,0 +1,11 @@
+
+#!/bin/sh
+
+export HOME=/home/radar
+. /home/radar/.profile
+
+bin=/home/radar/bin
+
+$bin/dt2828 &
+#$bin/gc214 &
+

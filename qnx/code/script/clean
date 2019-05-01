@@ -1,0 +1,18 @@
+#!/bin/sh
+find $HOME/* -follow -name "*.o" -exec rm -fv {} \;
+find $HOME/* -follow -name "*.err" -exec rm -fv {} \;
+find $HOME/* -follow -name "*~" -exec rm -fv {} \;
+find $HOME/* -follow -name "#*#" -exec rm -fv {} \;
+
+
+
+
+
+
+
+
+
+
+
+
+

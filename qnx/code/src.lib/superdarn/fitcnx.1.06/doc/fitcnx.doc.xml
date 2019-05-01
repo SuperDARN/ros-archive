@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>fitcnx</name>
+<location>src.lib/superdarn/fitcnx</location>
+<function>
+<name>FitCnxDecodeIPMsg</name>
+<location>src.lib/superdarn/fitcnx</location>
+<header>general/fitcnx.h</header>
+<syntax>int FitCnxDecodeIPMsg(struct RadarParm *prm,struct FitData *fit, unsigned char *buffer,int size);</syntax>
+</function>
+<function>
+<name>FitCnxRead</name>
+<location>src.lib/superdarn/fitcnx</location>
+<header>general/fitcnx.h</header>
+<syntax>int FitCnxRead(int num,int *sock,struct RadarParm *prm, struct FitData *fit,int *flag, struct timeval *tmout);</syntax>
+</function>
+</library>

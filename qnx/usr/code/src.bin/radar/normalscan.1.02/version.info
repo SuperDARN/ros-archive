@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.2  2004/07/23 15:49:01  barnes
+# Fixed bug in beam swinging direction.
+#
+# Revision 1.1  2004/05/11 17:43:44  barnes
+# Initial revision
+#
+#
+normalscan.c 1.02

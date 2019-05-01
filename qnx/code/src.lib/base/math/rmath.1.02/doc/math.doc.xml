@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>aacgm</name>
+<location>src.lib/base/math/math</location>
+
+<function>
+<name>fft1</name>
+<location>src.lib/base/math/math</location>
+<header>base/fft.h</header>
+<syntax>void fft1(float *data,int nn,int isign);</syntax>
+<description><p>The <fn href="fft1.html">fft1</fn> function performs a Fast Fourier Transform.</p>
+</description> 
+</function>
+</library>
+
