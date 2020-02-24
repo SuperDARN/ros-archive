@@ -1,0 +1,22 @@
+#!/bin/sh
+
+
+
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+
+$BINPATH/makeall -vb $USR_CODEBASE/src.bin > $HOME/log/ros.1.02.usr.bin
+test_exit
+
+
+
+
+
+

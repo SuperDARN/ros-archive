@@ -1,0 +1,37 @@
+# $Log: version.info,v $
+# Revision 1.6  2002/02/05 22:45:57  barnes
+# Added code to deal with stereo badlags.
+#
+# Revision 1.5  2001/06/27 20:48:31  barnes
+# Added license tag
+#
+# Revision 1.4  2001/01/29 18:41:17  barnes
+# Added Author Name
+#
+# Revision 1.3  2000/09/18 19:23:42  barnes
+# Fixed bug in the noise determination.
+#
+# Revision 1.2  2000/09/18 17:43:23  barnes
+# Removed redundant header.
+#
+# Revision 1.1  1999/12/16 22:07:06  barnes
+# Initial revision
+#
+acf_preproc.c 1.03
+badlags.c 1.03
+badlags_s.c 1.01
+calc_phi_res.c 1.03
+dbl_cmp.c 1.03
+do_fit.c 1.04
+elev_goose.c 1.03
+elevation.c 1.03
+fit_acf.c 1.03
+fit_noise.c 1.03
+fitacf.c 1.07
+ground_scatter.c 1.03
+more_badlags.c 1.03
+noise_acf.c 1.03
+noise_stat.c 1.03
+omega_guess.c 1.03
+rang_badlags.c 1.03
+remove_noise.c 1.03

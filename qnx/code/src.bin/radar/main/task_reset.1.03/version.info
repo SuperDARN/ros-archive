@@ -1,0 +1,11 @@
+# $Log: version.info,v $
+# Revision 1.3  2001/06/27 20:56:37  barnes
+# Added license tag
+#
+# Revision 1.2  2001/01/29 18:41:21  barnes
+# Added Author Name
+#
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+task_reset.c 1.04

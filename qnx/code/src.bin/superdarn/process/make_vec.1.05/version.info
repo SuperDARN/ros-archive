@@ -1,0 +1,17 @@
+# $Log: version.info,v $
+# Revision 1.5  2001/06/27 21:07:28  barnes
+# Added license tag
+#
+# Revision 1.4  2001/01/29 18:41:19  barnes
+# Added Author Name
+#
+# Revision 1.3  2000/08/22 15:13:20  barnes
+# Added return to main.
+#
+# Revision 1.2  2000/08/16 22:47:41  barnes
+# changed return type of main().
+#
+# Revision 1.1  1999/12/17 19:30:50  barnes
+# Initial revision
+#
+make_vec.c 1.11

@@ -1,0 +1,41 @@
+# $Log: version.info,v $
+# Revision 1.8  2001/06/27 20:55:38  barnes
+# Added license tag
+#
+# Revision 1.7  2001/01/29 18:41:20  barnes
+# Added Author Name
+#
+# Revision 1.6  2000/11/21 18:26:54  barnes
+# Fixed bug in displaying the gain in stereo mode.
+#
+# Revision 1.5  2000/11/14 16:04:03  barnes
+# Numerous fixes to ensure that the local/remote frequency status of the
+# synthesizer is correctly reported.
+#
+# Revision 1.4  2000/09/18 17:58:50  barnes
+# Removed redundant headers.
+#
+# Revision 1.3  2000/08/21 19:05:36  barnes
+# Fixed missing scope sync.
+#
+# Revision 1.2  2000/07/07 21:49:28  barnes
+# General bug fixes.
+#
+# Revision 1.1  1999/12/17 19:31:10  barnes
+# Initial revision
+#
+DIO.c 1.11
+bcd.c 1.05
+default.c 1.10
+display.c 1.27
+do_op.c 1.24
+logger.c 1.04
+main.c 1.36
+out_tsg.c 1.09
+out_tsg_s.c 1.04
+out_tsg_sx.c 1.04
+out_tsg_x.c 1.10
+print_config.c 1.05
+reset.c 1.08
+tsg.c 1.25
+watchdog.c 1.05

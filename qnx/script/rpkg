@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+#!/bin/sh
+
+fname=$1
+rm -f .setup
+rm -f .message
+gunzip -c $fname | tar -xvf -
+
+if test -f .message                                                            
+  then                                                                         
+    cat .message
+    rm -f .message                                                             
+  fi 
+if test -x .setup 
+  then
+    ./.setup
+    rm -f .setup
+  fi
+
+
+

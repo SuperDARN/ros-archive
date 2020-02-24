@@ -1,0 +1,27 @@
+# $Log: version.info,v $
+# Revision 1.7  2001/06/27 20:47:43  barnes
+# Added license tag
+#
+# Revision 1.6  2001/01/29 18:41:17  barnes
+# Added Author Name
+#
+# Revision 1.5  2000/08/01 19:18:28  barnes
+# Fixed bug that meant end beams repeated.
+#
+# Revision 1.4  2000/07/12 16:42:08  barnes
+# Fixed bug in filter.
+#
+# Revision 1.3  2000/07/10 13:06:33  barnes
+# Fixed incorrect return from free_cell in filter.c
+#
+# Revision 1.2  2000/04/19 16:09:52  barnes
+# Fixed bugs in the filter.
+#
+# Revision 1.1  1999/12/16 21:59:20  barnes
+# Initial revision
+#
+bound.c 1.07
+check_ops.c 1.06
+error.c 1.03
+filter.c 1.24
+middle.c 1.10

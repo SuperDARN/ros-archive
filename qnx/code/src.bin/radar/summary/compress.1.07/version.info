@@ -1,0 +1,23 @@
+# $Log: version.info,v $
+# Revision 1.7  2002/02/07 18:34:52  barnes
+# Fixed code for multiple channels.
+#
+# Revision 1.6  2001/12/17 16:47:34  barnes
+# Fixed bug in memory release.
+#
+# Revision 1.5  2001/06/27 20:56:46  barnes
+# Added license tag
+#
+# Revision 1.4  2001/01/29 18:41:21  barnes
+# Added Author Name
+#
+# Revision 1.3  2000/11/13 20:18:04  barnes
+# Fixed bug in decoding scale limits.
+#
+# Revision 1.2  2000/07/07 21:53:02  barnes
+# General bug fixes.
+#
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+compress.c 1.17

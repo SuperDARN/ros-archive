@@ -1,0 +1,63 @@
+# $Log: version.info,v $
+# Revision 1.17  2002/02/07 21:49:53  barnes
+# Modified fit_scan so that channels do not get screwed up.
+#
+# Revision 1.16  2002/02/06 17:44:25  barnes
+# Simpleified code for filtering channel.
+#
+# Revision 1.15  2002/02/06 15:45:50  barnes
+# Added routines that can filter based on channel.
+#
+# Revision 1.14  2002/02/01 18:34:53  barnes
+# Added missing header to fit_scan.
+#
+# Revision 1.13  2002/01/31 16:34:49  barnes
+# Added the radar_fit module to load a fit data structure into a radar data
+# structure. (This routine originally existed in the radar library).
+#
+# Revision 1.12  2001/11/20 16:57:19  barnes
+# Fixed major bug in reading errors in power and spectral width.
+#
+# Revision 1.11  2001/07/24 12:41:14  barnes
+# Added RCS Log to the fit_unix_io
+#
+# Revision 1.10  2001/06/27 20:48:04  barnes
+# Added license tag
+#
+# Revision 1.9  2001/02/15 14:20:44  barnes
+# Another modification to deal with bad beams.
+#
+# Revision 1.8  2001/02/14 17:19:42  barnes
+# Modification to current generation read routine.
+#
+# Revision 1.7  2001/01/29 18:41:17  barnes
+# Added Author Name
+#
+# Revision 1.6  2001/01/29 16:29:52  barnes
+# Removed leading newline in fit_scan.
+#
+# Revision 1.5  2000/10/30 15:21:19  barnes
+# Fixed macro definition.
+#
+# Revision 1.4  2000/06/21 16:00:37  barnes
+# Fixed bug in the fit_seek routine.
+#
+# Revision 1.3  2000/04/19 16:11:15  barnes
+# Fixed bugs in the fit_scan functions.
+#
+# Revision 1.2  2000/01/26 16:12:04  barnes
+# Fixed bug in the scan_period function.
+#
+# Revision 1.1  1999/12/16 22:07:53  barnes
+# Initial revision
+#
+fit_close.c 1.03
+fit_open.c 1.05
+fit_read.c 1.06
+fit_read_current.c 1.08
+fit_read_inx.c 1.03
+fit_scan.c 1.20
+fit_seek.c 1.07
+fit_write.c 1.05
+fit_unix_io.c 1.02
+radar_fit.c 1.01

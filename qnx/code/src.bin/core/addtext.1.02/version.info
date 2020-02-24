@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.2  2002/02/26 16:30:26  barnes
+# Added code to make the routine more general purpose.
+#
+# Revision 1.1  2001/07/06 14:42:33  barnes
+# Initial revision
+#
+#
+addtext.c 1.02
+

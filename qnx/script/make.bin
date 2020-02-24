@@ -1,0 +1,29 @@
+#!/bin/sh
+
+
+
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+
+$BINPATH/makeall -vb $CODEBASE/src.bin/general > $HOME/log/ros.1.02.bin
+#test_exit
+$BINPATH/makeall -vb $CODEBASE/src.bin/superdarn >> $HOME/log/ros.1.02.bin
+#test_exit
+$BINPATH/makeall -vb $CODEBASE/src.bin/radar >> $HOME/log/ros.1.02.bin
+test_exit
+
+
+
+
+
+
+
+
+

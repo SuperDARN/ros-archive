@@ -1,0 +1,84 @@
+From darn-users@ion.le.ac.uk  Tue Apr 30 03:05:58 2002
+Date: Mon, 29 Apr 2002 19:05:54 +0100 (BST)
+From: Dieter Andre <ANDRE@DANSAS.usask.ca>
+Subject: [DARN-USERS:437] RCPs for dummies
+
+Dear All.
+
+Did you ever fret about the fact, that normal_scan changes with
+almost each change of the ROS version; and that, as a consequence,
+you have to modify all your radar control programs?
+
+Does it cause you pain to develop double and triple convoluted
+loops to accommodate complicated scan patterns?
+
+If yes, then you may want to look at a little program, that I
+developed and tested this month. It is called vari_scan and its
+only argument is the name of a file with input parameters; so
+the entry in the schedule file would look like this:
+
+2002 04 01 00 00 vari_scan /data/rcp/normal_scan_di.rcp
+
+As an example, if you wanted to run normal_scan in discretionary
+time and forward scan, then the input file for vari_scan would
+look like this:
+
+# normal_scan_di.rcp
+# Last Modification: 19-APR-2002
+# Author: Dieter Andre
+#
+# Parameter input for Radar Control Program vari_scan
+#
+# DT version of normal_scan for forward scan
+#
+# Lines starting with # are comments
+#
+# program name
+normal_scan
+# program_id
+$Id:_normal_scan.rcp,v_1.01_20020419_DA_$
+# CP_ID
+-150
+# SCAN_PERIOD [s]
+120
+# NLOOP
+16
+# beam scans
+#--------|---------|---------|---------|---------|---------|---------|---------|---------|------
+---|
+# index  bmnum     frang     rsep      nrang     intt      xcf       mpinc     day_freq  
+night_freq
+   0     0         180       45        70        7         1         2400      16400     10200
+   1     1         180       45        70        7         1         2400      16400     10200
+   2     2         180       45        70        7         1         2400      16400     10200
+   3     3         180       45        70        7         1         2400      16400     10200
+   4     4         180       45        70        7         1         2400      16400     10200
+   5     5         180       45        70        7         1         2400      16400     10200
+   6     6         180       45        70        7         1         2400      16400     10200
+   7     7         180       45        70        7         1         2400      16400     10200
+   8     8         180       45        70        7         1         2400      16400     10200
+   9     9         180       45        70        7         1         2400      16400     10200
+  10     10        180       45        70        7         1         2400      16400     10200
+  11     11        180       45        70        7         1         2400      16400     10200
+  12     12        180       45        70        7         1         2400      16400     10200
+  13     13        180       45        70        7         1         2400      16400     10200
+  14     14        180       45        70        7         1         2400      16400     10200
+  15     15        180       45        70        7         1         2400      16400     10200
+
+
+I hope that this example is clear enough to enable you to write your own ones.
+vari_scan is not intended to replace normal_scan or fast_scan, but as a way
+for fast and easy implementation of RCPs, that are maybe only used once or
+twice during DT intervals.
+
+The software can be downloaded vi anonymous ftp from radar.usask.ca,
+subdirectory vari_scan.
+
+Copy the tar file to /home/radar/usr/code/src.bin and untar.
+cd to directory vari_scan and make.
+The example file normal_scan_di.rcp is part of the tar file
+and should be moved to a directory of your choice [I used /data/rcp ].
+
+Regards
+  Dieter Andre
+

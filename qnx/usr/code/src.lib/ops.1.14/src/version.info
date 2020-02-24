@@ -1,0 +1,58 @@
+# $Log: version.info,v $
+# Revision 1.14  2002/02/07 16:59:44  barnes
+# Added code to set the channel number in the parameter block.
+#
+# Revision 1.13  2001/10/30 20:55:53  barnes
+# Fixed bug in propagating noise.
+#
+# Revision 1.12  2001/10/15 16:06:47  barnes
+# Moved to floating point internals.
+#
+# Revision 1.11  2001/06/27 21:10:39  barnes
+# Added license tag
+#
+# Revision 1.10  2000/11/20 14:54:24  barnes
+# Fixed bug in setup_hardware.
+#
+# Revision 1.9  2000/10/30 16:42:17  barnes
+# Fixed bug in calc_skip.
+#
+# Revision 1.8  2000/10/30 15:18:51  barnes
+# Fixed bug that meant the comment buffer was not being added to raw data
+# structure.
+#
+# Revision 1.7  2000/10/13 16:00:36  barnes
+# Another fix to calc_skip.
+#
+# Revision 1.6  2000/10/13 15:56:55  barnes
+# Fixed bug in calc_skip.
+#
+# Revision 1.5  2000/09/22 18:58:17  barnes
+# Added function for logging the program start.
+#
+# Revision 1.4  2000/09/18 20:51:08  barnes
+# Modification to the global declarations.
+#
+# Revision 1.3  2000/08/21 19:51:15  barnes
+# Modification to deal with noisy samples.
+#
+# Revision 1.2  2000/04/19 20:08:29  barnes
+# Bug fix to tmseq.c
+#
+# Revision 1.1  1999/12/17 19:02:45  barnes
+# Initial revision
+#
+build_raw.c 1.07
+calc_skip.c 1.05
+fclr.c 1.04
+get_status.c 1.03
+global.c 1.14
+init_proxy.c 1.02
+radar.c 1.06
+read_data.c 1.02
+read_uconts.c 1.02
+setup.c 1.05
+shell.c 1.04
+test_reopen.c 1.03
+tmseq.c 1.03
+wait_boundary.c 1.02

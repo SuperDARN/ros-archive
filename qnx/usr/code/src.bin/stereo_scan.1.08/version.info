@@ -1,0 +1,15 @@
+# $Log: version.info,v $
+# Revision 1.8  2000/11/29 17:18:02  barnes
+# Fixed buffer overflows with the comment buffer.
+#
+# Revision 1.7  2000/11/20 15:35:17  barnes
+# fixed numerous bugs.
+#
+# Revision 1.6  2000/11/14 22:21:51  barnes
+# Synchronized master and source version numbers.
+#
+# Revision 1.1  2000/07/07 23:28:28  barnes
+# Initial revision
+#
+#
+stereo_scan.c 1.8

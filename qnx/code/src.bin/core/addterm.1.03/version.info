@@ -1,0 +1,12 @@
+# $Log: version.info,v $
+# Revision 1.3  2001/06/27 20:08:37  barnes
+# Added missing return statement.
+#
+# Revision 1.2  2001/06/27 19:53:02  barnes
+# Minor bug fix.
+#
+# Revision 1.1  2001/06/27 19:01:59  barnes
+# Initial revision
+#
+#
+addterm.c 1.03

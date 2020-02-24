@@ -1,0 +1,39 @@
+# normal_scan_di.rcp
+# Last Modification: 19-APR-2002
+# Author: Dieter Andre
+#
+# Parameter input for Radar Control Program vari_scan
+#
+# DT version of normal_scan for forward scan
+#
+# Lines starting with # are comments
+#
+# program name
+normal_scan
+# program_id
+$Id:_normal_scan.rcp,v_1.01_20020419_DA_$
+# CP_ID
+-150
+# SCAN_PERIOD [s]
+120
+# NLOOP
+16
+# beam scans
+#--------|---------|---------|---------|---------|---------|---------|---------|---------|---------|
+# index  bmnum     frang     rsep      nrang     intt      xcf       mpinc     day_freq  night_freq
+   0     0         180       45        70        7         1         2400      16400     10200
+   1     1         180       45        70        7         1         2400      16400     10200
+   2     2         180       45        70        7         1         2400      16400     10200
+   3     3         180       45        70        7         1         2400      16400     10200
+   4     4         180       45        70        7         1         2400      16400     10200
+   5     5         180       45        70        7         1         2400      16400     10200
+   6     6         180       45        70        7         1         2400      16400     10200
+   7     7         180       45        70        7         1         2400      16400     10200
+   8     8         180       45        70        7         1         2400      16400     10200
+   9     9         180       45        70        7         1         2400      16400     10200
+  10     10        180       45        70        7         1         2400      16400     10200
+  11     11        180       45        70        7         1         2400      16400     10200
+  12     12        180       45        70        7         1         2400      16400     10200
+  13     13        180       45        70        7         1         2400      16400     10200
+  14     14        180       45        70        7         1         2400      16400     10200
+  15     15        180       45        70        7         1         2400      16400     10200

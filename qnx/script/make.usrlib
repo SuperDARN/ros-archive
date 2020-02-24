@@ -1,0 +1,18 @@
+#!/bin/sh
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+
+$BINPATH/makeall -vb $USR_CODEBASE src.lib/ops > $HOME/log/ros.1.02.usr.lib
+test_exit
+$BINPATH/makeall -vb $USR_CODEBASE src.lib/site/site.$SD_RADARCODE > $HOME/log/ros.1.02.usr.lib
+test_exit
+
+
+
