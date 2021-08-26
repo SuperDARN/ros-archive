@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sh $HOME/script/make_rcsv
+sh $HOME/script/make_lib
+sh $HOME/script/make_bin                                                       
+sh $HOME/script/make_usrlib
+sh $HOME/script/make_usrbin
+

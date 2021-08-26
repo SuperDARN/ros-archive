@@ -1,0 +1,38 @@
+# Makefile for data_feed
+# ======================
+# by R.J.Barnes
+#
+#
+
+INCLUDE=-I$(IPATH)/general -I$(IPATH)/superdarn \
+		-I$(IPATH)/superdarn/fit -I$(IPATH)/radar \
+        -I$(USR_IPATH)/ops -I$(USR_IPATH)/site.$(SD_RADARCODE)
+OBJS = test_scan.o
+SRC=test_scan.c
+OUTPUT = $(USR_BINPATH)/test_scan
+SUDO = 1 
+VERSION=1
+LIBS=-lops.1 -lrs.1 -lfclr.1 -lint.1 -lfreq.1 -lmsg.1 -lsys.1 -lad.1 -ldio.1 -ltsg.1 -lraw.1 -lradar.1 -lfitacf.1 -lgen.1 
+include $(MAKEBIN)
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  
+
+
+ 
+
+

@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/10/30 16:46:03  barnes
+# Fixed bug in log_error return type.
+#
+# Revision 1.1  1999/12/17 03:08:12  barnes
+# Initial revision
+#
+decode_msg.c 1.2
+log_error.c 1.4
+task_write.c 1.2

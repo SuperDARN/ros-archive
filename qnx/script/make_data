@@ -1,0 +1,35 @@
+#!/bin/sh
+
+droot="/data"
+
+mkd() {
+
+  if test ! -d $1
+    then
+      echo "Creating Directory:"$1
+      mkdir $1
+      chmod a+w $1
+      chmod a+r $1
+    fi
+}
+
+mkd $droot
+mkd $droot/dat
+mkd $droot/fit
+mkd $droot/grd
+mkd $droot/cmp
+mkd $droot/smr
+
+mkd $droot/scd
+mkd $droot/errlogs
+mkd $droot/scdlogs
+
+
+
+
+
+
+
+
+
+

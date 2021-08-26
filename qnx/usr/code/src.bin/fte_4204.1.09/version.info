@@ -1,0 +1,24 @@
+# $Log: version.info,v $
+# Revision 1.9  2000/11/29 17:18:02  barnes
+# Fixed buffer overflows with the comment buffer.
+#
+# Revision 1.8  2000/11/20 16:38:51  barnes
+# Fixed numerous bugs.
+#
+# Revision 1.7  2000/11/20 15:34:42  barnes
+# Fixed numerous bugs.
+#
+# Revision 1.6  2000/11/14 22:16:16  barnes
+# Synchronized revision numbers of the source with the master.
+#
+# Revision 1.3  2000/10/23 21:39:37  barnes
+# Fixed minor bugs.
+#
+# Revision 1.2  2000/10/23 21:35:08  barnes
+# Fixed minor bugs.
+#
+# Revision 1.1  1999/12/17 19:31:32  barnes
+# Initial revision
+#
+fte_4204.c 1.9
+

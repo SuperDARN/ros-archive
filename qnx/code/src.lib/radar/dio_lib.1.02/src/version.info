@@ -1,0 +1,8 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/04/19 16:39:34  barnes
+# Added stereo clear frequency search.
+#
+# Revision 1.1  1999/12/17 03:09:10  barnes
+# Initial revision
+#
+dio.c 1.12

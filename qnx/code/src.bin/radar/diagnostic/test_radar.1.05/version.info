@@ -1,0 +1,21 @@
+# $Log: version.info,v $
+# Revision 1.5  2000/11/14 16:05:15  barnes
+# Added code to report the status of the frequency synthesizer.
+#
+# Revision 1.4  2000/11/14 15:25:18  barnes
+# Added code to report when the synthesizer is in local mode.
+#
+# Revision 1.3  2000/11/13 20:26:11  barnes
+# Added help message for fstatus.
+#
+# Revision 1.2  2000/07/07 21:44:40  barnes
+# General bug fixes.
+#
+# Revision 1.1  1999/12/17 19:31:10  barnes
+# Initial revision
+#
+do_op.c 1.11
+do_tsg.c 1.2
+help.c 1.4
+read_tsg.c 1.1
+test_radar.c 1.8

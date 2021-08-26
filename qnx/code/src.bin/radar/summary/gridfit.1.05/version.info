@@ -1,0 +1,19 @@
+# $Log: version.info,v $
+# Revision 1.5  2000/11/15 18:55:24  barnes
+# Fixed bug in determining radar location.
+#
+# Revision 1.4  2000/11/13 22:08:40  barnes
+# Added inertial reference frame and dealt with bug of not getting the
+# correct hardware information.
+#
+# Revision 1.3  2000/10/30 18:40:51  barnes
+# Fixed crash at start because the scan structure is not initialized.
+#
+# Revision 1.2  2000/09/18 18:04:27  barnes
+# Removed redundant header.
+#
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+gridfit.c 2.24
+process_beam.c 2.9

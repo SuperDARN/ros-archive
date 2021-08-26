@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. $HOME/.profile.base
+sh $CODEBASE/script/makeall $USR_CODEBASE src.bin $HOME/log/ops.bin
+
+
+
+
+
+
+

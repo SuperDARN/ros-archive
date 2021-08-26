@@ -1,0 +1,12 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/04/19 16:42:52  barnes
+# Added improved error checking to the intergration loop.
+#
+# Revision 1.1  1999/12/17 03:10:11  barnes
+# Initial revision
+#
+acf.c 1.1
+normalize_baud.c 1.1
+phase.c 1.4
+phase_decode.c 1.1
+sum_power.c 1.1

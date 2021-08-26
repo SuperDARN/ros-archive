@@ -1,0 +1,87 @@
+#!/bin/sh
+
+# makeall pkg log 
+#
+# Makes the libraries and binaries within a package directory.
+#
+# The argument pkg is the name of the package directory to compile. 
+# The argument log is the name of the log file to record.
+#
+#
+
+
+src=${1}
+pkg=${2}
+log=${3}
+
+# Resolve package name. - sometimes it is necessary to use a wildcarded
+# package to deal with versions. We should only compile the most recent
+# version of a package.
+#
+
+plst=`ls -r -1 -d ${src}/${pkg} | head -1`
+
+# find all the directories that have a makefile in them, sort the
+# list so that the directories with the most recent version number come first 
+
+mkfle=`find ${plst} -name "makefile" | sort -r`
+
+mkold=""
+mklst=""
+
+# Walk the list of directories looking for multiple versions of the same
+# package
+
+for mk in $mkfle
+  do
+   mkd=${mk%/makefile}
+   mkr=${mkd%.?.??}
+
+   if test "${mkr}" != "${mkold}" 
+   then 
+     mklst="${mklst} ${mkd}"
+   fi
+   mkold=${mkr}
+  done
+
+echo "makeall" | tee $log
+echo "=======" | tee -a $log
+echo "Making packages within:"${src}/${pkg} | tee -a $log
+echo "" | tee -a $log
+
+let c=1;
+mktmp=$mklst
+mklst=""
+for mk in $mktmp
+ do
+   echo $c:$mk | tee -a $log
+   mklst="$mk $mklst"
+   let c=c+1
+ done
+
+for mk in $mklst
+  do
+   
+    echo "======================================================" | tee -a $log
+    echo $mk | tee -a $log
+    echo "======================================================" | tee -a $log
+
+    cd $mk
+    make clean 2>&1 >> $log
+    make 2>&1 >>  $log 
+    status=$?
+    if test $status -ne 0
+    then 
+      echo "Error Occurred"
+      exit 2
+    fi
+  done
+exit 0
+  
+
+
+
+
+
+
+

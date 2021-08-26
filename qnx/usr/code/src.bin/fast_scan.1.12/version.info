@@ -1,0 +1,27 @@
+# $Log: version.info,v $
+# Revision 1.12  2000/11/29 17:18:02  barnes
+# Fixed buffer overflows with the comment buffer.
+#
+# Revision 1.11  2000/11/20 16:38:51  barnes
+# Fixed numerous bugs.
+#
+# Revision 1.10  2000/11/20 15:34:25  barnes
+# Fixed numerous bugs.
+#
+# Revision 1.9  2000/11/14 22:14:33  barnes
+# Synchronized master version number with that of the source file.
+#
+# Revision 1.4  2000/11/14 21:42:10  barnes
+# Modifications to improve error reporting.
+#
+# Revision 1.3  2000/10/23 21:40:18  barnes
+# Fixed minor bugs.
+#
+# Revision 1.2  2000/10/23 21:34:15  barnes
+# Fixed minor bugs.
+#
+# Revision 1.1  1999/12/17 19:31:32  barnes
+# Initial revision
+#
+fast_scan.c 1.12
+

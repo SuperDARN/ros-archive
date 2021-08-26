@@ -1,0 +1,6 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 03:06:56  barnes
+# Initial revision
+#
+a_d_drive.c 1.2
+dma-addr.c 1.1

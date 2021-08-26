@@ -1,0 +1,11 @@
+# $Log: version.info,v $
+# Revision 1.3  2000/09/23 16:19:51  barnes
+# Changed data feed syntax.
+#
+# Revision 1.2  2000/09/18 18:24:50  barnes
+# Added missing header.
+#
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+data_feed.c 1.15

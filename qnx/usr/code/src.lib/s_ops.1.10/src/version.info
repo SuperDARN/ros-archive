@@ -1,0 +1,50 @@
+# $Log: version.info,v $
+# Revision 1.10  2000/11/20 14:55:39  barnes
+# Fixed bug in setting up the code.
+#
+# Revision 1.9  2000/11/13 20:09:36  barnes
+# Allowed for each channel to use different program numbers.
+#
+# Revision 1.8  2000/10/24 16:36:56  barnes
+# Modification to stop both frequencies hitting the same channel.
+#
+# Revision 1.7  2000/10/13 16:01:52  barnes
+# Fixed return state of calc_skip.
+#
+# Revision 1.6  2000/10/13 15:56:24  barnes
+# Fixed bug in calc_skip.
+#
+# Revision 1.5  2000/09/22 19:06:39  barnes
+# Added startup log function.
+#
+# Revision 1.4  2000/09/18 16:14:57  barnes
+# Removed some debugging code.
+#
+# Revision 1.3  2000/09/18 16:12:22  barnes
+# Modification to update code - add noise filter, fix minor bugs.
+#
+# Revision 1.2  2000/07/07 22:50:29  barnes
+# Removed redundant entry in file.
+#
+# Revision 1.1  2000/03/19 20:37:58  barnes
+# Initial revision
+#
+#
+base_fclr_s.c	1.1
+build_raw_s.c 1.3
+calc_skip.c 1.4
+do_fclr_s.c	1.4
+do_pulse_s.c 1.1
+do_radar_s.c	1.3
+fclr_s.c 1.1
+get_status_s.c 1.1
+global_s.c 1.3
+init_proxy.c 1.1
+radar_s.c 1.2
+read_data_s.c 1.1
+read_uconts.c 1.1
+setup.c 1.3
+shell_s.c 1.2
+test_reopen.c 1.1
+tmseq_s.c 1.1
+wait_boundary.c 1.1

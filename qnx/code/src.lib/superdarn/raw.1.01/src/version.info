@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 22:05:26  barnes
+# Initial revision
+#
+raw_close.c 1.1
+raw_open.c 1.2
+raw_read.c 1.1
+raw_read_current.c 1.1
+raw_seek.c 1.2
+raw_write.c 1.1

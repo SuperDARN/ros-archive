@@ -1,0 +1,25 @@
+# $Log: version.info,v $
+# Revision 1.6  2000/11/20 14:29:44  barnes
+# Fixed bug in setting max atten if missing in file.
+#
+# Revision 1.5  2000/11/02 17:17:34  barnes
+# Added code to get the azimuth and pointing vector.
+#
+# Revision 1.4  2000/11/01 17:29:18  barnes
+# Added maximum attenuation to the file.
+#
+# Revision 1.3  2000/06/18 19:40:55  barnes
+# Added the ability to reset individual beams in a scan.
+#
+# Revision 1.2  2000/04/19 16:17:21  barnes
+# Modifications to the radar scan code and the addition of the
+# operator to the radar identifier tables.
+#
+# Revision 1.1  1999/12/16 22:04:48  barnes
+# Initial revision
+#
+cnvt_coord.c 1.8
+radar_scan.c 1.5
+hardware.c 1.6
+inv_mag.c 1.3
+radar_name.c 1.4

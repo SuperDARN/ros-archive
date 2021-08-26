@@ -1,0 +1,56 @@
+#!/bin/sh
+
+# insthdr src dst pkg log
+# 
+#
+# Installs the headers from a library package into the appropriate 
+# sub-directory. 
+# 
+# The argument pkg is the package directory within the distribution to 
+# install. The argument inc is the name of a sub-directory of the include tree
+# to install the headers in.
+#
+#
+
+src=${1}
+dst=${2}
+pkg=${3}
+log=${4}
+
+
+echo "insthdr" | tee $log
+echo "=======" | tee -a $log
+echo "Installing headers within:"${src}/${pkg} | tee -a $log
+echo "Header directory:"${dst}
+echo "" | tee -a $log
+
+if test ! -d $dst
+  then
+  mkdir $dst
+  chmod a+w $dst
+fi
+
+dirlst=`find ${src}/$pkg -name "include"`
+
+for dir in $dirlst
+  do
+    echo "======================================================" | tee -a $log
+    echo $dir | tee -a $log
+    echo "======================================================" | tee -a $log
+    hdrlst=`ls -1 $dir`
+    echo $hdrlst
+
+    for hdr in $hdrlst
+      do
+         lnk=${hdr##$dir/}
+         echo $dir/$hdr" -> " $dst/$lnk | tee -a $log
+       
+         # overwrite existing link if present         
+
+      
+
+         ln -sf $dir/$hdr $dst/$lnk  
+      done
+      
+  done
+  

@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/10/30 16:44:10  barnes
+# Fixed bug in reporting errors in decoding messages.
+#
+# Revision 1.1  1999/12/17 19:31:10  barnes
+# Initial revision
+#
+errlog.c 2.11
+
+
