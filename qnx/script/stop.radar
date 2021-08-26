@@ -1,0 +1,20 @@
+#!/bin/sh
+
+bin=$HOMEPATH/bin
+slay -f -Q schedule
+
+$bin/taskquit fitacfwrite
+$bin/taskquit rawacfwrite
+$bin/taskquit echo_data
+
+slay -f -Q fitacfwrite
+slay -f -Q rawacfwrite
+slay -f -Q rtserver
+slay -f -Q echoraw
+slay -f -Q echo_data
+slay -f -Q errlog
+slay -f -Q monitor
+slay -f -Q tcpipmsg
+
+
+

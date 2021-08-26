@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<tagdb>
+  <tag>
+    <name>ar</name>
+    <start>&lt;em&gt;</start>
+    <end>&lt;/em&gt;</end>
+  </tag>
+
+ <tag>
+    <name>fn</name>
+    <start>&lt;a &attr;&gt;&lt;code&gt;</start>
+    <end>&lt;/code&gt;&lt;/a&gt;</end>
+  </tag>
+<tag>
+    <name>sn</name>
+    <start>&lt;a &attr;&gt;&lt;code&gt;</start>
+    <end>&lt;/code&gt;&lt;/a&gt;</end>
+ </tag>
+<tag>
+    <name>un</name>
+    <start>&lt;a &attr;&gt;&lt;code&gt;</start>
+    <end>&lt;/code&gt;&lt;/a&gt;</end>
+ </tag>
+
+ <tag>
+    <name>a</name>
+    <start>&lt;a &attr;&gt;</start>
+    <end>&lt;/a&gt;</end>
+  </tag>
+
+ <tag>
+    <name>fd</name>
+    <start>&lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;td  class="docbox" style="font-family: courier;"&gt;</start>
+    <end>&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;</end>
+  </tag>
+
+ <tag>
+    <name>raw</name>
+    <start>&lt;center&gt;&lt;table&gt;&lt;tr&gt;&lt;td  class="docbox" style="font-family: courier;"&gt;&lt;pre&gt;</start>
+    <end>&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/center&gt;</end>
+  </tag>
+
+
+
+</tagdb>
+
+

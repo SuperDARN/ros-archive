@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>data_feed</name>
+<location>src.bin/radarqnx4/main/data_feed</location>
+<syntax>data_feed --help</syntax>
+<syntax>data_feed [<ar>options</ar>] <ar>tasknames...</ar> <ar>filename</ar></syntax>
+<syntax>data_feed -new [<ar>options</ar>] <ar>tasknames...</ar> <ar>filename</ar></syntax>
+<syntax>data_feed -r [<ar>options</ar>] <ar>tasknames...</ar> <ar>filename</ar></syntax>
+<syntax>data_feed -r -new [<ar>options</ar>] <ar>tasknames...</ar> <ar>filename</ar></syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-a</on><od>replace the time in the data file with the actual time.</od>
+</option>
+<option><on>-o <ar>hr:mn</ar></on><od>send the re-open file message every time the interval <ar>hr:mn</ar> elapses.</od>
+</option>
+<option><on>-b <ar>hr:mn</ar></on><od>synchronize the scan time to the interval <ar>hr:mn</ar>.</od>
+</option>
+<option><on>-i <ar>intt</ar></on><od>force the integration period to be <ar>intt</ar> seconds.</od>
+</option>
+<option><on>-s <ar>station</ar></on><od>force the station identifier to be set to that of radar  <ar>station</ar>.</od>
+</option>
+
+
+<option><ar>taskames...</ar></on><od>list of task names to send the data to.</od>
+</option>
+<option><ar>filename</ar></on><od>name of the data file to open.</od>
+</option>
+
+
+<option><on>-new</on><od>data is in the <code>fitacf</code> or <code>rawacf</code> format only.</od>
+</option>
+<option><on>-r</on><od>the data file is a raw ACF file.</od>
+</option>
+<synopsis><p>Feed data to the data processing tasks from a file.</p></synopsis>
+</binary>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>rcsv</name>
+<location>src.bin/core/rcsv</location>
+<syntax>rcsv --help</syntax>
+<syntax>rcsv <ar>files...</ar></syntax>
+<syntax>rcsv -t <ar>version</ar></syntax>
+<syntax>rcsv -v <ar>version</ar></syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on><ar>files...</ar></on><od>list of files to extract version information from.</od>
+</option>
+
+<option><on>-t</on><od>compare the revision numbers in the version file with the appropriate source file.</od>
+</option>
+
+<option><on>-v</on><od>print the master revision number to standard output.</od>
+</option>
+
+
+<option><on><ar>version</ar></on><od>file containing the master revision numbers.</od>
+</option>
+
+
+
+<synopsis>Manage RCS revision numbers.</synopsis>
+
+
+<description><p>Controls software revisions. The program operates in one of three ways.</p>
+<p>If a list of source code files is supplied on the command line, the program will write the name of each file followed by its revision number to standard output.  This is used to generate a version file for a package.</p>
+<p>If the "<code>-t</code>" option is specified the program will test the revision numbers contained in a version file against those contained in the source files. If a discrepancy is found the program terminates with exit status of 1. If the version numbers agree the program has exit status of zero.</p>
+<p>If the "<code>-v</code>" option is specified the program will write the master version number from the version file to standard output.</p>
+</description>
+
+<example>
+<command>rcsv *.c &gt; version.info</command>
+<description>Extract the version numbers from all the C source code files in the current directory and store them in the file "<code>version.info</code>".</description>
+</example>
+
+<example>
+<command>rcsv -t version.info
+echo "Version status:"$?</command>
+<description>Compare the revision numbers stored in the file "<code>version.info</code>" with the revision numbers from the corresponding source code files.</description>
+</example> 
+<example>
+<command>VERSION=`rscv -v version.info`
+echo "Version Number:"$(VERSION)</command>
+<description>set the shell variable <code>VERSION</code> to  the master version number from the file "<code>version.info</code>".</description>
+</example>
+
+
+
+</binary>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+
+  <tree>
+     <delim>/</delim>
+     <path>index/rfc</path>
+  </tree>
+
+<xmldoc>
+  <xml>
+    <element>
+    <name>id</name>  
+    <default type="text">None</default>
+    </element>
+  </xml>
+  <xml>
+    <element>
+    <name>title</name>
+    <default type="text">None</default>
+    </element>
+  </xml>
+</xmldoc>
+
+<map>
+     <entry>
+        <search>ID</search>
+        <replace>id</replace>
+     </entry>
+    <entry>
+        <search>TITLE</search>
+        <replace>title</replace>
+     </entry>
+</map>
+  
+<script>
+&lt;tr&gt;
+&lt;td class="docbox" &gt;&lt;a href="rfc.&lt;!--ID--&gt;.html"&gt;&lt;!--ID--&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;td class="docpanel" &gt;&lt;!--TITLE--&gt;&lt;/td&gt;&lt;/tr&gt;</script>
+ <match>
+   <element>id</element>
+ </match>
+
+</config>
+
+
+
+
+
+
+
+

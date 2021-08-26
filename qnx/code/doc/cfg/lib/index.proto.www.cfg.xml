@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+
+  <tree>
+     <delim>/</delim>
+     <path>library/function</path>
+  </tree>
+
+<xmldoc>
+  <tagdb type="file">tagdb/function.tagdb.xml</tagdb>
+  <root type="env">URLBASE</root>
+  <xml>
+    <element>
+    <name>syntax</name>  
+    <default type="text">None</default>
+    </element>
+  </xml>
+</xmldoc>
+
+<map>
+     <entry>
+        <search>SYNTAX</search>
+        <replace>syntax</replace>
+     </entry>
+</map>
+
+<external type="file">tmp/libname.xml</external>
+
+<script type="file">sc/lib/index.proto.www.sc</script>
+
+<match>
+  <element>name</element>
+</match>
+
+</config>
+
+
+
+
+
+
+
+

@@ -1,0 +1,48 @@
+# $Log: version.info,v $
+# Revision 1.15  2007/03/26 17:03:01  code
+# Fixed sign of char types.
+#
+# Revision 1.14  2006/09/15 18:48:59  code
+# Fixed signs of certain variables.
+#
+# Revision 1.13  2006/01/10 15:06:17  barnes
+# Fixed bug in dealing with corrupt records.
+#
+# Revision 1.12  2005/10/24 18:01:13  barnes
+# Removed debug code.
+#
+# Revision 1.11  2005/10/24 18:00:21  barnes
+# Fixed bug in not trapping end of file.
+#
+# Revision 1.10  2004/10/20 14:44:41  barnes
+# Fixed bug in not buffering reads and writes.
+#
+# Revision 1.9  2004/10/08 14:10:50  barnes
+# Added extra functions that report the number of bytes read from the file.
+#
+# Revision 1.8  2004/07/28 16:37:12  barnes
+# Fixed bug in updating offset pointer when decoding string arrays.
+#
+# Revision 1.7  2004/06/22 17:22:13  barnes
+# Changed references to Long to Int.
+#
+# Revision 1.6  2004/06/16 16:33:28  barnes
+# Added missing header.
+#
+# Revision 1.5  2004/05/19 14:02:36  barnes
+# Fixed bug in encoding double scalars.
+#
+# Revision 1.4  2004/05/16 21:41:25  barnes
+# Optimization and block header.
+#
+# Revision 1.3  2004/05/04 17:14:39  barnes
+# Renamed the type header to avoid confusion.
+#
+# Revision 1.2  2004/04/26 20:40:39  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.1  2004/04/26 18:12:21  barnes
+# Initial revision
+#
+#
+dmap.c 1.15

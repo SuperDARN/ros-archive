@@ -1,0 +1,153 @@
+#!/bin/sh
+
+# make.doc.rfc
+# ============
+# Author: R.J.Barnes
+#
+# Purpose: Constructs web pages from XML RFC sources
+#
+# Syntax:  make.doc.rfc [-w]
+#
+# Description:
+#
+# Generates the RFC documents from the XML source directory.
+# If the "-w" option is specified then
+# the web page version is generated, if not a local version is created.
+#
+
+# wwwpath is the target path for the HTML
+# urlbase is the base URL for the documents
+# pgsfx is the page suffix to apply
+
+#
+# $Log: make.doc.rfc,v $
+# Revision 1.2  2007/03/05 22:37:16  code
+# Added author.
+#
+# Revision 1.1  2007/03/05 22:21:30  code
+# Initial revision
+#
+#
+
+
+wwwpath=${DOCPATH}/html
+urlbase=file://${DOCPATH}/html
+pgsfx="local"
+
+for arg in ${*}
+  do
+    if test "${arg}"="-w"
+    then
+       wwwpath=${WWWPATH}
+       urlbase=${URLBASE}
+       pgsfx="www"
+    fi
+  done
+
+
+
+#
+# tmp is the working directory
+#
+
+tmp=${CODEBASE}/doc/tmp
+
+
+#
+# The document build scripts and configuration files are in build
+#
+
+build="${CODEBASE}/doc"
+
+
+# This defines the suffix to pass to the page generator
+ 
+#
+# idxxml is the index file 
+#
+
+idxxml=${tmp}/idx.xml
+nmexml=${tmp}/name.xml
+
+# These configuration files generate the HTML pages.
+#
+#  pircfg - index page for a RFC documents
+
+pircfg="${build}/cfg/rfc/index.rfc.${pgsfx}.cfg.xml"
+
+
+# These configuration files are used to get information from the
+# XML for use later on.
+#
+#  idxcfg - builds the RFC index.
+
+idxcfg="${build}/cfg/rfc/rfc.list.cfg.xml"
+
+echo "make.doc.rfc"
+echo "============"
+
+echo "URL base:" ${urlbase}
+echo "www path:"${wwwpath}
+echo "page  suffix:"${pgsfx}
+
+#
+# Make the root directory
+# 
+
+mkdir -p ${wwwpath}/rfc
+
+
+#
+# First test the RFC XML directory for entries
+#
+
+
+echo '<?xml version="1.0" encoding="ISO-8859-1"?>' > ${idxxml}
+echo "<index>" >> ${idxxml}
+
+flist=`ls ${CODEBASE}/rfc/*.xml`
+for fname in $flist
+  do
+     ${build}/script/make.doc.html.rfc ${build} ${fname} \
+                                       ${urlbase} ${wwwpath} ${pgsfx}
+     $BINPATH/xmldoc . ${idxcfg} ${fname} >> ${idxxml}
+  done
+
+echo "</index>" >> ${idxxml}
+
+
+#
+# Build the link back to the document homepage
+#
+
+home=${urlbase}/index.html  
+
+echo "<table>" > ${nmexml}
+echo "<entry>" >> ${nmexml} 
+echo "<search>HOME</search>" >> ${nmexml}
+echo "<replace>&lt;a href="${home}"&gt;Home&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>"${urlbase}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "</table>" >> ${nmexml}
+
+
+#
+# Having built the index file, we can now build the web page for the index
+#
+
+$BINPATH/scdoc ${nmexml} ${build}/sc/rfc/index.rfc.top.${pgsfx}.sc \
+                > ${wwwpath}/rfc/index.html
+$BINPATH/xmldoc . ${pircfg} ${idxxml} >> ${wwwpath}/rfc/index.html
+cat ${build}/sc/rfc/index.rfc.tail.${pgsfx}.sc >> ${wwwpath}/rfc/index.html
+chmod a+x ${wwwpath}/rfc/index.html
+
+rm -f ${idxxml}
+rm -f ${nmexml}
+
+

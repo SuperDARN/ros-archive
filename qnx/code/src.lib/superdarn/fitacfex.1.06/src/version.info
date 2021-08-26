@@ -1,0 +1,22 @@
+# $Log: version.info,v $
+# Revision 1.6  2007/05/22 20:46:24  code
+#  Fixed bug in determining the mean and calculating ground scatter.
+#
+# Revision 1.5  2007/04/17 17:25:55  code
+# Added Ray's changes.
+#
+# Revision 1.4  2007/03/09 13:53:37  code
+# Fixed velocity error name.
+#
+# Revision 1.3  2007/03/09 13:52:40  code
+# Added  error estimate for velocity.
+#
+# Revision 1.2  2007/02/21 22:26:59  code
+# Modification to allow fitting even with a negative slope.
+#
+# Revision 1.1  2007/02/20 16:26:10  code
+# Initial revision
+#
+#
+
+fitacfex.c 1.06

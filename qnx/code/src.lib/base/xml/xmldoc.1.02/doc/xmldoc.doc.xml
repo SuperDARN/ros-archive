@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>rxmldoc</name>
+<location>src.lib/base/xml/xmldoc</location>
+
+<function>
+<name>getDBstring</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>xmldoc.h</header>
+<syntax>char *getDBstring(<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBbuffer.html">struct XMLDBbuffer</sn> *ptr);</syntax>
+</function>
+<function>
+<name>XMLdocBuild</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocBuild(<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBtable.html">struct XMLDBtable</sn> *ptr,<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBtable.html">struct XMLDBtable</sn> *tree,void *data);</syntax>
+</function>
+<function>
+<name>XMLdocFileTrap</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocFileTrap(char *buf,int sze,void *data);</syntax>
+</function>
+<function>
+<name>XMLdocFree</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>void XMLdocFree(<sn href="structXMLdocdata.html">XMLdocdata</sn> *ptr);</syntax>
+</function>
+<function>
+<name>XMLdocFreeElement</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>void XMLdocFreeElement(<sn href="structXMLdocelement.html">struct XMLdocelement</sn> *ptr);</syntax>
+</function>
+<function>
+<name>XMLdocFreeMod</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>void XMLdocFreeMod(<sn href="structXMLdocmod.html">struct XMLdocmod</sn> *ptr);</syntax>
+</function>
+<function>
+<name>XMLdocGetConfigSection</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocGetConfigSection(<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBbuffer.html">struct XMLDBbuffer</sn> *ptr,char *root,char *path, int (*text)(<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBtable.html">struct XMLDBtable</sn> *,<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBtable.html">struct XMLDBtable</sn> *,void *), void *data);</syntax>
+</function>
+<function>
+<name>XMLdocIncludeText</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocIncludeText(<sn href="structXMLdocdata.html">XMLdocdata</sn> *xmldoc,char *buf,int sze);</syntax>
+</function>
+<function>
+<name>XMLdocMake</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax><sn href="structXMLdocdata.html">XMLdocdata</sn> *XMLdocMake();</syntax>
+</function>
+<function>
+<name>XMLdocRender</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocRender(<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBtable.html">struct XMLDBtable</sn> *ptr,<sn href="structXMLdocdata.html">XMLdocdata</sn> *xmldoc,int index);</syntax>
+</function>
+<function>
+<name>XMLdocRenderElement</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocRenderElement(<sn href="&root;/src.lib/base/xml/tagdb/structTagDBdata.html">struct TagDBdata</sn> *tag,<sn href="&root;/src.lib/base/xml/tagdb/structTagDBtable.html">struct TagDBtable</sn> *tagdb, <sn href="structXMLdocelement.html">struct XMLdocelement</sn> *x,<sn href="&root;/src.lib/base/xml/xmldb/structXMLDBelement.html">struct XMLDBelement</sn> *e);</syntax>
+</function>
+<function>
+<name>XMLdocRenderFile</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocRenderFile(<sn href="structXMLdocfile.html">struct XMLdocfile</sn> *ptr);</syntax>
+</function>
+<function>
+<name>XMLdocSetText</name>
+<location>src.lib/base/xml/xmldoc</location>
+<header>base/rxmldoc.h</header>
+<syntax>int XMLdocSetText(<sn href="structXMLdocdata.html">XMLdocdata</sn> *ptr, int (*text)(char *,int, void *),void *data);</syntax>
+</function>
+
+<structure>
+ <name>XMLdocdata</name>
+ <location>src.lib/base/xml/xmldoc</location>
+ <header>base/rxmldoc.h</header>
+ <struct>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/tagdb/structTagDBtable.html">struct TagDBtable</sn> *tagdb;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/tagdb/structTagDBdata.html">struct TagDBdata</sn> *tag;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/xmldb/structEntitydata.html">struct Entitydata</sn> *ent;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/xmldb/structXMLDBbuffer.html">struct XMLDBbuffer</sn> *root;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="structXMLdoctable.html">struct XMLdoctable</sn> xml;</code>
+     <description>None.</description>
+   </member>
+
+  </struct>
+</structure>
+
+
+<structure>
+ <name>XMLdocelement</name>
+ <location>src.lib/base/xml/xmldoc</location>
+ <header>base/rxmldoc.h</header>
+ <struct>
+   <member>
+     <code>char *name;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code>char *path;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/tagdb/structTagDBtable.html">struct TagDBtable</sn> *tagdb;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <struct>
+       <member>
+          <code>int action;</code>
+          <description>None.</description>
+       </member>
+       <member>
+          <code>int defval;</code>
+          <description>None.</description>
+       </member>
+       <member>
+          <code>int xml;</code>
+          <description>None.</description>
+       </member>
+      </struct>
+      <code>type;</code>
+      <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/xmldb/structXMLDBbuffer.html">struct XMLDdbuffer</sn> *action;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="struct&root;/src.lib/base/xml/xmldb/structXMLDBbuffer.html">struct XMLDdbuffer</sn> *defval;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="structXMLdocmodtable.html">struct XMLdocmodtable</sn> mod;</code>
+     <description>None.</description>
+   </member>
+
+  </struct>
+</structure>
+
+<structure>
+ <name>XMLdocfile</name>
+ <location>src.lib/base/xml/xmldoc</location>
+ <header>base/rxmldoc.h</header>
+ <struct>
+   <member>
+     <code>char *path;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code>char *fname;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code>int type;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code>int (*text)(char *buf,int sze,void *data);</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code>void *data;</code>
+     <description>None.</description>
+   </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>XMLdocmod</name>
+ <location>src.lib/base/xml/xmldoc</location>
+ <header>base/rxmldoc.h</header>
+ <struct>
+   <member>
+     <code>char *name;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code>char *path;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/tagdb/structTagDBtable.html">struct TagDBtable</sn> *tagdb;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <struct>
+       <member>
+          <code>int action;</code>
+          <description>None.</description>
+       </member>
+       <member>
+          <code>int xml;</code>
+          <description>None.</description>
+       </member>
+      </struct>
+      <code>type;</code>
+      <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="&root;/src.lib/base/xml/xmldb/structXMLDBbuffer.html">struct XMLDdbuffer</sn> *action;</code>
+     <description>None.</description>
+   </member>
+  </struct>
+</structure>
+
+<structure>
+ <name>XMLdocmodtable</name>
+ <location>src.lib/base/xml/xmldoc</location>
+ <header>base/rxmldoc.h</header>
+ <struct>
+   <member>
+     <code>int num;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="structXMLdocmod.html">struct XMLdocmod</sn> **ptr;</code>
+     <description>None.</description>
+   </member>
+ </struct>
+</structure>
+
+
+<structure>
+ <name>XMLdoctable</name>
+ <location>src.lib/base/xml/xmldoc</location>
+ <header>base/rxmldoc.h</header>
+ <struct>
+   <member>
+     <code>int num;</code>
+     <description>None.</description>
+   </member>
+   <member>
+     <code><sn href="structXMLdocelement.html">struct XMLdocelement</sn> **ptr;</code>
+     <description>None.</description>
+   </member>
+ </struct>
+</structure>
+
+
+
+
+
+</library>

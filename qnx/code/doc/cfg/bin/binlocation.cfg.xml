@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+
+  <tree>
+     <delim>/</delim>
+     <path>binary</path>
+  </tree>
+
+<xmldoc>
+  <xml>
+    <element>
+    <name>location</name>  
+    <default type="text">None</default>
+    </element>
+  </xml>
+</xmldoc>
+
+<map>
+     <entry>
+        <search>LOCATION</search>
+        <replace>location</replace>
+     </entry>
+</map>
+
+    
+  <script>&lt;!--LOCATION--&gt;
+</script>
+
+  <match>
+     <element>location</element>
+  </match>
+
+</config>
+
+
+
+
+
+
+
+

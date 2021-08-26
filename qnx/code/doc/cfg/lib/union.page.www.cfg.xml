@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<config>
+  <tree>
+     <delim>/</delim>
+     <path>library/union</path>
+  </tree>
+
+  <xmldoc>
+    <tagdb type="file">tagdb/union.tagdb.xml</tagdb>
+    <root type="env">URLBASE</root>
+    <xml>
+      <element>
+      <name>name</name>  
+      <default type="text">None</default>
+      </element>
+
+      <element>
+      <name>union</name>  
+      <default type="text">None</default>
+      </element>
+
+      <element>
+      <name>header</name>  
+      <default type="text">None</default>
+      </element>
+
+
+      <element>
+      <name>description</name>  
+      <default type="text">None</default>
+      </element>
+    </xml>
+  </xmldoc>
+
+  <map>
+     <entry>
+        <search>NAME</search>
+        <replace>name</replace>
+     </entry>
+
+     <entry>
+        <search>UNION</search>
+        <replace>union</replace>
+     </entry>
+
+     <entry>
+        <search>HEADER</search>
+        <replace>header</replace>
+     </entry>
+
+
+     <entry>
+        <search>DESCRIPTION</search>
+        <replace>description</replace>
+     </entry>
+  </map>
+
+  <external type="file">tmp/libname.xml</external>
+  
+  <script type="file">sc/lib/union.page.www.sc</script>
+
+  <match>
+     <element>name</element>
+  </match>
+
+</config>
+
+
+
+

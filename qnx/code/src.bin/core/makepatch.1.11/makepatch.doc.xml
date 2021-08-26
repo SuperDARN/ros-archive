@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>makepatch</name>
+<location>src.bin/core/makepatch</location>
+<syntax>makepatch --help</syntax>
+<syntax>makepatch [-vb] [-p <ar>post</ar>] <ar>src</ar> <ar>dst</ar> <ar>cmp</ar> <ar>lst...</ar></syntax>
+<syntax>makepatch [-vb] [-p <ar>post</ar>] <ar>src</ar> <ar>dst</ar> <ar>cmp</ar> stdin</syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-vb</on><od>verbose. Log status to standard error in addition to standard out.</od>
+</option>
+<option><on>-p <ar>post</ar></on><od>post process the source code with the command given by <ar>post</ar>.</od>
+</option>
+<option><on><ar>src</ar></on><od>source directory in which to search.</od>
+</option>
+<option><on><ar>dst</ar></on><od>destination directory in which to create distribution.</od>
+</option>
+<option><on><ar>cmp</ar></on><od>comparison directory containing the existing distribution.</od>
+</option>
+<option><on><ar>lst...</ar></on><od>list of subdirectories to create links for.</od>
+</option>
+<option><on>stdin</on><od>read subdirectory list from standard input.</od>
+</option>
+
+<synopsis>Build a patch distribution tree from a source code archive.</synopsis>
+
+
+<description><p>Builds a software patch distribution directory from a master software archive.</p> 
+<p>A master software archive contains source code and scripts maintained using revision control. Each software component has its own sub-directory that contains the code. In the special case of library source code, this directory has a further two sub-directories, one called "<code>src</code>" which contains the actual source code, and the other called "<code>include</code>" which contains the headers files. Usually, a component will have a master version number contained in the file "<code>version.info</code>".</p>
+<p>The program searches the source directory looking for the sub-directories that were specified for distribution and compares them with the directory structure specified on the command line. If any differeneces are found then a copy of the differing directory structure is created in the destination directory. If a source code directory maintained using RCS is discovered, the most recent version of the code is checked out into the destination directory. The master version number of the code is also appended to the directory name in the distribution tree.</p>
+<p>The contents of all other directories are copied directly to the distribution.</p>
+<p>If the post-processing option, "<code>-p</code>", is specified, each file is piped to a post-processing command which should read the file from standard input and write the modified file to standard output.</p>
+<p>All operations are logged to standard output so that they can be recorded in a log file.</p>
+</description>
+<example>
+<command>makepatch code dst old src.lib/general &gt; log.dst</command>
+<description>Search the directory "<code>code</code>" looking for the sub-directory tree "<code>src.lib/general</code>". Compare the contents of this sub-directory with that of "<code>old</code>" and copy and differences to the destination directory "<code>dst</code>" and record a log of operations in the file "<code>log.dst</code>".</description>
+</example>
+
+
+<example>
+<command>makepatch -p "addlic" code dst old src.lib/general &gt; log.dst</command>
+<description>Search the directory "<code>code</code>" looking for the sub-directory tree "<code>src.lib/general</code>". Compare the contents of this sub-directory with that of "<code>old</code>" and copy and differences to the destination directory "<code>dst</code>" and record a log of operations in the file "<code>log.dst</code>".Each file is postprocessed by the command "<code>addlic</code>".</description>
+</example>
+
+</binary>

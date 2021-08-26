@@ -1,0 +1,378 @@
+#!/bin/sh
+
+# make.doc.lib
+# ============
+# Author R.J.Barnes
+#
+# Purpose: Constructs web pages from XML documentation
+#
+# Syntax:  make.doc.lib [-w]
+#
+# Description:
+#
+# Walks the directory tree looking for documentation files and generates the
+# appropriate web pages. If the "-w" option is specified then
+# the web page version is generated, if not a local version is created.
+#
+
+# wwwpath is the target path for the HTML
+# urlbase is the base URL for the documents
+# pgsfx is the page suffix to apply
+
+#
+# $Log: make.doc.lib,v $
+# Revision 1.3  2007/04/18 18:31:15  code
+# Added test for ppmtogif
+#
+# Revision 1.2  2007/04/05 20:05:25  code
+# Fixed some problems under QNX4
+#
+# Revision 1.1  2007/03/05 22:21:30  code
+# Initial revision
+#
+#
+
+wwwpath=${DOCPATH}/html
+urlbase=file://${DOCPATH}/html
+pgsfx="local"
+ppmtogif=""
+
+if test -f "/usr/bin/ppmtogif"
+then 
+  ppmtogif="/usr/bin/ppmtogif"
+fi
+
+for arg in ${*}
+  do
+    if test "${arg}"="-w"
+    then
+       wwwpath=${WWWPATH}
+       urlbase=${URLBASE}
+       pgsfx="www"
+    fi
+  done
+
+
+
+#
+# tmp is the working directory
+#
+
+tmp=${CODEBASE}/doc/tmp
+
+#
+# The document build scripts and configuration files are in build
+#
+
+build="${CODEBASE}/doc"
+
+# These configuration files are used to get information from the
+# XML for use later on.
+#
+#  flcfg  - extracts a list of function names
+#  slcfg  - extracts a list of structures
+
+flcfg="${build}/cfg/lib/function.list.cfg.xml"
+slcfg="${build}/cfg/lib/struct.list.cfg.xml"
+
+# These configuration files generate the HTML pages.
+#
+#  iscfg - section headers
+#  ircfg - root index 
+
+iscfg="${build}/cfg/section.${pgsfx}.cfg.xml"
+ircfg="${build}/cfg/root.${pgsfx}.cfg.xml"
+
+#
+# inxxml - a temporary XML file containing the list of sections at a given
+#          directory level. (Equivalent to the list of sub-directories).
+# nmexml - a temporary XML file containing the section name and the
+#          HTML that links the directory structure together.
+#
+
+secxml=${tmp}/section.xml
+nmexml=${tmp}/name.xml
+
+inxtxt=${tmp}/inx.txt
+inxxml=${tmp}/inx
+letxml=${tmp}/let.xml
+
+#
+# define the alphabet for the index
+#
+
+alphabet="A B C D E F G H I J K L M N O P Q R S T U V W X Y Z"
+
+
+echo "make.doc.lib"
+echo "============"
+
+echo "URL base:" ${urlbase}
+echo "www path:"${wwwpath}
+echo "page  suffix:"${pgsfx}
+
+#
+# make the parent directory
+#
+
+mkdir -p ${wwwpath}
+
+
+#
+# First walk the source code directory looking for documentation.
+# Generate the HTML from the source code directory.
+#
+
+doclist=`find ${CODEBASE}/src.lib -name "doc" | sort`
+for doc in $doclist
+  do
+
+    if test -d ${doc}/RCS 
+    then
+      flist=`find ${doc}/RCS -name "*.xml,v"`
+      rcsflg=1
+    else
+      flist=`find ${doc} -name "*.xml"`
+      rcsflg=0
+    fi
+    cd ${doc}
+    for fname in $flist
+     do
+
+       if test ${rcsflg} -eq 1
+       then 
+         co -p ${fname} > ${tmp}/lib.doc.xml   
+         fleaf=${fname##*/}
+         xmlname=${fleaf%%,v} 
+         ${build}/script/make.doc.html.lib ${build} ${xmlname} \
+                    ${tmp}/lib.doc.xml \
+                    ${urlbase} ${wwwpath} ${pgsfx} ${ppmtogif}
+         rm -f ${tmp}/lib.doc.xml
+      else
+         cp ${fname} ${tmp}/lib.doc.xml   
+         xmlname=${fname##*/}
+         ${build}/script/make.doc.html.lib ${build} ${xmlname} \
+                    ${tmp}/lib.doc.xml \
+                    ${urlbase} ${wwwpath} ${pgsfx} ${ppmtogif}
+         rm -f ${tmp}/lib.doc.xml
+      fi
+     
+     done
+  done
+
+#
+# Now build the HTML for the directory tree
+#
+
+dirlist=`maketree ${wwwpath}/src.lib "*.xml"`
+for dir in $dirlist
+  do
+
+#
+# If the directory contains the an xml file we can ignore it - 
+# it is a library index
+#
+ 
+    if test -f ${dir}/*.xml
+     then
+       continue 1
+     fi
+
+#
+# Build the list of sub-directories in this directory - sections for 
+# this level of the documentation.
+#
+
+    echo '<?xml version="1.0" encoding="ISO-8859-1"?>' > ${secxml}
+    echo "<index>" >> ${secxml}
+    dlist=`ls -1 $dir`
+    for dname in $dlist
+      do
+        if test -d ${dir}/${dname}
+        then 
+          echo "<section><name>"${dname}"</name></section>" >> ${secxml}
+        fi
+    done
+    echo "</index>" >> ${secxml}
+
+   
+#
+# Cut up the directory path into sections so that we can build a navigation
+# link.
+#
+
+ 
+   ltree=${dir}/
+   ltree=${ltree#$wwwpath/}
+   path=""
+   str=""
+   while test -n "${ltree}"
+   do
+      dtmp=${ltree%%/*}
+      path=${path}"/"${dtmp}
+      str=${str}"&lt;a href="${urlbase}${path}"/index.html&gt;"
+      str=${str}${dtmp}"&lt;/a&gt;/"
+      ltree=${ltree#*/}
+   done
+    
+   home=${urlbase}/index.html  
+   root="&lt;a href="${urlbase}/src.lib/root.html"&gt;Index&lt;/a&gt;"
+   section=${dir}/
+   section=${section#$wwwpath/} 
+   section=${section%/}
+   section=${section##*/}
+   if test ! -n "${section}"
+   then
+     section="code"
+   fi
+
+   echo "<table>" > ${nmexml}
+   echo "<entry>" >> ${nmexml}
+   echo "<search>SECTION</search>" >> ${nmexml}
+   echo "<replace>"${section}"</replace>" >> ${nmexml}
+   echo "</entry>" >> ${nmexml}
+
+
+   echo "<entry>" >> ${nmexml} 
+   echo "<search>HOME</search>" >> ${nmexml}
+   echo "<replace>&lt;a href="${home}"&gt;Home&lt;/a&gt;</replace>" \
+     >> ${nmexml}
+   echo "</entry>" >> ${nmexml}
+
+   echo "<entry>" >> ${nmexml}
+   echo "<search>PATH</search>" >> ${nmexml}
+   echo "<replace>"${str}"</replace>" >> ${nmexml}
+   echo "</entry>" >> ${nmexml}
+
+   echo "<entry>" >> ${nmexml}
+   echo "<search>ROOT</search>" >> ${nmexml}
+   echo "<replace>"${root}"</replace>" >> ${nmexml}
+   echo "</entry>" >> ${nmexml}
+
+   echo "<entry>" >> ${nmexml}
+   echo "<search>URLBASE</search>" >> ${nmexml}
+   echo "<replace>"${urlbase}"</replace>" >> ${nmexml}
+   echo "</entry>" >> ${nmexml}
+
+   echo "</table>" >> ${nmexml}
+
+   $BINPATH/scdoc ${nmexml} ${build}/sc/section.top.${pgsfx}.sc \
+                > ${dir}/index.html
+ 
+   $BINPATH/xmldoc ${build} ${iscfg} ${secxml} \
+                >> ${dir}/index.html
+
+   $BINPATH/scdoc ${nmexml} ${build}/sc/section.tail.${pgsfx}.sc \
+                >> ${dir}/index.html
+
+    chmod a+x ${dir}/index.html   
+  done
+
+
+
+#
+# Now build the master index
+#
+
+echo "Building index:"
+
+doctable=`find ${wwwpath}/src.lib -name "*.xml"`
+rm -f ${inxtxt}
+for doc in ${doctable}
+  do
+    flist=`$BINPATH/xmldoc . ${flcfg} ${doc}`
+    slist=`$BINPATH/xmldoc . ${slcfg} ${doc}`
+    droot=${doc#$wwwpath/}
+    droot=${urlbase}/${droot%/*.xml}
+    for fn in $flist
+      do
+        echo '"'${fn}'" '${droot}'/'${fn}'.html' >> ${inxtxt}
+      done
+    for sn in $slist
+      do
+        echo '"struct '${sn}'" '${droot}'/'struct${sn}'.html' >> ${inxtxt}
+      done
+  done
+  
+
+
+
+
+#
+# Create XML index files from the master index and chop
+# them up into letter sections
+# 
+
+for let in $alphabet
+  do
+    echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>" \
+         > ${inxxml}.${let}.xml
+    echo "<index>" >> ${inxxml}.${let}.xml 
+  done
+
+sort -f ${inxtxt} | while read line
+  do
+    html=${line##\"*\" }
+    tmp=${line%\" $html}
+    name=${tmp#\"} 
+    let=`echo ${name} | cut -c 1 | tr [:lower:] [:upper:]`
+    echo "<entry>" >> ${inxxml}.${let}.xml 
+    echo "<name>"${name}"</name>" >> ${inxxml}.${let}.xml 
+    echo "<location>"${html}"</location>" >> ${inxxml}.${let}.xml 
+    echo "</entry>" >> ${inxxml}.${let}.xml 
+  done
+
+for let in $alphabet
+  do
+    echo "</index>" >> ${inxxml}.${let}.xml 
+  done
+
+#
+# Approximate where the column split should occur
+#
+
+
+mid=`cat ${inxxml}.?.xml | wc -l`
+
+let mid=mid/2
+let cnt=0
+let flg=0
+
+
+
+$BINPATH/scdoc ${nmexml} ${build}/sc/root.top.${pgsfx}.sc \
+                > ${wwwpath}/src.lib/root.html
+
+let c=1
+for let in $alphabet
+  do
+    echo ${let}
+    echo "<table>" > ${letxml}
+    echo "<entry>" >> ${letxml}
+    echo "<search>LETTER</search>" >> ${letxml}
+    echo "<replace>"${let}"</replace>" >> ${letxml}
+    echo "</entry>" >> ${letxml}
+    $BINPATH/scdoc ${letxml} ${build}/sc/root.letter.${pgsfx}.sc \
+                >> ${wwwpath}/src.lib/root.html
+    $BINPATH/xmldoc ${build} ${ircfg} ${inxxml}.${let}.xml \
+                >> ${wwwpath}/src.lib/root.html 
+
+    tmp=`cat ${inxxml}.${let}.xml | wc -l`
+    let cnt=cnt+tmp
+    if test ${cnt} -gt ${mid} -a ${flg} -eq 0
+    then
+      echo "</td><td valign=top>" >> ${wwwpath}/src.lib/root.html
+      let flg=1
+    fi
+  done
+   
+cat ${build}/sc/root.tail.${pgsfx}.sc >> ${wwwpath}/src.lib/root.html
+chmod a+x ${wwwpath}/src.lib/root.html
+
+rm -f ${secxml}
+rm -f ${nmexml}
+
+rm -f ${inxtxt}
+rm -f ${inxxml}.xml
+rm -f ${inxxml}.?.xml
+rm -f ${letxml}

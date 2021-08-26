@@ -1,0 +1,109 @@
+#!/bin/sh
+
+
+# make.doc
+# ========
+# Author: R.J.Barnes
+#
+# Purpose: Constructs web pages from XML documentation
+#
+# Syntax:  make.doc [-w] 
+#
+# Description:
+#
+# Walks the directory tree looking for documentation files and generates the
+# appropriate web pages. If the "-w" option is specified then
+# the web page version is generated, if not a local version is created.
+#
+#
+
+#
+# $Log: make.doc,v $
+# Revision 1.1  2007/03/06 01:14:53  code
+# Initial revision
+#
+#
+
+
+wwwpath=${DOCPATH}/html
+urlbase=file://${DOCPATH}/html
+pgsfx="local"
+opt=""
+
+for arg in ${*}
+  do
+    if test "${arg}"="-w"
+    then
+       wwwpath=${WWWPATH}
+       urlbase=${URLBASE}
+       pgsfx="www"
+       opt="-w"
+    fi
+  done
+
+
+#
+# tmp is the working directory
+#
+
+tmp=${CODEBASE}/doc/tmp
+
+#
+# The document build scripts and configuration files are in build
+#
+
+build="${CODEBASE}/doc"
+
+# nmexml - a temporary XML file containing the base URL
+#
+
+nmexml=${tmp}/name.xml
+
+# 
+# Build the directory to contain the documentation
+#
+
+mkdir -p ${wwwpath}
+mkdir -p ${wwwpath}/logo
+mkdir -p ${wwwpath}/css
+
+#
+# Generate the search and replace for the base URL
+#
+
+echo "<table>" > ${nmexml}
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>"${urlbase}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+echo "</table>" >> ${nmexml}
+
+
+
+#
+# Copy the logo, CSS and root index page.
+#
+
+cp ${build}/logo/logo.gif ${wwwpath}/logo/logo.gif
+cp ${build}/css/doc.css ${wwwpath}/css/doc.css
+
+$BINPATH/scdoc ${nmexml} ${build}/sc/index.${pgsfx}.sc \
+                > ${wwwpath}/index.html
+
+
+rm -f ${nmexml}
+
+# 
+# Make the documentation 
+#
+
+${build}/script/make.doc.lib ${opt}
+${build}/script/make.doc.bin ${opt}
+${build}/script/make.doc.rfc ${opt}
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+# $Log: version.info,v $
+# Revision 1.2  2004/04/26 20:28:08  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.1  2003/03/01 17:43:43  barnes
+# Initial revision
+#
+#
+buffer.c 1.01
+element.c 1.02
+entity.c 1.02
+rxmldb.c 1.02
+table.c 1.02
+tree.c 1.01

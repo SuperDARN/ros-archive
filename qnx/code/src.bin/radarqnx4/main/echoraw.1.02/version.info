@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.2  2006/08/17 15:33:48  code
+# Sanity check.
+#
+# Revision 1.1  2006/04/11 14:26:52  barnes
+# Initial revision
+#
+# 
+echoraw.c 1.02

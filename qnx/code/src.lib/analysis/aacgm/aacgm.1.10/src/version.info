@@ -1,0 +1,42 @@
+# $Log: version.info,v $
+# Revision 1.10  2006/09/18 21:23:10  code
+# Fixed bug in setting fraction of day in solar location.
+#
+# Revision 1.9  2004/08/09 20:21:02  barnes
+# Added function to load co-efficients from an open file.
+#
+# Revision 1.8  2004/05/04 22:40:47  barnes
+# Changed the header name.
+#
+# Revision 1.7  2004/04/26 21:19:15  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.6  2003/08/07 13:51:48  barnes
+# Fixed function call.
+#
+# Revision 1.5  2003/08/05 20:18:36  barnes
+# Changed function calls.
+#
+# Revision 1.4  2001/06/27 20:25:53  barnes
+# Added licensing code.
+#
+# Revision 1.3  2001/04/09 14:29:44  barnes
+# Switched to year 2000 coefficients
+#
+# Revision 1.2  2001/01/29 18:41:16  barnes
+# Added Author Name
+#
+# Revision 1.1  1999/12/16 22:21:51  barnes
+# Initial revision
+#
+aacgm.c 1.12
+altitude_to_cgm.c 1.03
+cgm_to_altitude.c 1.03
+coeff.c 1.04
+convert_geo_coord.c 1.06
+eqn_of_time.c 1.04
+math.c 1.05
+mlt.c 1.04
+mlt1.c 1.06
+rylm.c 1.07
+solar_loc.c 1.06

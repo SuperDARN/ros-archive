@@ -1,0 +1,65 @@
+body { font-family: Arial, Helvetica, Sans-Serif; 
+       color:#404040;
+       background-color:#306090;
+}
+
+
+table {
+    font-family: Arial, Helvetica, Sans-Serif; 
+}
+
+
+
+TD.title {
+          font-size:16pt;
+          font-weight:bold;
+          text-align:right;
+          color:white;
+          padding:4;
+         }
+
+TD.link {text-align:right;
+         font-family:Helvetica,Arial;
+         font-size:10pt;
+         color:#ffffff;
+}
+
+
+
+
+TD.body {text-align:left;
+         background-color:#ffffff;
+         spacing:0;
+         padding:0;}
+
+TD.docsubtitle {
+
+            font-family:Helvetica,Arial;
+            font-size:12pt;
+            font-weight:bold;
+            text-align:left;
+           }
+
+TD.docbody {text-align:left;
+            background-color:#ffffff;
+            padding:4;}
+
+TD.docbox {
+         text-align:left;
+         background-color:#e0e0e0;
+         border:solid;
+         border-width:1;
+         border-color:#a0a0a0;
+         spacing:0;
+         padding:4;
+       }
+
+TD.docpanel {
+         text-align:left;
+         background-color:#f0f0f0;
+         border:solid;
+         border-width:1;
+         border-color:#a0a0a0;
+         spacing:0;
+         padding:4;
+       }

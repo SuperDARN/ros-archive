@@ -1,0 +1,38 @@
+# $Log: version.info,v $
+# Revision 1.11  2007/05/24 13:55:39  code
+# Fixed implementation of gort.
+#
+# Revision 1.10  2007/05/24 13:38:52  code
+# Added a fix to deal with gating versus triggering using the scope sync.
+# The GC214 is gated, the GC214TS is triggered.
+#
+# Revision 1.9  2007/05/23 21:25:48  code
+# Corrected the scope sync.
+#
+# Revision 1.8  2007/05/18 18:38:34  code
+# Added scope sync.
+#
+# Revision 1.7  2006/11/07 22:36:29  code
+# Added code to delay the start of the sequence.
+#
+# Revision 1.6  2006/01/18 18:23:15  barnes
+# Modification to keep attenuators on.
+#
+# Revision 1.5  2005/07/27 18:54:02  barnes
+# Fixed code to change delay after TX pulse.
+#
+# Revision 1.4  2004/06/16 22:54:27  barnes
+# Added new field to parameter block.
+#
+# Revision 1.3  2004/06/16 22:01:46  barnes
+# Added missing header.
+#
+# Revision 1.2  2004/05/08 17:13:45  barnes
+# Code audit.
+#
+# Revision 1.1  2004/04/26 18:39:13  barnes
+# Initial revision
+#
+#
+checktsg.c 1.02
+maketsg.c 1.10

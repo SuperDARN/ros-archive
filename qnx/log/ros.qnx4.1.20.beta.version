@@ -1,0 +1,63 @@
+#
+# $Log: version.info,v $
+# Revision 1.20  2007/08/09 14:11:46  code
+# Fixed bug in tdisplay that was causing problems for CUTLASS.
+#
+# Revision 1.19  2007/08/07 19:08:32  code
+# Minor bug fixes on the road to stereo.
+#
+# Revision 1.18  2007/02/08 17:11:00  code
+# Numerous bug fixes.
+#
+# Revision 1.17  2006/08/17 21:32:17  code
+# Numerous bug fixes, introducation of improved rawfeed and testing of extended (multi-tau) lag
+# tables.
+#
+# Revision 1.16  2006/06/23 13:39:22  code
+# Added site information for Svalbard.
+#
+# Revision 1.15  2006/06/19 22:18:52  code
+# Bug fix to include missing environmnent variable.
+#
+# Revision 1.14  2006/04/07 20:30:07  barnes
+# Incorporated the echoraw transport system.
+#
+# Revision 1.13  2006/03/30 11:23:04  barnes
+# Integration of stereo code.
+#
+# Revision 1.12  2006/02/08 14:41:01  barnes
+# Bug fixes and modifications from various sources.
+#
+# Revision 1.11  2005/09/28 16:45:07  barnes
+# Move to ksh and overhaul of installation instructions.
+#
+# Revision 1.10  2005/09/27 15:13:23  barnes
+# Fixed bug in setting the permissions on the setup script.
+#
+# Revision 1.9  2005/07/27 15:52:02  barnes
+# Various bug fixes and splitting of the digital receiver driver.
+#
+# Revision 1.8  2005/06/17 21:14:23  barnes
+# Incorporated saskatoon and wallops.
+#
+# Revision 1.7  2005/03/03 15:30:26  barnes
+# Multitude of bug fixes associated with the digital receiver.
+#
+# Revision 1.6  2004/08/05 11:06:00  barnes
+# Fixed bug in getting the buffer address for radars using the regular
+# hardware configuration.
+# Fixed a number of other bugs in reading and writing data files.
+#
+# Revision 1.5  2004/07/06 20:58:33  barnes
+# Code audit.
+#
+# Revision 1.4  2004/06/15 20:26:28  barnes
+# First digital receiver release.
+#
+# Revision 1.3  2003/01/17 21:36:50  barnes
+# Numerous minor bug fixes and the addition of John Hughes DC Offset code.
+#
+# Revision 1.1  2003/01/14 18:32:12  barnes
+# Initial revision
+#
+#

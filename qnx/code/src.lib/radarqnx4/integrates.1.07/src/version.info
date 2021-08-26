@@ -1,0 +1,25 @@
+# $Log: version.info,v $
+# Revision 1.7  2007/08/07 16:10:40  code
+# Fixed bug in doing the A/D scan on the second channel.
+#
+# Revision 1.6  2007/03/27 19:35:36  code
+# Added code to prevent overruns.
+#
+# Revision 1.5  2006/08/23 19:35:30  code
+# Added sample delay for digital receiver.
+#
+# Revision 1.4  2006/08/17 19:31:08  code
+# Added support for extended lag tables.
+#
+# Revision 1.3  2006/07/24 16:45:13  code
+# Passed in beam number and frequency.
+#
+# Revision 1.2  2006/04/07 15:23:09  barnes
+# Added rawfeed system.
+#
+# Revision 1.1  2006/03/29 13:28:46  barnes
+# Initial revision
+#
+#
+integrates.c 1.06
+pulses.c 1.02

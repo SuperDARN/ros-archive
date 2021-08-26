@@ -1,0 +1,34 @@
+# $Log: version.info,v $
+# Revision 1.6  2006/09/15 18:00:35  code
+# Fixed signs of arguments.
+#
+# Revision 1.5  2005/03/29 22:59:55  barnes
+# Fixed bug in rendering of 8 bit images.
+#
+# Revision 1.4  2004/08/29 21:00:32  barnes
+# Fixed bug in rendering empty characters.
+#
+# Revision 1.3  2004/06/16 16:23:37  barnes
+# Added missing header.
+#
+# Revision 1.2  2004/04/26 19:49:59  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.1  2003/03/03 18:45:23  barnes
+# Initial revision
+#
+#
+bezier.c 1.01
+char.c 1.04
+clip.c 1.02
+color.c 1.01
+dash.c 1.01
+image.c 1.03
+line.c 1.01
+make.c 1.02
+matrix.c 1.01
+polygon.c 1.02
+ppm.c 1.03
+shape.c 1.01
+user.c 1.02
+xml.c 1.04

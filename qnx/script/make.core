@@ -1,0 +1,15 @@
+#!/bin/sh
+cd $CODEBASE/src.bin/core/rcsv.1.05
+make
+cd $CODEBASE/src.bin/core/maketree.1.01
+make
+cd $CODEBASE/src.bin/core/makepatch.1.11
+make
+cd $CODEBASE/src.bin/core/makedst.1.19
+make
+cd $CODEBASE/src.bin/core/makeall.1.16
+make
+cd $CODEBASE/src.bin/core/insthdr.1.11
+make
+cd $CODEBASE/src.bin/core/addtext.1.03
+make
