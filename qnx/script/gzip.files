@@ -1,0 +1,16 @@
+# This script compresses the files on a radar site
+
+. /home/radar/.profile
+
+d=$(date +%Y%m%d)
+dy=$(date +%j)
+
+cd $SD_ERRLOG_PATH
+ls -1 * | grep -v $dy | xargs -i gzip {}
+ls -1 *.gz | grep -v $dy | xargs -i chmod a+w {}
+cd /data/scdlogs
+ls -1 * | grep -v $dy | xargs -i gzip {}
+ls -1 *.gz | grep -v $dy | xargs -i chmod a+w {}
+
+
+

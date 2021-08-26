@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>radar_shell</name>
+<location>src.bin/radarqnx4/main/radar_shell</location>
+<syntax>radar_shell --help</syntax>
+<syntax>radar_shell [<ar>controlname</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on><ar>controlname</ar></on><od>attach to the control program registered under the name <ar>controlname</ar> with the Operating System.</od>
+</option>
+<synopsis><p>An interactive shell for manipulating radar operating paramaters.</p></synopsis>
+</binary>

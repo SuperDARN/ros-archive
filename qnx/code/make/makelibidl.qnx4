@@ -1,0 +1,45 @@
+# Makefile for the libraries
+# =======================================
+# by R.J.Barnes
+#
+#
+
+# QNX Watcom
+
+CFLAGS = -w 3 -Oneaxt -5  -D_QNX4 -D_COMPLEX $(INCLUDE)
+ifdef IGNVER
+ VSTR="1.01"
+
+else 
+  VSTR=$(shell $(BINPATH)/rcsv -v version.info)
+  $(shell $(BINPATH)/rcsv -h version.info > version.h)
+endif
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+     
+
+$(OUTPUT): version $(OBJS)
+	wlib -n -b $(DSTPATH)/$(OUTPUT).$(VSTR).lib -+$(OBJS)
+	ln -sf $(DSTPATH)/$(OUTPUT).$(VSTR).lib \
+              $(DSTPATH)/$(OUTPUT).$(LINK).lib 
+
+ifdef NOVERSION
+version: ${SRC}
+else
+version: version.info $(SRC)
+	$(BINPATH)/rcsv -t version.info
+	$(BINPATH)/rcsv -h version.info > version.h
+endif
+clean:
+	rm -f *.o
+
+
+
+
+ 
+
+
+
+
+

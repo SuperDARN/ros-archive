@@ -1,0 +1,24 @@
+#
+# $Log: version.info,v $
+# Revision 1.7  2006/02/08 14:46:16  barnes
+# Change to the lag table definition.
+#
+# Revision 1.6  2005/07/27 18:28:39  barnes
+# Incorporated Dieter's modifications to normalscan and new normalsoun
+#
+# Revision 1.5  2005/06/17 21:13:18  barnes
+# Numerous bug fixes.
+#
+# Revision 1.4  2004/07/06 20:59:29  barnes
+# Code audit.
+#
+# Revision 1.3  2004/06/15 20:44:49  barnes
+# Digital receiver and other major upgrades.
+#
+# Revision 1.2  2003/01/17 21:40:38  barnes
+# Revision fix.
+#
+# Revision 1.1  2003/01/14 22:40:50  barnes
+# Initial revision
+#
+#

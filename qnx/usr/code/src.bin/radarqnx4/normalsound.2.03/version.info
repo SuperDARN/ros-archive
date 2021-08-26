@@ -1,0 +1,13 @@
+#$Log: version.info,v $
+#Revision 2.3  2006/02/07 20:56:24  barnes
+#Simon Shepherd's modification to the lag table.
+#
+#Revision 2.2  2006/02/07 17:51:13  barnes
+#Added Dieter Andre's improved error logging.
+#
+#Revision 2.1  2005/07/19 18:45:06  barnes
+#First revision included in the ROS 1.08.
+#
+#
+normalsound.c 2.03
+
