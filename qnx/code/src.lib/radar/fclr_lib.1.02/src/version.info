@@ -1,0 +1,12 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/04/19 16:42:01  barnes
+# Modification to the clear frequency search.
+#
+# Revision 1.1  1999/12/17 03:09:28  barnes
+# Initial revision
+#
+base_fclr.c 1.4
+fclr.c 1.2
+fclr_set.c 1.2
+fine_fclr.c 1.3
+sum_product.c 1.1

@@ -1,0 +1,15 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 22:21:51  barnes
+# Initial revision
+#
+aacgm.c 1.5
+altitude_to_cgm.c 1.1
+cgm_to_altitude.c 1.1
+coeff.c 1.1
+convert_geo_coord.c 1.3
+eqn_of_time.c 1.2
+math.c 1.3
+mlt.c 1.1
+mlt1.c 1.4
+rylm.c 1.3
+solar_loc.c 1.3

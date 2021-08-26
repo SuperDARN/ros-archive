@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. $HOME/.profile.base
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+sh $CODEBASE/script/makeall $USR_CODEBASE src.lib/s_ops* $HOME/log/s_ops.lib
+        
+
+
+
+

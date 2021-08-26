@@ -1,0 +1,8 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/09/18 18:22:57  barnes
+# Added missing header.
+#
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+fit_write.c 1.14

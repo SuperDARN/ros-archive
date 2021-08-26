@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/09/18 18:04:27  barnes
+# Removed redundant header.
+#
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+gridfit.c 2.21
+process_beam.c 2.9

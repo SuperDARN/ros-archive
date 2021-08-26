@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.2  2000/09/18 18:22:01  barnes
+# Added missing header.
+#
+# Revision 1.1  1999/12/17 19:31:10  barnes
+# Initial revision
+#
+raw_write.c 6.18
+

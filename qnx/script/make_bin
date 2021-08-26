@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. $HOME/.profile.base
+
+#sh $CODEBASE/script/makeall $CODEBASE src.bin/general $HOME/log/general.bin
+#sh $CODEBASE/script/makeall $CODEBASE src.bin/superdarn $HOME/log/superdarn.bin
+sh $CODEBASE/script/makeall $CODEBASE src.bin/radar $HOME/log/radar.bin
+
+
+
+
+
+

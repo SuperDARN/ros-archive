@@ -1,0 +1,14 @@
+# $Log: version.info,v $
+# Revision 1.3  2000/06/20 17:13:06  barnes
+# Added two functions to attach and detach names.
+#
+# Revision 1.2  1999/12/17 20:38:28  barnes
+# Moved gbuf util to a different module.
+#
+# Revision 1.1  1999/12/17 03:08:49  barnes
+# Initial revision
+#
+file_io.c 1.2
+message.c 1.2
+test_key.c 1.2
+timer.c 1.2

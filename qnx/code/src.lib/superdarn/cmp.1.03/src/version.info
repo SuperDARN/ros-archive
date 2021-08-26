@@ -1,0 +1,19 @@
+# $Log: version.info,v $
+# Revision 1.3  2000/04/19 16:08:30  barnes
+# Modifications to the cmp_scan function.
+#
+# Revision 1.2  2000/01/26 16:10:16  barnes
+# Fixed bug in the scan_period function.
+#
+# Revision 1.1  1999/12/16 21:58:41  barnes
+# Initial revision
+#
+
+cmp_close.c 1.1
+cmp_open.c 1.4
+cmp_read.c 1.7
+cmp_scan.c 1.15
+cmp_seek.c 1.5
+cmp_write.c 1.3
+fit_cmp.c 1.3
+radar_cmp.c 1.3

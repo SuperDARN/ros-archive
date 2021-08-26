@@ -1,0 +1,17 @@
+# $Log: version.info,v $
+# Revision 1.4  2000/04/19 16:18:58  barnes
+# Modifcations to fix bug in the smr_scan function.
+#
+# Revision 1.3  2000/01/26 16:11:23  barnes
+# Fixed bug in the scan_period function.
+#
+# Revision 1.2  2000/01/12 21:29:35  barnes
+# Fixed bug in writing summary file.
+#
+# Revision 1.1  1999/12/16 22:05:09  barnes
+# Initial revision
+#
+smr_read.c 1.2
+smr_scan.c 1.15
+smr_seek.c 1.1
+smr_write.c 1.2

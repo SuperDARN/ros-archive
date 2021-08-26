@@ -1,0 +1,14 @@
+# $Log: version.info,v $
+# Revision 1.4  2000/08/22 15:13:20  barnes
+# Added return to main.
+#
+# Revision 1.3  2000/08/16 22:47:41  barnes
+# changed return type of main().
+#
+# Revision 1.2  2000/07/07 21:35:23  barnes
+# General Bug fixes.
+#
+# Revision 1.1  1999/12/17 19:30:50  barnes
+# Initial revision
+#
+make_fit.c 1.9

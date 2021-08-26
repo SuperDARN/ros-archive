@@ -1,0 +1,10 @@
+#!/bin/sh
+
+find ~/* -follow -name "#*#" -exec rm {} \;
+
+
+
+
+
+
+

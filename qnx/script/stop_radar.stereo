@@ -1,0 +1,21 @@
+#!/bin/sh
+
+bin=/home/radar/bin
+slay -f -Q schedule
+
+$bin/task_kill fit_write
+$bin/task_kill raw_write
+$bin/task_kill echo_data
+
+slay -f -Q fit_write
+slay -f -Q raw_write
+
+slay -f -Q compress
+slay -f -Q gridfit
+slay -f -Q sd_summary
+slay -f -Q server
+
+slay -f -Q echo_data
+slay -f -Q errlog
+
+

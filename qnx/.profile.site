@@ -1,0 +1,2 @@
+export SD_RADARID=10
+export SD_FREQ_TABLE=$HOME/tables/radar/site.f/restrict.dat

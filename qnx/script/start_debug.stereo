@@ -1,0 +1,21 @@
+#!/bin/sh
+
+. $HOME/.profile
+
+bin=$HOME/bin
+
+ontty /dev/con10 $bin/dio_drive -db -cf $HOME/stereo.cfg -s 
+ontty /dev/con9 $bin/a_d_drive -db -d 5 a_d_drive_A
+ontty /dev/con9 $bin/a_d_drive -db -d 6 a_d_drive_B 
+
+ontty /dev/con7 $bin/errlog 
+ontty /dev/con7 $bin/echo_data 
+
+ontty /dev/con6 $bin/fit_write 
+ontty /dev/con6 $bin/raw_write -t 3
+ontty /dev/con6 $bin/sd_summary 
+ontty /dev/con6 $bin/compress -a 
+ontty /dev/con6 $bin/gridfit 
+ontty /dev/con6 $bin/server -l 1024
+ontty /dev/con5 $bin/schedule -l /data/scdlogs/scdlog $HOME/debug.scd
+
