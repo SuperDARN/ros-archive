@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>taskquit</name>
+<location>src.bin/radarqnx4/main/taskquit</location>
+<syntax>taskquit --help</syntax>
+<syntax>taskquit <ar>taskname</ar></syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on><ar>taskname</ar></on><od>send the quit message to the task registered under the name <ar>taskname</ar> with the Operating System.</od>
+</option>
+<synopsis><p>Sends a quit message to a task.</p></synopsis>
+</binary>

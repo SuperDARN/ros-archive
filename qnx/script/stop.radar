@@ -1,0 +1,21 @@
+#!/bin/sh
+
+bin=$HOMEPATH/bin
+slay -f -Q schedule
+
+$bin/taskquit fit_write
+$bin/taskquit raw_write
+$bin/taskquit fitacfwrite
+$bin/taskquit rawacfwrite
+$bin/taskquit echo_data
+
+slay -f -Q fit_write
+slay -f -Q raw_write
+slay -f -Q fitacfwrite
+slay -f -Q rawacfwrite
+slay -f -Q rtserver
+slay -f -Q echo_data
+slay -f -Q errlog
+
+
+

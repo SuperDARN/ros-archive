@@ -1,0 +1,41 @@
+#!/bin/sh
+# $Log: rpkg,v $
+# Revision 1.4  2004/08/27 00:45:31  barnes
+# Modified handling of the setup script
+#
+# Revision 1.3  2004/08/27 00:43:02  barnes
+# Added test for failure
+#
+# Revision 1.2  2004/08/26 21:11:25  barnes
+# Reversed order so that the message is displayed after the headers are installed
+#
+# Revision 1.1  2004/06/15 15:18:57  barnes
+# Initial revision
+#
+
+fname=$1
+rm -f .setup
+rm -f .message
+gunzip -c $fname | tar -xvf -
+
+if test -x .setup 
+  then
+    ./.setup
+    if test $? -ne 0
+    then
+      echo "Installation failed - sorry"
+      exit -1
+    fi
+    rm -f .setup
+fi
+
+if test -f .message                                                            
+  then                                                                         
+    cat .message
+    rm -f .message                                                             
+fi 
+
+
+
+
+

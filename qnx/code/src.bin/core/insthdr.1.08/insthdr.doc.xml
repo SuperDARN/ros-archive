@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>insthdr</name>
+<location>src.bin/core/insthdr</location>
+<syntax>insthdr --help</syntax>
+<syntax>insthdr [-vb] [-a] [-q] <ar>src</ar> <ar>dst</ar></syntax>
+<syntax>insthdr [-vb] [-a] [-q] <ar>src</ar> <ar>dst</ar> <ar>lst...</ar></syntax>
+<syntax>insthdr [-vb] [-a] [-q] <ar>src</ar> <ar>dst</ar> stdin</syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-vb</on><od>verbose. Log status to standard error in addition to standard out.</od>
+</option>
+<option><on>-a</on><od>link all libraries found, do not perform version checking to find the most recent.</od>
+</option>
+<option><on>-q</on><od>quiet mode. Keep going if an error occurs.</od>
+</option>
+<option><on><ar>src</ar></on><od>source directory in which to search for library headers.</od>
+</option>
+<option><on><ar>dst</ar></on><od>destination directory in which to create links.</od>
+</option>
+<option><on><ar>lst...</ar></on><od>list of library subdirectories to create links for.</od>
+</option>
+<option><on>stdin</on><od>read library list from standard input.</od>
+</option>
+
+<synopsis>Install symbolic links to library headers.</synopsis>
+
+
+<description>
+<p>Creates symbolic links that point to library headers. The source code and headers for a library are located in the "<code>src</code>" and "<code>include</code>" sub-directories of the library home directory. However, this home directory is part of a larger directory tree. When compiling against the library, the full pathname of the library home directory would have to be specified, which would be extremely inconvenient. To solve this problem, the symbolic links are created in a convenient top-level directory that point to the library headers.</p>
+<p>The program searches the directory tree specified as a source directory looking for header files. For each header a symbolic link of the same name is created in the destination directory.</p> 
+<p>Different versions of the same library can be installed on the same system and are distinguished by having the major and minor version numbers appended to the library home directory name. By default if two versions of the same library are installed on a system, only the headers from the most recent version are linked to. This behavior can be overridden by specifying the "<code>-a</code>" option.</p>
+<p>Any additional arguments on the command line after the destination directory are assumed to be a list of specific libraries to create links for. The search of the directory tree is still performed, but only those library home directories that match the list are linked to. The version number is stripped from the end of the directory name when comparing it with the list.</p>
+<p>If the first argument after the destination directory is "<code>stdin</code>", the list of libraries is read from the standard input stream.</p> 
+<p>The program will terminate if an error occurs, unless the " -q " option is specified.</p>
+<p>All operations are logged to standard output so that they can be recorded in a log file.</p>
+</description>
+
+<example>
+<command>insthdr code/src.lib/general include &gt; log.hdr</command>
+<description>Search the directory "<code>code/src.lib/general</code>" looking for library home directories. Install the most recent library headers into the directory "<code>include</code>". A log of the operations is recorded in the file "<code>log.hdr</code>".
+</description>
+</example>
+
+
+
+<example>
+<command>insthdr -vb code/src.lib/general include task tcpip web &gt; log.hdr</command>
+<description>
+Search the directory "<code>code/src.lib/general</code>" looking for the library home directories "<code>task</code>", "tcpip" and "web". Install the most recent library headers into the directory "<code>include</code>". A log of the operations is recorded in the file "<code>log.hdr</code>" and reported to standard error.</description>
+</example>
+
+
+
+
+</binary>

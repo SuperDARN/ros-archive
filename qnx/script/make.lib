@@ -1,0 +1,29 @@
+#!/bin/sh
+
+
+test_exit() {
+  status=$?
+  if test $status -ne 0 
+    then 
+      exit 
+  fi 
+}
+
+log="ros.lib.1.13.beta"
+dtval=`date +%Y%m%d.%H%M`
+
+$BINPATH/makeall -vb $CODEBASE/src.lib/analysis > $LOGPATH/${log}.${dtval}
+test_exit
+$BINPATH/makeall -vb $CODEBASE/src.lib/base >> $LOGPATH/${log}.${dtval}
+test_exit
+$BINPATH/makeall -vb $CODEBASE/src.lib/general >> $LOGPATH/${log}.${dtval}
+test_exit
+$BINPATH/makeall -vb $CODEBASE/src.lib/superdarn >> $LOGPATH/${log}.${dtval}
+test_exit
+$BINPATH/makeall -vb $CODEBASE/src.lib/radar${OSTYPE} >> $LOGPATH/${log}.${dtval}
+
+
+
+
+
+

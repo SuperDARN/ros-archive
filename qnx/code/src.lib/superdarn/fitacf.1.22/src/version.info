@@ -1,0 +1,88 @@
+# $Log: version.info,v $
+# Revision 1.22  2006/03/14 18:01:36  barnes
+# Modification to allow the number of beams to be varied.
+#
+# Revision 1.21  2006/02/07 16:26:26  barnes
+# Dieter Andre's fixes to the noise ACF.
+#
+# Revision 1.20  2006/01/24 22:21:06  barnes
+# Forced Noise_signal to -1.0, as requested by Dieter.
+#
+# Revision 1.19  2005/07/07 22:04:01  barnes
+# Fixed missing rounding function in QNX4.
+#
+# Revision 1.18  2005/07/06 18:02:25  barnes
+# Added a check for absurdly high velocities at the request of Dieter Andre.
+#
+# Revision 1.17  2005/06/30 23:29:21  barnes
+# Fixed various problems discovered during the port to IDL.
+#
+# Revision 1.16  2005/06/29 14:21:46  barnes
+# Fixed bug in not initializing arrays.
+#
+# Revision 1.15  2004/07/20 02:29:29  barnes
+# Explicity defined FitACF version.
+#
+# Revision 1.14  2004/06/16 22:43:55  barnes
+# Incorporated Sessai's modifications.
+#
+# Revision 1.13  2004/05/04 22:55:18  barnes
+# Changed math header name.
+#
+# Revision 1.12  2004/05/04 18:27:22  barnes
+# Renamed the type header to avoid confusion.
+#
+# Revision 1.11  2004/04/26 22:15:19  barnes
+# Audit - Enforced warning "all".
+#
+# Revision 1.10  2004/01/08 22:22:00  barnes
+# Kile Baker's modifications to improve velocity error and ground scatter
+# determination.
+#
+# Revision 1.9  2002/04/08 17:45:07  barnes
+# Fixed bug in header name.
+#
+# Revision 1.8  2002/03/28 15:49:13  barnes
+# Fixed couple of minor bugs in badlags and parameter passing.
+#
+# Revision 1.7  2002/03/05 17:00:25  barnes
+# Fixed minor bugs fit_acf.c
+#
+# Revision 1.6  2002/02/05 22:45:57  barnes
+# Added code to deal with stereo badlags.
+#
+# Revision 1.5  2001/06/27 20:48:31  barnes
+# Added license tag
+#
+# Revision 1.4  2001/01/29 18:41:17  barnes
+# Added Author Name
+#
+# Revision 1.3  2000/09/18 19:23:42  barnes
+# Fixed bug in the noise determination.
+#
+# Revision 1.2  2000/09/18 17:43:23  barnes
+# Removed redundant header.
+#
+# Revision 1.1  1999/12/16 22:07:06  barnes
+# Initial revision
+#
+acf_preproc.c 1.05
+badlags.c 1.05
+badlags_s.c 1.04
+calc_phi_res.c 1.06
+dbl_cmp.c 1.05
+do_fit.c 1.15
+do_phase_fit.c 1.07
+elev_goose.c 1.07
+elevation.c 1.07
+fit_acf.c 1.10
+fit_noise.c 1.06
+fitacf.c 1.16
+ground_scatter.c 1.05
+more_badlags.c 1.05
+noise_acf.c 1.06
+noise_stat.c 1.07
+omega_guess.c 1.07
+rang_badlags.c 1.04
+remove_noise.c 1.05
+

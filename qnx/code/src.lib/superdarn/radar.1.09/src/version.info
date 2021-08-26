@@ -1,0 +1,30 @@
+# $Log: version.info,v $
+# Revision 1.9  2006/03/30 12:57:24  barnes
+# Fixed bug in decoding hardware table.
+#
+# Revision 1.8  2006/03/13 19:11:34  barnes
+# Added the ability to set the number of beams in the hardware file.
+#
+# Revision 1.7  2005/09/09 15:43:47  barnes
+# Removed debugging code.
+#
+# Revision 1.6  2005/09/09 15:34:51  barnes
+# Fixed bug in getting the maxrange element from the hardware tables.
+#
+# Revision 1.5  2005/09/09 15:11:25  barnes
+# Added code to include maxrange in the hardware information.
+#
+# Revision 1.4  2004/06/16 21:47:45  barnes
+# Added missing header.
+#
+# Revision 1.3  2004/06/03 19:37:59  barnes
+# Adopted the use of strings as radar identifier codes.
+#
+# Revision 1.2  2004/04/26 22:29:39  barnes
+# Audit - Enforced warning "all".
+#
+# Revision 1.1  2004/04/26 18:03:06  barnes
+# Initial revision
+#
+#
+radar.c 1.09
