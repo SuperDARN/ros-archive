@@ -9,7 +9,7 @@ INCLUDE=-I$(IPATH)/general -I$(IPATH)/superdarn \
         -I$(USR_IPATH)/s_ops -I$(USR_IPATH)/site.$(ST_RADARCODE)
 OBJS = stereo_scan.o 
 SRC=stereo_scan.c
-OUTPUT = $(USR_BINPATH)/stereo_scan.ros
+OUTPUT = $(USR_BINPATH)/stereo_scan
 SUDO = 1 
 VERSION=1
 

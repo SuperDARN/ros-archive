@@ -254,8 +254,6 @@ void main(int argc,char *argv[]) {
   struct _mxfer_entry msg[4];
   int help=0;
 
-	signal(SIGTERM, SIG_IGN);
-
   /* set priority */
  
   if(setprio(0,DRIVER_PRIORITY) == -1) {

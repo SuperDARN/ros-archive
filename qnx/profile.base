@@ -6,7 +6,6 @@ export FONTPATH=$HOME/tables/general/fonts
 export MAPDATA=$HOME/tables/general/map_data
 export MAPOVERLAY=$HOME/tables/general/overlay.dat
 export AACGM_DAT_PREFIX=$HOME/tables/aacgm/aacgm_coeffs
-export IGRF_PATH=$HOME/tables/mag/
 
 # Environment variables for the superdarn software
 

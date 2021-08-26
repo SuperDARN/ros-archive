@@ -356,6 +356,7 @@ void main(int argc,char *argv[]) {
     }
 
   
+
     do {
    
      if (day_time()==1) {
