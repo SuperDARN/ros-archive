@@ -1,0 +1,12 @@
+#!/bin/sh
+
+cd $CODEBASE/src.bin/general/rcsv
+make clean
+make
+
+
+
+
+
+
+

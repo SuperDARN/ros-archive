@@ -1,0 +1,5 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 03:07:21  barnes
+# Initial revision
+#
+echo_util.c 1.2

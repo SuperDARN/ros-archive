@@ -1,0 +1,6 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 03:10:39  barnes
+# Initial revision
+#
+filer.c 1.2
+terminal.c 1.2

@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 22:04:48  barnes
+# Initial revision
+#
+cnvt_coord.c 1.8
+copy_scan.c 1.4
+hardware.c 1.4
+inv_mag.c 1.2
+radar_name.c 1.3

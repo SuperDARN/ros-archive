@@ -1,0 +1,13 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+check_program.c 1.1
+execute.c 1.2
+load_schedule.c 1.4
+log_info.c 1.3
+main.c 1.3
+print_schedule.c 1.1
+refresh.c 1.1
+set_schedule.c 1.1
+test_schedule.c 1.1

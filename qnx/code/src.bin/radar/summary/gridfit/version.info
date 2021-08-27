@@ -1,0 +1,6 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+gridfit.c 2.20
+process_beam.c 2.8

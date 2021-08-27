@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 21:59:20  barnes
+# Initial revision
+#
+bound.c 1.5
+check_ops.c 1.4
+error.c 1.1
+filter.c 1.17
+middle.c 1.7

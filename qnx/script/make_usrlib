@@ -1,0 +1,11 @@
+#!/bin/sh
+
+sh $CODEBASE/script/makeall $USR_CODEBASE src.lib/ops $HOME/log/ops.lib
+sh $CODEBASE/script/makeall $USR_CODEBASE src.lib/ops_s $HOME/log/ops_s.lib
+sh $CODEBASE/script/makeall $USR_CODEBASE src.lib/site $HOME/log/site.lib         
+                                                                                
+
+
+
+
+

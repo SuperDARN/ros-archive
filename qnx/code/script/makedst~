@@ -1,0 +1,135 @@
+#!/bin/sh
+#
+# make_dst src dst pkg....
+#
+# Create a source code distribution from a package tree. The distribution
+# does not include the RCS tree.
+#
+# The command line arguments are a list of package directories to include.
+#
+
+
+src=$1
+dst=$2
+cmd=$@
+pkglst=${cmd#$src $dst }
+tpkg=${pkglst%% *}
+if test ${tpkg} = "stdin"
+  then
+    echo "Packages being read from standard input"
+    pkglst=""
+    while read pkg
+     do
+      pkglst="${pkglst} $pkg"
+    done
+fi
+
+echo "Source directory:"$src
+echo "Destination directory:"$dst
+echo "Package list:"
+for pkg in $pkglst
+  do
+   echo $pkg
+  done
+
+exit
+
+dtree=${dst}/
+dir=""
+let len=${#dtree}
+while test $len -gt 0
+  do
+  if test ${dtree%%/*} 
+    then
+     dir=$dir/${dtree%%/*}
+     if test ! -d $dir 
+       then
+       echo "Making Directory:"$dir
+       mkdir $dir	   
+       chmod a+w $dir
+     fi
+  fi   
+  dtree=${dtree#*/}  
+  let len=${#dtree}
+  done
+
+for pkg in $pkglst
+  do
+    echo "Creating directory structure for:$pkg"
+    
+    # make the root for the package 
+    
+    dtree=$pkg/
+    dir=$dst
+    let len=${#dtree}
+    while test $len -gt 0
+      do
+      dir=$dir/${dtree%%/*}
+      if test ! -d $dir 
+         then
+	   echo "Making Directory:"$dir
+	   mkdir $dir	   
+           chmod a+w $dir
+      fi
+      dtree=${dtree#*/}  
+      let len=${#dtree}
+     done
+    
+    echo "Copying directories:"
+      
+    dirlst=`find $src/$pkg -name "*" -type "d" -not -name "RCS"`
+    for dir in $dirlst
+      do
+
+        # find all the sub directories of the package, excluding the 
+        # RCS directories.
+
+        dstub=${dir##$src/}     
+	if test ! -d $dst/$dstub 
+	  then 
+	    echo $dst/$dstub
+            mkdir $dst/$dstub
+            chmod a+w $dst/$dstub
+        fi
+        # Test whether this directory is a source directory or not 
+      
+        trcs=`ls $dir | grep RCS` 
+        if test  "RCS" = "$trcs"
+          then 
+            echo "Found source directory:$dir"
+
+            # Copy the headers and makefile
+
+            flist=`find $dir -maxdepth 1 -type "f"  -name "*.h" -or -type "f" -name "makefile"`
+
+            for fname in $flist
+              do
+                fstub=${fname##$dir/}
+                cp  $fname $dst/$dstub/$fstub
+                chmod a+r $dst/$dstub/$fstub
+              done
+            srclist=`find $dir/RCS/* -name "*"`
+            for sname in $srclist
+              do
+                sstub=${sname##$dir/RCS/}
+                sstub=${sstub%,v}
+                co -p $sname > $dst/$dstub/$sstub
+                chmod a+r $dst/$dstub/$sstub
+              done
+        else
+            echo "Found regular directory:$dir"
+            flist=`find $dir -maxdepth 1 -type "f" -name "*"`
+            for fname in $flist
+              do
+                fstub=${fname##$dir/}
+                cp $fname $dst/$dstub/$fstub
+                chmod a+r $dst/$dstub/$fstub
+              done
+        fi
+        
+
+      done     
+  done
+
+
+

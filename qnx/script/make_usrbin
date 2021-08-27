@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sh $CODEBASE/script/makeall $USR_CODEBASE src.bin $HOME/log/ops.bin
+
+
+
+
+
+
+

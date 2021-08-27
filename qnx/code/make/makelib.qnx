@@ -1,0 +1,34 @@
+# Makefile for the libraries
+# =======================================
+# by R.J.Barnes
+#
+#
+
+# QNX Watcom
+
+CFLAGS = -Oneaxt -5  -D_QNX -D_COMPLEX $(INCLUDE)
+VERSION=""
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+     
+$(OUTPUT):  version $(OBJS)
+	wlib -n -b $(LIBPATH)/$(OUTPUT).$(VERSION).lib -+$(OBJS)
+	ln -sf $(LIBPATH)/$(OUTPUT).$(VERSION).lib \
+              $(LIBPATH)/$(OUTPUT).$(LINK).lib 
+      
+version: version.info
+	$(BINPATH)/rcsv -t version.info 
+        VERSION=$(shell $(BINPATH)/rcsv -v version.info)
+
+clean:
+	rm -f *.o
+
+
+
+ 
+
+
+
+
+

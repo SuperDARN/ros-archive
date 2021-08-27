@@ -1,0 +1,15 @@
+#!/bin/sh
+
+sh $CODEBASE/script/insthdr $CODEBASE $IPATH/general src.lib/general $HOME/log/general.hdr
+sh $CODEBASE/script/insthdr $CODEBASE $IPATH/superdarn src.lib/superdarn $HOME/log/superdarn.hdr
+sh $CODEBASE/script/insthdr $CODEBASE $IPATH/radar src.lib/radar $HOME/log/radar.hdr
+sh $CODEBASE/script/insthdr $CODEBASE $IPATH/aacgm src.lib/aacgm $HOME/log/aacgm.hdr
+
+sh $CODEBASE/script/insthdr $CODEBASE $IPATH/gsm src.lib/gsm $HOME/log/gsm.hdr
+sh $CODEBASE/script/insthdr $CODEBASE $IPATH/igrf src.lib/igrf $HOME/log/igrf.hdr
+
+
+
+
+
+

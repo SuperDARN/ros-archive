@@ -1,0 +1,12 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 19:31:11  barnes
+# Initial revision
+#
+cmp_fit.c 2.3
+connect.c 2.3
+fork.c 2.3
+msg_io.c 2.1
+msg_mem.c 2.2
+server.c 3.7
+socket.c 2.2
+transmit.c 2.1

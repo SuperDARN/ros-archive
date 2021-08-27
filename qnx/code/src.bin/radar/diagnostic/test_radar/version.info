@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 19:31:10  barnes
+# Initial revision
+#
+do_op.c 1.8
+do_tsg.c 1.1
+help.c 1.3
+read_tsg.c 1.1
+test_radar.c 1.8

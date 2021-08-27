@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 22:06:07  barnes
+# Initial revision
+#
+avg_grid.c 1.6
+merge_grid.c 1.5
+read_grid.c 1.11
+write_grid.c 1.14
+write_gtable.c 1.8

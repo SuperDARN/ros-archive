@@ -1,0 +1,32 @@
+# Makefile for radar library
+# ========================== 
+# by R.J.Barnes
+#
+
+
+INCLUDE=-I$(IPATH)/general -I$(IPATH)/aacgm -I$(IPATH)/igrf -I$(IPATH)/superdarn 
+
+OBJS = cnvt_coord.o inv_mag.o hardware.o radar_name.o radar_scan.o 
+OUTPUT = radar
+LINK="1"
+include $(MAKELIB)
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

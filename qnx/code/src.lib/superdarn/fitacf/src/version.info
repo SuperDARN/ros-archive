@@ -1,0 +1,21 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 22:07:06  barnes
+# Initial revision
+#
+acf_preproc.c 1.1
+badlags.c 1.1
+calc_phi_res.c 1.1
+dbl_cmp.c 1.1
+do_fit.c 1.1
+elev_goose.c 1.1
+elevation.c 1.1
+fit_acf.c 1.1
+fit_noise.c 1.1
+fitacf.c 1.3
+ground_scatter.c 1.1
+more_badlags.c 1.1
+noise_acf.c 1.1
+noise_stat.c 1.1
+omega_guess.c 1.1
+rang_badlags.c 1.1
+remove_noise.c 1.1

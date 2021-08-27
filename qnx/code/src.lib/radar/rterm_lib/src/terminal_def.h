@@ -1,0 +1,7 @@
+/* terminaldef.h
+   ============= */
+
+#define PROMPT_TEXT TERM_YELLOW | TERM_HILIGHT
+#define PROMPT_BOX TERM_RED
+#define PROMPT_SLC_ON TERM_GREEN | TERM_HILIGHT
+#define PROMPT_SLC_OFF TERM_GREEN 

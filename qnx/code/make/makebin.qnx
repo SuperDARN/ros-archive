@@ -1,0 +1,45 @@
+# Makefile for binary files
+# =========================
+# by R.J.Barnes
+#
+#
+
+# QNX (Watcom)
+#
+
+CFLAGS := $(CFLAGS)-Oneaxt -D_QNX -D_COMPLEX $(INCLUDE)
+LFLAGS := $(LFLAGS) -L $(LIBPATH) -L$(USR_LIBPATH)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+
+$(OUTPUT): $(OBJS)
+	$(LINK.c) $(LFLAGS) $(OBJS) $(LIBS) -o $(OUTPUT) 
+#	usemsg $(OUTPUT) $(CODEBASE)/usage/$(OUTPUT).msg
+	mv -f $(OUTPUT) $(BINPATH)/$(OUTPUT)  
+ifdef SUDO
+	/usr/local/bin/make_sudo $(BINPATH)/$(OUTPUT)
+endif
+
+clean:
+	rm -f *.o
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

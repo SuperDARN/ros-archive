@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/16 22:22:09  barnes
+# Initial revision
+#
+cnv_geo_gsm.c 1.1
+cnv_gse_gsm.c 1.1
+cnv_gsm_gse.c 1.1
+cnv_gsm_sm.c 1.1
+crdnt.c 1.2
+matcald.c 1.2

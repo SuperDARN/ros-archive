@@ -1,0 +1,24 @@
+# $Log: version.info,v $
+# Revision 1.1  2000/03/19 20:37:58  barnes
+# Initial revision
+#
+#
+base_fclr_s.c	1.1
+build_raw_s.c 1.1
+calc_skip.c 1.1
+build_raw.c 1.1  
+do_fclr_s.c	1.1
+do_pulse_s.c 1.1
+do_radar_s.c	1.1
+fclr_s.c 1.1
+get_status_s.c 1.1
+global_s.c 1.1
+init_proxy.c 1.1
+radar_s.c 1.1
+read_data_s.c 1.1
+read_uconts.c 1.1
+setup.c 1.1
+shell_s.c 1.1
+test_reopen.c 1.1
+tmseq_s.c 1.1
+wait_boundary.c 1.1

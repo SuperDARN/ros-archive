@@ -1,0 +1,10 @@
+#!/bin/sh
+
+sh $CODEBASE/script/insthdr $USR_CODEBASE $USR_IPATH/ops src.lib/ops $HOME/log/ops.hdr
+sh $CODEBASE/script/insthdr $USR_CODEBASE $USR_IPATH/ops_s src.lib/ops_s $HOME/log/ops_s.hdr
+sh $CODEBASE/script/insthdr $USR_CODEBASE $USR_IPATH/site src.lib/site $HOME/log/site.hdr
+
+
+
+
+

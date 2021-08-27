@@ -1,0 +1,14 @@
+#!/bin/sh
+
+sh $CODEBASE/script/makeall $CODEBASE src.lib/aacgm $HOME/log/aacgm.lib
+sh $CODEBASE/script/makeall $CODEBASE src.lib/gsm $HOME/log/gsm.lib
+sh $CODEBASE/script/makeall $CODEBASE src.lib/igrf $HOME/log/igrf.lib
+sh $CODEBASE/script/makeall $CODEBASE src.lib/general $HOME/log/general.lib
+sh $CODEBASE/script/makeall $CODEBASE src.lib/superdarn $HOME/log/superdarn.lib
+sh $CODEBASE/script/makeall $CODEBASE src.lib/radar $HOME/log/radar.lib
+
+
+
+
+
+

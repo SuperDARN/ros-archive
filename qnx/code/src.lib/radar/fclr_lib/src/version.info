@@ -1,0 +1,9 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 03:09:28  barnes
+# Initial revision
+#
+base_fclr.c 1.2
+fclr.c 1.2
+fclr_set.c 1.1
+fine_fclr.c 1.2
+sum_product.c 1.1

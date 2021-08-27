@@ -1,0 +1,51 @@
+#!/bin/sh
+
+# makeall pkg log 
+#
+# Makes the libraries and binaries within a package directory.
+#
+# The argument pkg is the name of the package directory to compile. 
+# The argument log is the name of the log file to record.
+#
+#
+
+src=${1}
+pkg=${2}
+log=${3}
+
+
+mklst=`find ${src}/${pkg} -name "makefile"`
+
+echo "makeall" | tee $log
+echo "=======" | tee -a $log
+echo "Making packages within:"${src}/${pkg} | tee -a $log
+echo "" | tee -a $log
+
+let c=1;
+for mk in $mklst
+ do
+   echo $c:$mk | tee -a $log
+   let c=c+1
+ done
+
+for mk in $mklst
+  do
+   
+
+    dir=${mk%/makefile}
+    echo "======================================================" | tee -a $log
+    echo $dir | tee -a $log
+    echo "======================================================" | tee -a $log
+
+    cd $dir
+    make clean 2>&1 | tee -a $log
+    make 2>&1 | tee -a $log
+  done
+  
+
+
+
+
+
+
+

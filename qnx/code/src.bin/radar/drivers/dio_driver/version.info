@@ -1,0 +1,19 @@
+# $Log: version.info,v $
+# Revision 1.1  1999/12/17 19:31:10  barnes
+# Initial revision
+#
+DIO.c 1.9
+bcd.c 1.3
+default.c 1.5
+display.c 1.22
+do_op.c 1.21
+logger.c 1.2
+main.c 1.30
+out_tsg.c 1.6
+out_tsg_s.c 1.1
+out_tsg_sx.c 1.1
+out_tsg_x.c 1.7
+print_config.c 1.1
+reset.c 1.5
+tsg.c 1.17
+watchdog.c 1.3
