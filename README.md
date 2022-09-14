@@ -11,5 +11,6 @@ This repository contains an archive of SuperDARN Radar Operating System (ROS) so
 - ROS 1.13 (ros.1.13)
 - ROS 1.20 (ros.1.20)
 - ROS 1.25 (ros.1.25)
+- ROS 2.0 (ros.2.0)
 
 The ROS was originally developed and distributed by Rob Barnes at JHU/APL. Special thanks to Dieter Andre, Julian Thornhill, and Tim Yeoman for providing copies of the ROS source code for this archive.
