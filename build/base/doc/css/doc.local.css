@@ -1,0 +1,101 @@
+body { 
+  background:#827a7a url("<!--URLBASE-->/img/bg.png") repeat-x top left;    
+  font-family:sans-serif;
+}
+
+#banner {
+  margin:0px auto 0px auto;
+  width: 780px;
+}
+
+#location {
+  margin:0px auto 0px auto;
+  padding: 0px 0px 0px 0px;
+  width: 780px;
+  text-align: left;
+  background-color: #c0c0c0;
+}
+
+
+#main {
+  margin:0px auto 0px auto;
+  padding: 0px 0px 0px 0px;
+  width: 780px;
+  text-align: left;
+  background-color: #ffffff;
+}
+
+
+p { 
+  padding: 0px 10px;
+  font-family:sans-serif;
+  font-size: 10pt;
+  color:#404040;
+}
+
+
+table {
+    font-family: Arial, Helvetica, Sans-Serif; 
+}
+
+table.location {
+  font-family:sans-serif;
+  padding: 0px;
+  font-size:12px;
+  line-height:20px;
+}
+
+
+TD.title {
+          font-size:16pt;
+          font-weight:bold;
+          text-align:right;
+          color:white;
+          padding:4;
+         }
+
+TD.link {text-align:right;
+         font-family:Helvetica,Arial;
+         font-size:10pt;
+         color:#ffffff;
+}
+
+
+
+
+TD.body {text-align:left;
+         background-color:#ffffff;
+         spacing:0;
+         padding:0;}
+
+TD.docsubtitle {
+
+            font-family:Helvetica,Arial;
+            font-size:12pt;
+            font-weight:bold;
+            text-align:left;
+           }
+
+TD.docbody {text-align:left;
+            background-color:#ffffff;
+            padding:4;}
+
+TD.docbox {
+         text-align:left;
+         background-color:#e0e0e0;
+         border:solid;
+         border-width:1;
+         border-color:#a0a0a0;
+         spacing:0;
+         padding:4;
+       }
+
+TD.docpanel {
+         text-align:left;
+         background-color:#f0f0f0;
+         border:solid;
+         border-width:1;
+         border-color:#a0a0a0;
+         spacing:0;
+         padding:4;
+       }

@@ -1,0 +1,63 @@
+# Makefile for the libraries
+# =======================================
+# by R.J.Barnes
+#
+#
+
+# Linux (GCC)
+#
+
+CFLAGS = -Wall -O3 -ansi -D_GNU_SOURCE -D_DARWIN $(INCLUDE)  
+SUF=so
+
+VFILE=$(shell find.version)
+
+ifeq ($(VFILE),version.txt)
+  VSTR=$(shell tail -1 "version.txt" | cut -f 2-3 -d'.')
+else
+  VSTR="1.1"
+endif
+
+
+
+
+
+# By default statically link the all programs
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+
+ifdef OUTPUT
+
+  $(OUTPUT): link $(OBJS)
+	libtool -static -o $(DSTPATH)/lib$(OUTPUT).$(VSTR).a $(OBJS)
+	gcc -dynamiclib -all_load -flat_namespace -undefined suppress -single_module -o  $(DSTPATH)/lib$(OUTPUT).$(VSTR).dylib $(DSTPATH)/lib$(OUTPUT).$(VSTR).a 	
+	cd $(DSTPATH); ln -sf lib$(OUTPUT).$(VSTR).a \
+               lib$(OUTPUT).$(LINK).a 
+	cd $(DSTPATH); ln -sf lib$(OUTPUT).$(VSTR).so \
+               lib$(OUTPUT).$(LINK).so 
+else
+  dummy: link
+
+endif
+
+link: 
+	make.hdr $(CURDIR)/../include ${INC} 
+
+version:
+	make.version
+
+
+clean:
+	rm -f *.o
+
+
+
+
+
+ 
+
+
+
+
+

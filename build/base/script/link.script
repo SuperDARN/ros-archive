@@ -1,0 +1,11 @@
+#!/bin/bash
+
+project=${1}
+
+
+flist=`find $HOMEPATH/codebase/${project}/src.sh -perm -a+x -type f | grep -v .git`
+for fname in ${flist}
+  do
+
+    ln -svf ${fname} ${HOMEPATH}/script
+  done

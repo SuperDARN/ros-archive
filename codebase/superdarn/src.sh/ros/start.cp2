@@ -1,0 +1,3 @@
+#!/bin/bash
+
+normalscan -stid fhe -ep 54000 -sp 54001 -bp 54100

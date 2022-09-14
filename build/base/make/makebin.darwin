@@ -1,0 +1,65 @@
+# Makefile for binary files
+# =========================
+# by R.J.Barnes
+#
+#
+
+# Darwin (GCC)
+#
+
+VFILE=$(shell find.version)
+
+CFLAGS = -Wall -O3 -ansi -D_GNU_SOURCE -D_DARWIN
+
+ifdef XPATH
+  ifdef XLIB
+    CFLAGS += -D_XLIB_
+    XLIBS=-L/usr/X11R6/lib -lX11 -lXext
+  endif
+else 
+   XLIB=
+endif
+
+CFLAGS += $(INCLUDE)
+
+LFLAGS = -L$(LIBPATH) -L$(USR_LIBPATH)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+
+
+ifdef OUTPUT
+$(OUTPUT): version help $(OBJS)
+	$(CC) $(LFLAGS) -o $(DSTPATH)/$(OUTPUT) $(OBJS) $(LIBS) $(XLIB) \
+                           $(XLIBS) $(SLIB) 
+endif
+
+help: 
+	make.help
+
+version:
+	make.version
+
+
+clean:
+	rm -f *.o
+	rm -f $(OUTPUT)
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

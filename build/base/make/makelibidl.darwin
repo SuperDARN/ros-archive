@@ -1,0 +1,54 @@
+# Makefile for the libraries
+# =======================================
+# by R.J.Barnes
+#
+#
+
+# Darwin (GCC)
+#
+
+CFLAGS = -Wall -O2 -ansi -D_GNU_SOURCE -D_DARWIN $(INCLUDE)  
+SUF=so
+
+
+VFILE=$(shell find.version)
+
+ifeq ($(VFILE),version.txt)
+  VSTR=$(shell tail -1 "version.txt" | cut -f 2-3 -d'.')
+else
+  VSTR="1.1"
+endif
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+
+ifdef OUTPUT
+
+$(OUTPUT): $(OBJS)
+	gcc -bundle -flat_namespace -undefined suppress -o $(DSTPATH)/lib$(OUTPUT).$(VSTR).dylib \
+            $(OBJS) -L$(LIBPATH) $(SLIB)
+	cd $(DSTPATH); ln -sf lib$(OUTPUT).$(VSTR).a \
+               lib$(OUTPUT).$(LINK).a 
+	cd $(DSTPATH); ln -sf lib$(OUTPUT).$(VSTR).so \
+               lib$(OUTPUT).$(LINK).so 
+else 
+  dummy:link
+endif
+
+link: 
+	make.hdr $(CURDIR)/../include ${INC} 
+
+version:
+	make.version
+
+
+clean:
+	rm -f *.o
+
+
+ 
+
+
+
+
+

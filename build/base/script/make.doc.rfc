@@ -1,0 +1,185 @@
+#!/bin/bash
+
+# make.doc.rfc
+# ============
+# Author: R.J.Barnes
+#
+# Purpose:
+#
+# Constructs web pages from XML documentation
+#
+# Syntax:
+#
+# make.doc.rfc
+#
+# Description:
+#
+# Make documentation for Request For Comments (RFC).
+#
+
+makerfc() {
+  project=${1}
+  fname=${2}
+
+  
+  id=`xmldoc -script "<!--ID-->" -sctype 0 . ${rfccfg} ${fname}`
+  echo $id
+  xmldoc -script ${rfcsc} -sctype 1 ${tmp} ${rfccfg} ${fname} \
+                    > ${wwwpath}/${project}/src.doc/rfc/${id}.html
+  chmod a+x ${wwwpath}/${project}/src.doc/rfc/${id}.html
+}
+
+############################################################################
+#                                                                          #
+# Command line options                                                     #
+#                                                                          #
+############################################################################
+
+project=${1}
+type="local"
+
+############################################################################
+#                                                                          #
+# Define working directories                                               #
+#                                                                          #
+############################################################################
+
+wwwpath="${DOCPATH}/html"
+urlbase="file://${DOCPATH}/html"
+
+if test "${type}" = "www"
+then
+  wwwpath=${WWWPATH}
+  urlbase=${URLBASE}
+fi
+
+TMPFILE=`mktemp -q /tmp/doc.XXXXXX`
+mkdir ${TMPFILE}.d
+chmod a+w ${TMPFILE}.d
+tmp=${TMPFILE}.d
+
+build=${BUILD}/base/doc
+
+
+
+############################################################################
+#                                                                          #
+# Configuration files                                                      #
+#                                                                          #
+############################################################################
+
+rfccfg="${build}/cfg/rfc.cfg.xml"
+
+rfcsc="${build}/sc/rfc.${type}.sc"
+rfcinxsc="${build}/sc/rfc.inx.${type}.sc"
+
+
+############################################################################
+#                                                                          #
+# Define script components                                                 #
+#                                                                          #
+############################################################################
+
+remove="-r TOP -r MAIN -r TAIL"
+top="-i MAIN -i TAIL"
+main="-i TOP -i TAIL"
+tail="-i TOP -i MAIN"
+
+############################################################################
+#                                                                          #
+# Define temporary files                                                   #
+#                                                                          #
+############################################################################
+
+nmexml="${tmp}/rfcname.xml"
+inxxml="${tmp}/rfcinx.xml"
+
+############################################################################
+#                                                                          #
+# Report to user                                                           #
+#                                                                          #
+############################################################################
+
+echo "make.doc.rfc"
+echo "============"
+date
+echo "project:" ${project}
+echo "build:" ${build}
+echo "URL:" ${urlbase}
+echo "www path"${wwwpath}
+echo "type:"${type}
+
+############################################################################
+#                                                                          #
+# Build page                                                               #
+#                                                                          #
+############################################################################
+
+homeurl="${urlbase}/${project}/index.html"
+
+wwwpath="<td>&lt;a href="${urlbase}"/"${project}"/src.doc/rfc/index.html"
+wwwpath=${path}"&gt;rfc&lt;/a&gt;</td>"
+home="&lt;a href="${homeurl}"&gt;"${project}"&lt;/a&gt;"
+index="&lt;a href="${rfcindexurl}"&gt;Index&lt;/a&gt;"
+
+echo "<table>" > ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>HOME</search>" >> ${nmexml}
+echo "<replace>"${home}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>PATH</search>" >> ${nmexml}
+echo "<replace>"${wwwpath}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>INDEX</search>" >> ${nmexml}
+echo "<replace>"${index}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>${urlbase}</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "</table>" >> ${nmexml}
+
+echo '<?xml version="1.0" encoding="ISO-8859-1"?>' > ${inxxml}
+echo "<index>" >> ${inxxml}
+
+
+mkdir -p ${wwwpath}/${project}/src.doc/rfc
+flist=`find "${CODEBASE}/${project}/src.doc/rfc" -name "*.rfc.xml"`
+for fname in ${flist}
+  do
+    makerfc ${project} ${fname}
+    xmldoc \
+    -script "<rfc><id><!--ID--></id><title><!--TITLE--></title></rfc>" \
+    -sctype 0 . ${rfccfg} ${fname} >> ${inxxml}
+
+  done
+
+echo "</index>" >> ${inxxml}
+
+scdoc ${removeinx} ${top} ${nmexml} ${rfcinxsc} > \
+               ${wwwpath}/${project}/src.doc/rfc/index.html
+
+xmldoc ${removeinx} ${main} -script ${rfcinxsc} -sctype 1 \
+               -path "index/rfc" ${tmp} ${rfccfg} ${inxxml} >> \
+               ${wwwpath}/${project}/src.doc/rfc/index.html
+
+scdoc ${removeinx} ${tail} ${nmexml} ${rfcinxsc} >> \
+               ${wwwpath}/${project}/src.doc/rfc/index.html
+
+chmod a+x ${wwwpath}/${project}/src.doc/rfc/index.html
+
+############################################################################
+#                                                                          #
+# Clean up                                                                 #
+#                                                                          #
+############################################################################
+
+rm -fr ${tmp}
+rm -fr ${TMPFILE}

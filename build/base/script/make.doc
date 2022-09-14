@@ -1,0 +1,90 @@
+#!/bin/bash
+
+set -e 
+
+# make.doc
+# ========
+# Author R.J.Barnes
+#
+# Purpose:
+#
+# Make documentation
+#
+# Syntax:
+#
+# make.doc project package
+#
+# Description:
+#
+# Make a documentation set for a package.
+#
+
+
+prj=${1}
+pkg=${2}
+build=${BUILD}
+
+#ver=`rcsv -v ${build}/${prj}/package/${pkg}/version.info`
+ver="1.01"
+
+log="${LOGPATH}/${prj}-${pkg}.doc.${ver}"
+dtval=`date +%Y%m%d.%H%M`
+
+makeaction() {
+  project=${1}
+  module=${2} 
+  type=${3}
+
+  src=${CODEBASE}/${module#codebase/}
+
+  if test ! -d ${src} 
+  then
+   src=${src}.?.??
+  fi
+
+
+  if test "${type}" = "doc"
+  then
+   make.doc.rfc ${project}
+   find ${src}/tutorial -name "*.doc.xml" \
+      -exec make.doc.tutorial {} \; 2>&1 | tee -a ${log}.${dtval}
+  fi
+
+  if test "${type}" = "lib"
+  then
+   find ${src} -name "*.doc.xml" -exec make.doc.lib {} \; 2>&1 | \
+        tee -a ${log}.${dtval} 
+  fi
+
+  if test "${type}" = "bin"
+  then
+   find ${src} -name "*.doc.xml" -exec make.doc.bin {} \; 2>&1| \
+        tee -a ${log}.${dtval} 
+  fi
+}
+
+
+makedoc() {
+  fname=${1}
+  modlst=`cat ${fname} | tr " " "+" `
+
+  for mod in ${modlst}
+  do
+    if test -z "${mod}"  
+    then 
+      continue
+    fi 
+    if test "${mod:0:1}" = "#" 
+    then 
+      continue
+    fi
+    prm=${mod//+/ }
+    makeaction ${prm}
+  done
+}
+
+makedoc ${build}/${prj}/package/${pkg}/list.txt 
+make.doc.frame
+
+
+

@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# make.build
+# ==========
+# Author R.J.Barnes
+#
+# Purpose: 
+#
+# Make build software.
+#
+# Syntax:
+# 
+# make.build
+#
+# Description:
+#
+# Make the buld software.
+#
+
+
+
+set -e 
+
+export BINPATH=${BUILD}/base/bin
+export LIBPATH=${BUILD}/base/lib
+mkdir -p ${LIBPATH}
+mkdir -p ${BINPATH}
+
+makebuild() {
+
+  loct=${1}
+  type=${2}
+  path=${CODEBASE}/base/src.${type}/${loct}
+  if test ! -d ${path}
+  then 
+    path=${path}".*"
+  fi
+
+  if test "${type}" = lib
+  then
+    mkfile=`find ${path} -maxdepth 2 -name "makefile" | sort | tail -1 `
+  else
+    mkfile=`find ${path} -maxdepth 1 -name "makefile" | sort | tail -1` 
+  fi
+
+  cd ${mkfile%%/makefile}
+  make clean
+  make
+}
+
+liblist="xml/xml xml/xmldb xml/tagdb xml/xmldoclib \
+         task/option web/rscript"
+binlist="xmldoc/xmldoc xmldoc/xmldoc xmldoc/scdoc \
+         build/addtext build/maketree build/makeall"
+
+#makebuild build/rcsv bin
+
+for libname in ${liblist}
+do
+  makebuild ${libname} lib
+done
+  
+for binname in ${binlist}
+do
+  makebuild ${binname} bin
+done
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# dummy radar server
+radar &
+
+# critical tasks
+
+errlog -lp 44000 &
+shellserver -sh RadarShellA -cp 44001 -sp 44002 &
+
+# support tasks
+
+iqwrite -lp 44100 -ep 44000 &
+rawacfwrite -lp 44102 -ep 44000 &
+fitacfwrite -lp 44103 -ep 44000 &
+rtserver -rp 44104 -ep 44000 -tp 1024 &
+

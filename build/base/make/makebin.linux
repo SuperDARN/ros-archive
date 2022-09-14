@@ -1,0 +1,75 @@
+# Makefile for binary files
+# =========================
+# by R.J.Barnes
+#
+#
+
+# Linux (GCC)
+#
+
+VFILE=$(shell find.version)
+
+CFLAGS=-fPIC -Wall -O3 -ansi -D_GNU_SOURCE -D_LINUX 
+
+ifdef XPATH
+  ifdef XLIB
+    CFLAGS += -D_XLIB_
+    XLIBS=-L/usr/X11R6/lib -lX11 -lXext
+  endif
+else 
+    XLIB=
+endif
+
+CFLAGS += $(INCLUDE)
+
+LFLAGS = -L$(LIBPATH) -L$(USR_LIBPATH)
+
+DFL=-Wl,-Bdynamic
+ARC=-Wl,-Bstatic
+SHR=-Wl,-Bdynamic
+
+# Library identifier letters
+
+# By default statically link the all programs
+
+LNK=$(ARC)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<    
+
+ifdef OUTPUT
+$(OUTPUT): version help $(OBJS)        
+	$(CC) $(LFLAGS) -o $(DSTPATH)/$(OUTPUT) $(OBJS) $(LNK) \
+                           $(LIBS) $(XLIB) $(DFL) \
+                           $(SLIB) $(XLIBS)  
+endif
+
+help: 
+	make.help
+	
+version:
+	make.version
+
+
+clean:
+	rm -f *.o
+	rm -f $(OUTPUT)
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

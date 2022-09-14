@@ -1,0 +1,20 @@
+
+
+  
+
+
+
+
+	   	            RRRRR   SSSS  TTTTTT
+			    RR RRR SS       TT
+                            RRRRR   SSSS    TT
+                            RR RR      SS   TT
+                            RR  RR  SSSS    TT
+ 
+                         SuperDARN Analysis Toolkit
+                         ==========================
+ 
+			        R.J.Barnes
+
+
+                             Version:$version$

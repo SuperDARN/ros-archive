@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# critical tasks
+
+errlog -name fhw -lp 54000 &
+shellserver -sh RadarShellB -cp 54001 -sp 54002 &
+
+# support tasks
+
+iqwrite -lp 54100 -ep 54000 &
+rawacfwrite -lp 54102 -ep 54000 &
+fitacfwrite -lp 54103 -ep 54000 &
+rtserver -rp 54104 -ep 54000 -tp 1025 &
+

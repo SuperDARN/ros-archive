@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# make.hdr
+# =========
+#
+# Purpose:
+#
+# Constructs the symbolic links to a libraries header files
+#
+# Syntax:
+#
+# make.hdr src dst
+#
+# Description:
+#
+# Constructs the symbolic links to a libraries header files.
+
+src=${1}
+dst=${2}
+
+mkdir -p ${dst}
+
+ilist=`find ${src} -name "*.h"`
+for inc in ${ilist}
+do
+  echo ${inc}
+  fleaf=${inc##*/}
+
+  if test ! ${inc} -ef ${dst}/${fleaf}
+  then
+    ln -sfv ${inc} ${dst}/${fleaf}
+  fi
+
+done
+
+
+
+
+

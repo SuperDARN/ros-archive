@@ -1,0 +1,567 @@
+#!/bin/bash
+
+# make.doc.tutorial
+# =================
+# Author: R.J.Barnes
+#
+# Purpose:
+#
+# Constructs web pages from XML documentation
+#
+# Syntax:
+#
+# make.doc.tutorial fname
+#
+# Description:
+#
+# Makes documentation for tutorials.
+
+############################################################################
+#                                                                          #
+# Locate pnmtopng                                                          #
+#                                                                          #
+############################################################################
+
+pnmtopng=${PNMTOPNG}
+
+############################################################################
+#                                                                          #
+# Command line options                                                     #
+#                                                                          #
+############################################################################
+
+fname=${1}
+type="local"
+
+############################################################################
+#                                                                          #
+# Define working directories                                               #
+#                                                                          #
+############################################################################
+
+wwwpath="${DOCPATH}/html"
+urlbase="file://${DOCPATH}/html"
+
+if test "${type}" = "www"
+then
+  wwwpath=${WWWPATH}
+  urlbase=${URLBASE}
+fi
+
+TMPFILE=`mktemp -q /tmp/doc.XXXXXX`
+mkdir ${TMPFILE}.d
+chmod a+w ${TMPFILE}.d
+tmp=${TMPFILE}.d
+
+build=${BUILD}/base/doc
+
+############################################################################
+#                                                                          #
+# Configuration files                                                      #
+#                                                                          #
+############################################################################
+
+tutorialcfg="${build}/cfg/tutorial.cfg.xml"
+
+tutorialsc="${build}/sc/tutorial.${type}.sc"
+tutorialinxsc="${build}/sc/tutorial.inx.${type}.sc"
+
+tutorialtagdb="${build}/tagdb/tutorial.tagdb.xml"
+
+############################################################################
+#                                                                          #
+# Define script components                                                 #
+#                                                                          #
+############################################################################
+
+removeinx="-r TOP -r MAIN -r TAIL"
+top="-i MAIN -i TAIL"
+main="-i TOP -i TAIL"
+tail="-i TOP -i MAIN"
+
+############################################################################
+#                                                                          #
+# Define temporary files                                                   #
+#                                                                          #
+############################################################################
+
+nmexml="${tmp}/tutorialname.xml"
+navxml="${tmp}/tutorialnav.xml"
+
+tagdb="${tmp}/tutorial.tagdb.xml"
+
+############################################################################
+#                                                                          #
+# Get information                                                          #
+#                                                                          #
+############################################################################
+
+xmlname=${fname##*/}
+
+project=`xmldoc -path "tutorial" -script "<!--PROJECT-->" \
+              -sctype 0 . ${tutorialcfg} ${fname}`
+
+title=`xmldoc -path "tutorial" -script "<!--TITLE-->" \
+              -sctype 0 . ${tutorialcfg} ${fname}`
+
+loct=`xmldoc -path "tutorial" -script "<!--LOCATION-->" \
+              -sctype 0 . ${tutorialcfg} ${fname}`
+
+
+pages=`xmldoc -script "<!--ID--> " -sctype 0 \
+       . ${tutorialcfg} ${fname}`
+fpage=${pages%% *}
+
+############################################################################
+#                                                                          #
+# Report to user                                                           #
+#                                                                          #
+############################################################################
+
+
+echo "make.doc.tutorial"
+echo "======================"
+date
+echo "build:" ${build}
+echo "source:" ${fname}
+echo "URL:" ${urlbase}
+echo "www path:"${wwwpath}
+echo "type:"${type}
+
+echo "Project:" ${project}
+echo "Tutorial Name:" ${title}
+echo "Tutorial Location:" ${loct}
+echo "Tutorial Pages:" ${pages}
+
+
+############################################################################
+#                                                                          #
+# Build documentation pages                                                #
+#                                                                          #
+############################################################################
+
+
+#
+# Define home and index pages
+# 
+
+homeurl="${urlbase}/${project}/index.html"
+indexurl="${urlbase}/${project}/src.doc/tutorial/indexdoc.html"
+
+# 
+# Take apart the location string so that we can build a navigation link
+#
+
+ltree=${loct%/*}/
+path=""
+str=""
+
+
+while test -n "${ltree}"
+  do
+    dir=${ltree%%/*}
+    path=${path}"/"${dir}
+    str=${str}"<td>|</td><td>&lt;a href="${urlbase}"/"${project}"/"${path} 
+    str=${str}"/index.html&gt;"
+    str=${str}${dir}"&lt;/a&gt;</td>"
+    ltree=${ltree#*/}
+  done
+
+ str=${str}"<td>|</td><td>&lt;a href="${urlbase}"/"${project}"/"${loct}
+ str=${str}"/index.html&gt;"
+ str=${str}${title}"&lt;/a&gt;</td>"
+
+
+
+
+ltree=${loct%/*}/
+path=""
+istr=""
+
+while test -n "${ltree}"
+  do
+    dir=${ltree%%/*}
+    path=${path}"/"${dir}
+    istr=${istr}"<td>|</td><td>&lt;a href="${urlbase}"/"${project}${path}
+    istr=${istr}"/index.html&gt;"
+    istr=${istr}${dir}"&lt;/a&gt;</td>"
+    ltree=${ltree#*/}
+  done
+
+ istr=${istr}"<td>|</td><td>"${title}"</td>"
+
+
+
+
+home="&lt;a href="${homeurl}"&gt;"${project}"&lt;/a&gt;"
+index="&lt;a href="${indexurl}"&gt;Index&lt;/a&gt;"
+
+echo "<table>" > ${nmexml}
+
+
+echo "<entry>" >> ${nmexml}
+echo "<search>TUTORIAL</search>" >> ${nmexml}
+echo "<replace>"${title}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+
+echo "<entry>" >> ${nmexml}
+echo "<search>HOME</search>" >> ${nmexml}
+echo "<replace>"${home}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>PATH</search>" >> ${nmexml}
+echo "<replace>"${str}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>IPATH</search>" >> ${nmexml}
+echo "<replace>"${istr}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>INDEX</search>" >> ${nmexml}
+echo "<replace>"${index}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>FPAGE</search>" >> ${nmexml}
+echo "<replace>"${fpage}".html</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>${urlbase}</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "</table>" >> ${nmexml}
+
+#
+# copy the tag database
+#
+
+cat ${tutorialtagdb} > ${tagdb}
+
+
+
+
+#
+# Each tutorial is installed in a unique directory which contains
+# sub-directories for extra files such as source code and images.
+#
+
+echo "Building directory structure:"
+echo ${wwwpath}/${project}/${loct}
+
+if test ! -d ${wwwpath}/${project}/${loct}
+  then 
+    mkdir -p ${wwwpath}/${project}/${loct}
+  fi
+
+if test ! -d ${wwwpath}/${project}/${loct}/img
+  then 
+    mkdir -p ${wwwpath}/${project}/${loct}/img
+  fi
+
+if test ! -d ${wwwpath}/${project}/${loct}/js
+  then 
+    mkdir -p ${wwwpath}/${project}/${loct}/js
+  fi
+
+if test ! -d ${wwwpath}/${project}/${loct}/data
+  then 
+    mkdir -p ${wwwpath}/${project}/${loct}/data
+  fi
+
+if test ! -d ${wwwpath}/${project}/${loct}/src
+  then 
+    mkdir =p ${wwwpath}/${project}/${loct}/src
+  fi
+
+if test ! -d ${wwwpath}/${project}/${loct}/sh
+  then 
+    mkdir -p ${wwwpath}/${project}/${loct}/sh
+  fi
+
+if test ! -d ${wwwpath}/${project}/${loct}/idl
+  then 
+    mkdir -p ${wwwpath}/${project}/${loct}/idl
+  fi
+
+
+tutorialpath=${CODEBASE}/${project}/${loct}
+
+
+# If source code files exist copy them to the web
+#
+#
+
+if test -d ${tutorialpath}/src
+then 
+  slist=`find ${tutorialpath}/src -name "*.c"`
+  for src in $slist
+  do
+    fleaf=${src##*/}
+    cat ${src} > ${wwwpath}/${project}/${loct}/src/${fleaf}
+    cat ${src} > ${tmp}/${fleaf}
+  done
+fi
+
+# If shell scripts exist copy them to the web
+#
+#
+
+if test -d ${tutorialpath}/sh
+then 
+  slist=`find ${tutorialpath}/sh -type f`
+  for src in $slist
+  do
+    fleaf=${src##*/}
+    cat ${src} > ${wwwpath}/${project}/${loct}/sh/${fleaf}
+    cat ${src} > ${tmp}/${fleaf}
+  done
+fi
+
+
+# If idl programs exist copy them to the web
+#
+#
+
+if test -d ${tutorialpath}/idl
+then 
+  slist=`find ${tutorialpath}/idl -type f`
+  for src in $slist
+  do
+    fleaf=${src##*/}
+    echo ${fleaf}
+    cat ${src} > ${wwwpath}/${project}/${loct}/idl/${fleaf}
+    cat ${src} > ${tmp}/${fleaf}
+  done
+fi
+
+
+
+
+# If javascript files exist copy them to the web
+#
+#
+
+if test -d ${tutorialpath}/js
+then 
+  slist=`find ${tutorialpath}/js -name "*.js"`
+  for src in $slist
+  do
+    fleaf=${src##*/}
+    cat ${src} > ${wwwpath}/${project}/${loct}/js/${fleaf}
+    cat ${src} > ${tmp}/${fleaf}
+  done
+fi
+
+# If data files exist, copy them to the web
+#
+#
+
+if test -d ${tutorialpath}/data
+then 
+  slist=`find ${tutorialpath}/data -type f`
+  for src in $slist
+  do
+    fleaf=${src##*/}
+    cat ${src} > ${wwwpath}/${project}/${loct}/data/${fleaf}
+    cat ${src} > ${tmp}/${fleaf}
+  done
+fi
+
+#
+# If rplot files exist, render them as PostScript,SVG and png, and
+# copy them to the web
+
+if test -s ${tutorialpath}/rplot
+then
+  ilist=`find ${tutorialpath}/rplot -name "*.rp.xml.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.rp.xml.gz}
+    gunzip -c  ${img} > ${tmp}/${root}.rp.xml
+
+    if test -n "${pnmtopng}" 
+    then 
+      rplot -ppm ${tmp}/${root}.rp.xml | \
+                ${pnmtopng} > \
+                ${wwwpath}/${project}/${loct}/img/${root}.png
+    else 
+      cat ${build}/img/dummy.png > \
+          ${wwwpath}/${project}/${loct}/img/${root}.png
+    fi
+
+    rplot -ps ${tmp}/${root}.rp.xml | \
+         gzip -c > ${wwwpath}/${project}/${loct}/img/${root}.ps.gz
+
+
+    rplot -svgppmx -urlptn "${root}-%s.png" \
+          -svgfileptn "${tmp}/${root}-%s.ppmx" \
+          -svg ${tmp}/${root}.rp.xml >\
+          ${wwwpath}/${project}/${loct}/img/${root}.svg
+
+     inline=`find ${tmp} -name "${root}*.ppmx"`
+     for ppmx in ${inline}
+     do
+       fppmx=${ppmx##*/}
+      ppmxtoppm -alpha ${tmp}/${fppmx%%.ppmx}.a.ppm ${tmp}/${fppmx} \
+                       > ${tmp}/${fppmx%%.ppmx}.ppm
+      pnmtopng -alpha ${tmp}/${fppmx%%.ppmx}.a.ppm \
+               ${tmp}/${fppmx%%.ppmx}.ppm \
+               > ${wwwpath}/${project}/${loct}/img/${fppmx%%.ppmx}.png
+     done
+
+    cat ${img} > ${wwwpath}/${project}/${loct}/img/${root}.rp.xml.gz
+    rm -f ${tmp}/${root}*.ppmx
+    rm -f ${tmp}/${root}*.ppm
+    rm -f ${tmp}/${root}.rp.xml
+  done
+fi
+
+#
+# If svg files exist, and copy them to
+# the web
+
+if test -d ${tutorialpath}/svg
+then 
+  ilist=`find ${tutorialpath}/svg -name "*.svg.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.svg.gz}
+    cat ${img} > ${wwwpath}/${project}/${loct}/img/${root}.svg.gz
+  done
+fi
+
+#
+# If postscript files exist, and copy them to
+# the web
+
+if test -d ${tutorialpath}/ps
+then
+  ilist=`find ${tutorialpath}/ps -name "*.ps.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.ps.gz}
+    cat ${img} > ${wwwpath}/${project}/${loct}/img/${root}.ps.gz
+
+  done
+fi
+
+#
+# If ppm files exist, copy them to
+# the web
+
+if test -d ${tutorialpath}/ppm
+then
+  ilist=`find ${tutorialpath}/ppm -name "*.ppm.gz"`
+
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.ppm.gz}
+
+    if test -n "${pnmtopng}" 
+    then 
+      gunzip -c ${img} | ${pnmtopng} > \
+                   ${wwwpath}/${project}/${loct}/img/${root}.png
+    else
+      cat ${build}/img/dummy.png > \
+          ${wwwpath}/${project}/${loct}/img/${root}.png
+    fi 
+  done
+fi
+
+
+#
+# If png files exist, copy them to
+# the web
+
+if test -d ${tutorialpath}/png
+then 
+  ilist=`find ${tutorialpath}/png -name "*.png"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.png}
+    cat ${img} > ${wwwpath}/${project}/${loct}/img/${root}.png
+  done
+fi
+
+
+
+
+pagetmp=${pages#* }
+prev=""
+for page in $pages
+  do
+
+    echo "Building:${wwwpath}/${project}/${loct}/${page}.html" 
+
+    next=${pagetmp%% *}
+   
+    echo "<table>" > ${navxml}
+    echo "<entry>" >> ${navxml}
+    echo "<search>PREV</search>" >> ${navxml}
+    if test -z "${prev}" 
+    then
+   echo "<replace>index.html</replace>" >> ${navxml}
+    else
+      echo "<replace>"${prev}".html</replace>" >> ${navxml}
+    fi
+    echo "</entry>" >> ${navxml}
+    echo "<entry>" >> ${navxml}
+    echo "<search>NEXT</search>" >> ${navxml}
+
+    if test -z "${next}" 
+    then
+      echo "<replace>index.html</replace>" >> ${navxml}
+    else
+      echo "<replace>"${next}".html</replace>" >> ${navxml}
+    fi
+
+    echo "</entry>" >> ${navxml}
+    echo "</table>" >> ${navxml}
+
+    xmldoc -script ${tutorialsc} -sctype 1 \
+                     ${tmp} ${tutorialcfg} ${fname} ${page} \
+                     > ${wwwpath}/${project}/${loct}/${page}.html
+    chmod a+x ${wwwpath}/${project}/${loct}/${page}.html
+    pagetmp=${pagetmp#* }
+    prev=${page}
+  done
+
+
+xmldoc ${removeinx} ${top} -path "tutorial" \
+                -script ${tutorialinxsc} -sctype 1 \
+                ${tmp} ${tutorialcfg} ${fname} \
+                > ${wwwpath}/${project}/${loct}/index.html
+
+xmldoc ${removeinx} ${main} \
+        -script ${tutorialinxsc} -sctype 1 \
+        ${tmp} ${tutorialcfg} ${fname} \
+        >> ${wwwpath}/${project}/${loct}/index.html
+
+xmldoc ${removeinx} ${tail} -path "tutorial" \
+        -script ${tutorialinxsc} -sctype 1 \
+        ${tmp} ${tutorialcfg} ${fname} \
+        >> ${wwwpath}/${project}/${loct}/index.html
+chmod a+x ${wwwpath}/${project}/${loct}/index.html
+
+cat ${fname} > ${wwwpath}/${project}/${loct}/${xmlname}
+
+############################################################################
+#                                                                          #
+# Cleanup                                                                  #
+#                                                                          #
+############################################################################
+
+rm -fr ${tmp}
+rm -fr ${TMPFILE}

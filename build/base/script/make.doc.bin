@@ -1,0 +1,369 @@
+#!/bin/bash
+
+# make.doc.bin
+# ============
+# Author: R.J.Barnes
+#
+# Purpose:
+#
+# Constructs web pages from XML documentation
+#
+# Syntax:
+#
+# make.doc.bin fname
+#
+# Description:
+#
+# Makes documentation for a binary.
+#
+
+############################################################################
+#                                                                          #
+# Locate pnmtopng                                                          #
+#                                                                          #
+############################################################################
+
+pnmtopng=${PNMTOPNG}
+
+############################################################################
+#                                                                          #
+# Command line options                                                     #
+#                                                                          #
+############################################################################
+
+fname=${1}
+type="local"
+
+############################################################################
+#                                                                          #
+# Define working directories                                               #
+#                                                                          #
+############################################################################
+
+wwwpath="${DOCPATH}/html"
+urlbase="file://${DOCPATH}/html"
+
+if test "${type}" = "www"
+then
+  wwwpath=${WWWPATH}
+  urlbase=${URLBASE}
+fi
+
+TMPFILE=`mktemp -q /tmp/doc.XXXXXX`
+mkdir ${TMPFILE}.d
+chmod a+w ${TMPFILE}.d
+tmp=${TMPFILE}.d
+
+build=${BUILD}/base/doc
+
+############################################################################
+#                                                                          #
+# Configuration files                                                      #
+#                                                                          #
+############################################################################
+
+bincfg="${build}/cfg/bin.cfg.xml"
+bintagdb="${build}/tagdb/bin.tagdb.xml"
+
+binsc="${build}/sc/bin.${type}.sc"
+
+############################################################################
+#                                                                          #
+# Define temporary files                                                   #
+#                                                                          #
+############################################################################
+
+nmexml="${tmp}/binname.xml"
+tagdb="${tmp}/bin.tagdb.xml"
+
+############################################################################
+#                                                                          #
+# Get information                                                          #
+#                                                                          #
+############################################################################
+
+xmlname=${fname##*/}
+
+project=`xmldoc -script "<!--PROJECT-->" \
+              -sctype 0 . ${bincfg} ${fname}`
+binname=`xmldoc -script "<!--NAME-->" -sctype 0 \
+         . ${bincfg} ${fname}`
+binloct=`xmldoc -script "<!--LOCATION-->" -sctype 0 \
+         . ${bincfg} ${fname}`
+
+############################################################################
+#                                                                          #
+# Report to user                                                           #
+#                                                                          #
+############################################################################
+
+echo "make.doc.bin"
+echo "============"
+echo "build:" ${build}
+echo "source:" ${fname}
+echo "name:" ${xmlname}
+echo "URL:" ${urlbase}
+echo "www path:"${wwwpath}
+echo "type:"${type}
+ 
+echo "Project:"${project}
+echo "Binary Name:" ${binname}
+echo "Binary Location:" ${binloct}
+echo
+
+############################################################################
+#                                                                          #
+# Build documentation pages                                                #
+#                                                                          #
+############################################################################
+
+
+homeurl="${urlbase}/${project}/index.html"
+indexurl="${urlbase}/${project}/src.bin/indexdoc.html"
+
+# 
+# Take apart the location string so that we can build a navigation link
+#
+
+ltree=${binloct%/*}/
+path=""
+str=""
+
+while test -n "${ltree}"
+  do
+    dir=${ltree%%/*}
+    path=${path}"/"${dir}
+    str=${str}"<td>|</td><td>&lt;a href="
+    str=${str}${urlbase}"/"${project}${path}"/index.html&gt;"
+    str=${str}${dir}"&lt;/a&gt;</td>"
+    ltree=${ltree#*/}
+  done
+
+#
+# Create the temporary XML file containing the binary name and
+# the URL of the binary index page.
+#
+
+home="&lt;a href="${homeurl}"&gt;"${project}"&lt;/a&gt;"
+index="&lt;a href="${indexurl}"&gt;Index&lt;/a&gt;"
+xml="&lt;a href="${xmlname}"&gt;"${xmlname}"&lt;/a&gt;"
+
+
+echo "<table>" > ${nmexml}
+echo "<entry>" >> ${nmexml}
+echo "<search>BINARY</search>" >> ${nmexml}
+echo "<replace>"${binname}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>HOME</search>" >> ${nmexml}
+echo "<replace>"${home}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>PATH</search>" >> ${nmexml}
+echo "<replace>"${str}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>INDEX</search>" >> ${nmexml}
+echo "<replace>"${index}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "<entry>" >> ${nmexml}
+echo "<search>URLBASE</search>" >> ${nmexml}
+echo "<replace>${urlbase}</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+
+echo "<entry>" >> ${nmexml}
+echo "<search>XML</search>" >> ${nmexml}
+echo "<replace>"${xml}"</replace>" >> ${nmexml}
+echo "</entry>" >> ${nmexml}
+
+echo "</table>" >> ${nmexml}
+
+cat ${bintagdb} > ${tagdb}
+
+
+#
+# Each binary is installed in a unique directory which contains
+# sub-directories for extra files such as examples and images.
+#
+
+echo "Building directory structure:"
+echo ${wwwpath}/${project}/${binloct}
+
+if test ! -d ${wwwpath}/${project}/${binloct}
+  then 
+    mkdir -p ${wwwpath}/${project}/${binloct}
+  fi
+
+if test ! -d ${wwwpath}/${project}/${binloct}/img
+  then 
+    mkdir -p ${wwwpath}/${project}/${binloct}/img
+  fi
+
+
+# Determine if the binary has a version number. If it has
+# use the highest version number as the source
+#
+#
+
+
+binpath=${CODEBASE}/${project}/${binloct}
+
+if test ! -d ${binpath}
+then
+  bpath=${binloct%/*}
+  bname=${binloct##*/}
+  blist=`find ${CODEBASE}/${bpath} -name "${bname}.?.??" | sort`
+  binpath=${blist##* }
+fi
+
+
+#
+# If rplot files exist, render them as PostScript,SVG and png, and
+# copy them to the web
+
+if test -s ${binpath}/doc/rplot
+then
+  ilist=`find ${binpath}/doc/rplot -name "*.rp.xml.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.rp.xml.gz}
+    gunzip -c  ${img} > ${tmp}/${root}.rp.xml
+
+    if test -n "${pnmtopng}" 
+    then 
+      rplot -ppm ${tmp}/${root}.rp.xml | \
+                ${pnmtopng} > \
+                ${wwwpath}/${project}/${binloct}/img/${root}.png
+    else 
+      cat ${build}/img/dummy.png > \
+          ${wwwpath}/${project}/${binloct}/img/${root}.png
+    fi
+
+    rplot -ps ${tmp}/${root}.rp.xml | \
+         gzip -c > ${wwwpath}/${project}/${binloct}/img/${root}.ps.gz
+
+
+    rplot -svgppmx -urlptn "${root}-%s.png" \
+          -svgfileptn "${tmp}/${root}-%s.ppmx" \
+          -svg ${tmp}/${root}.rp.xml > \
+          ${wwwpath}/${project}/${binloct}/img/${root}.svg
+
+     inline=`find ${tmp} -name "${root}*.ppmx"`
+     for ppmx in ${inline}
+     do
+       fppmx=${ppmx##*/}
+       ppmxtoppm -alpha ${tmp}/${fppmx} > ${tmp}/${fppmx%%.ppmx}.a.ppm
+       ppmxtoppm ${tmp}/${fppmx} > ${tmp}/${fppmx%%.ppmx}.ppm
+       pnmtopng -alpha ${tmp}/${fppmx%%.ppmx}.a.ppm \
+               ${tmp}/${fppmx%%.ppmx}.ppm \
+               > ${wwwpath}/${project}/${binloct}/img/${fppmx%%.ppmx}.png
+     done
+
+    cat ${img} > ${wwwpath}/${project}/${binloct}/img/${root}.rp.xml.gz
+    rm -f ${tmp}/${root}*.ppmx
+    rm -f ${tmp}/${root}*.ppm
+    rm -f ${tmp}/${root}.rp.xml
+  done
+fi
+
+#
+# If svg files exist, and copy them to
+# the web
+
+if test -d ${binpath}/doc/svg
+then 
+  ilist=`find ${binpath}/doc/svg -name "*.svg.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.svg.gz}
+    cat ${img} > ${wwwpath}/${project}/${binloct}/img/${root}.svg.gz
+  done
+fi
+
+#
+# If postscript files exist, and copy them to
+# the web
+
+if test -d ${binpath}/doc/ps
+then
+  ilist=`find ${binpath}/doc/ps -name "*.ps.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.ps.gz}
+    cat ${img} > ${wwwpath}/${project}/${binloct}/img/${root}.ps.gz
+
+  done
+fi
+
+#
+# If ppm files exist, copy them to
+# the web
+
+if test -d ${binpath}/doc/ppm
+then
+  ilist=`find ${binpath}/doc/ppm -name "*.ppm.gz"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.ppm.gz}
+
+    if test -n "${pnmtopng}" 
+    then 
+      gunzip -c ${img} | ${pnmtopng} > \
+                   ${wwwpath}/${project}/${binloct}/img/${root}.png
+    else
+      cat ${build}/img/dummy.png > \
+          ${wwwpath}/${project}/${binloct}/img/${root}.png
+    fi 
+  done
+fi
+
+
+#
+# If png files exist, copy them to
+# the web
+
+if test -d ${binpath}/doc/png
+then 
+  ilist=`find ${binpath}/doc/png -name "*.png"`
+  for img in $ilist
+  do
+    fleaf=${img##*/}
+    root=${fleaf%%.png}
+    cat ${img} > ${wwwpath}/${project}/${binloct}/img/${root}.png
+  done
+fi
+
+echo "Building:${wwwpath}/${binloct}/index.html" 
+
+xmldoc -script ${binsc} -sctype 1 ${tmp} ${bincfg} ${fname} \
+                > ${wwwpath}/${project}/${binloct}/index.html
+
+chmod a+x ${wwwpath}/${project}/${binloct}/index.html
+
+#
+# Copy the xml version of the documentation
+#
+
+cat ${fname} > ${wwwpath}/${project}/${binloct}/${xmlname}
+
+############################################################################
+#                                                                          #
+# Cleanup                                                                  #
+#                                                                          #
+############################################################################
+
+
+
+
+
+
+

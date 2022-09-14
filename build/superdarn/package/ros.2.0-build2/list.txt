@@ -1,0 +1,68 @@
+
+# Core
+
+base codebase/base/src.lib/xml/xml lib stdin
+base codebase/base/src.lib/xml/xmldb lib stdin
+base codebase/base/src.lib/xml/tagdb lib stdin 
+base codebase/base/src.lib/xml/xmldoclib lib stdin 
+base codebase/base/src.lib/task/option lib stdin 
+base codebase/base/src.lib/web/rscript lib stdin 
+base codebase/base/src.bin/build/rcsv bin stdin
+base codebase/base/src.bin/build/addtext bin stdin
+base codebase/base/src.bin/build/makeall bin stdin
+base codebase/base/src.bin/build/maketree bin stdin
+base codebase/base/src.bin/xmldoc/scdoc bin stdin 
+base codebase/base/src.bin/xmldoc/xmldoc bin stdin
+
+base codebase/base/src.lib/math/rmath lib stdin
+base codebase/base/src.lib/task/convert lib stdin
+base codebase/base/src.lib/task/option lib stdin 
+base codebase/base/src.lib/task/rtypes lib stdin
+base codebase/base/src.lib/tcpip/cnx lib stdin
+base codebase/base/src.lib/memory/shmem lib stdin
+general codebase/general/src.lib/dmap lib stdin
+general codebase/general/src.lib/time lib stdin
+
+
+# SuperDARN
+
+superdarn codebase/superdarn/src.lib/tk/acf lib stdin
+superdarn codebase/superdarn/src.lib/tk/cfit lib stdin
+superdarn codebase/superdarn/src.lib/tk/csd lib stdin
+superdarn codebase/superdarn/src.lib/tk/fit lib stdin
+superdarn codebase/superdarn/src.lib/tk/fitacf lib stdin
+superdarn codebase/superdarn/src.lib/tk/iqsample lib stdin
+superdarn codebase/superdarn/src.lib/tk/radar lib stdin
+superdarn codebase/superdarn/src.lib/tk/raw lib stdin
+superdarn codebase/superdarn/src.lib/tk/scan lib stdin
+superdarn codebase/superdarn/src.lib/tk/tsg lib stdin
+superdarn codebase/superdarn/src.lib/os lib
+superdarn codebase/superdarn/src.bin/os bin
+
+superdarn usr/codebase/superdarn/src.lib/os lib
+superdarn usr/codebase/superdarn/src.bin/os bin
+
+
+superdarn codebase/superdarn/src.sh/ros sh
+
+
+# Build components
+
+base build/base/help build
+base build/base/doc build 
+base build/base/make build 
+base build/base/script build
+base build/base/profile build
+general build/general/profile build
+superdarn build/superdarn/make build
+superdarn build/superdarn/profile build
+project build/superdarn/package/ros package
+
+# Data tables
+
+base tables/base tables
+general tables/general tables
+analysis tables/analysis tables
+superdarn tables/superdarn tables
+
+

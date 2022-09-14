@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if test -s version.txt
+  then
+  vstr=`tail -1 version.txt | cut -f 2-3 -d'.'`
+  vmajor=${vstr%%.*}
+  vminor=${vstr##*.}
+else
+  vmajor="1"
+  vminor="1"
+fi
+  echo "/*version.h" > version.h
+  echo "  =========*/" >> version.h
+  echo "" >> version.h
+  echo " #define MAJOR_VERSION "${vmajor} >> version.h
+  echo " #define MINOR_VERSION "${vminor} >> version.h

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if test -n "${MASTER}"
+then
+  git tag > version.txt
+fi
+
+
+vfile=`find . -name "version.txt"`
+echo ${vfile##*/}
