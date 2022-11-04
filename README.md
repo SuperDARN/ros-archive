@@ -2,6 +2,7 @@
 
 This repository contains an archive of SuperDARN Radar Operating System (ROS) software, where the source code for each version is hosted on a different branch (listed in parentheses):
 
+- RADOPS 2000 (radops.2000)
 - ROS 0.??? (ros.0.0)
 - ROS 0.93A (ros.0.93A)
 - ROS 1.0 (ros.1.0)
