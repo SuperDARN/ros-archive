@@ -1,0 +1,46 @@
+#!/bin/bash
+
+east='cve'
+west='cvw'
+
+# dummy radar server
+#radar &
+
+# critical tasks
+
+echo "Waiting for errlog to start"
+errlog -name $east -lp 44000 &
+errlog -name $west -lp 54000 &
+sleep 1
+
+echo "Waiting for shellserver to start"
+shellserver -sh RadarShellA -cp 44001 -sp 45001 -ep 44000 &
+shellserver -sh RadarShellB -cp 54001 -sp 55001 -ep 54000 &
+sleep 1
+
+# support tasks
+
+echo "Waiting for iqwrite to start"
+iqwrite -lp 44101 -ep 44000 &
+iqwrite -lp 54101 -ep 54000 &
+
+echo "Waiting for rawacfwrite to start"
+rawacfwrite -lp 44102 -ep 44000 &
+rawacfwrite -lp 54102 -ep 54000 &
+
+echo "Waiting for fitacfwrite to start"
+fitacfwrite -lp 44103 -ep 44000 &
+fitacfwrite -lp 54103 -ep 54000 &
+
+sleep 2
+
+echo "Waiting for rtserver to start"
+rtserver -rp 44104 -ep 44000 -tp 1024 &
+sleep 2
+rtserver -rp 54104 -ep 54000 -tp 1025 &
+sleep 2
+
+echo "Starting scheduler"
+schedule -name $east /data/ros/scd/${east}.scd &
+sleep 2
+schedule -name $west /data/ros/scd/${west}.scd &
