@@ -1,0 +1,8 @@
+*.pro linguist-language=IDL
+*.h linguist-language=C
+
+hdw.dat.* -linguist-detectable
+tdiff.dat.* -linguist-detectable
+*.asc -linguist-detectable
+*.cfg -linguist-detectable
+*.dat -linguist-detectable
