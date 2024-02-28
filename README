@@ -1,0 +1,212 @@
+RST Radar Operating System (RST-ROS)
+====================================
+R.J.Barnes   (original developer)
+J.D.Spaleta  (original developer)
+J.T.Klein    (UAF radar engineer)
+M.Guski      (UAF radar engineer)
+B.G.Klug     (UAF radar engineer)
+S.G.Shepherd (CVE/CVW radar PI)
+SuperDARN Data Analysis Working Group (RST developers)
+E.G.Thomas   (merged ROS back into RST)
+
+Version Log
+===========
+
+1.25    Final release of QNX4 ROS
+2.0     Beta release of Linux ROS
+3.1     First release of Linux ROS 3
+3.6     Final release of Linux ROS 3
+4.0     First release of Linux RST (5.0) + ROS (3.1-cv)
+4.1+    Updates to Linux RST-ROS
+
+
+Introduction
+------------
+
+The RST Radar Operating System (RST-ROS) is the software used to
+operate the SuperDARN radar network. The software is distributed in
+the form of source code and data tables for Linux platforms.
+
+This package does not include the hardware interface software, instead
+it contains a "dummy" radar task that simulates the responses of the
+radar hardware.
+
+
+Features
+--------
+
+The RST-ROS package includes the following software:
+
++ radar          - A radar simulator
++ errlog         - The error logger
++ fitacfwrite    - Stores fitacf data files
++ rawacfwrite    - Stores rawacf data files
++ iqwrite        - Stores iqdat data files
++ rtserver       - Real-time data server for TCP/IP clients
++ shellserver    - Provides an interface between the control program
+                   and the interactive shell
++ radarshell     - The interactive radar shell that allows control program
+                   parameters to be changed
++ schedule       - The radar scheduler
+
+The package also includes control programs, site libraries, and all
+of the RST data processing and plotting functionality (e.g., dmapdump,
+make_fit, time_plot, etc.).
+
+
+Installation
+------------
+
+Note: These instructions assume the software will be run from a user
+account called "radar_user".
+
+1. Install the required libraries (as of Ubuntu 22.04):
+
+    build-essential
+    libconfig-dev
+    libhdf5-dev
+    libncurses-dev
+    libnetcdf-dev
+    libpng-dev
+    libx11-dev
+    libxext-dev
+    netpbm
+
+2. Download the NASA CDF library (cdf[XX_X]-dist-cdf.tar.gz) from:
+
+    https://spdf.gsfc.nasa.gov/pub/software/cdf/dist/latest/linux/
+
+Unpack and install the CDF software:
+
+    tar -xzvf cdf[XX_X]-dist-cdf.tar.gz
+    cd cdf[XX_X]-dist
+    make OS=linux ENV=gnu all
+    sudo make INSTALLDIR=/usr/local/cdf install
+
+3. Load the RST-ROS environment variables by adding the following lines
+to the end of ".bashrc":
+
+    export RSTPATH="/home/radar_user/rst-ros"
+    source $RSTPATH/.profile.bash
+
+Refresh the profile to make sure the environment variables are up to date
+by closing and re-opening the terminal, or by typing:
+
+    source ~/.bashrc
+
+4. Compile the build architecture by typing:
+
+    make.build
+
+5. Compile all of the RST-ROS software by typing:
+
+    make.code
+
+To recompile individual pieces of the software type:
+
+    make.code [lib or bin] [optional search string]
+    (e.g., make.code bin normalscan)
+
+Logs of the compilation process are stored in the "log" sub-directory.
+
+
+Data Directories
+----------------
+
+The directories in which data and log files are recorded are defined by
+environment variables (in .profile/ros.bash). By default the following
+directories are used:
+
+/data/ros/iqdat        - iqdat files
+/data/ros/rawacf       - rawacf files
+/data/ros/fitacf       - fitacf files
+/data/ros/snd          - snd files
+/data/ros/errlog       - error logs
+/data/ros/scdlog       - scheduler logs
+
+Note the user account running the software must have read/write permission
+for each of these directories.
+
+
+Configuration Files
+-------------------
+
+The site-specific configuration files are found in directories along the
+path defined by the SD_SITE_PATH environment variable (in .profile/ros.bash).
+Each configuration file includes site-specific values for operating the
+radar, which can now be modified without needing to recompile the site
+libraries (or control programs). These values are loaded when each control
+program begins, and the user can override them using command line arguments
+to the control program.
+
+
+Scheduling the Radar
+--------------------
+
+The schedule files contain a list of starting times and control programs.
+
+The format for the starting time is:  yr mo dy hr mn
+
+    where   yr  is the four digit year (e.g., 2021)
+            mo  is the two digit month (01 to 12)
+            dy  is the two digit day of month (01 to 31)
+            hr  is the two digit UT hour (00 to 23)
+            mn  is the two digit UT minute (00 to 59)
+
+The first non-comment line of the schedule file should name the default
+control program to be run when no valid time has been reached, e.g.,
+
+    default normalscan -stid -cve -fast -sb 0 -eb 19
+
+All subsequent lines should contain a valid time followed by a control
+program and its command line options, e.g.,
+
+    2022 10 01 12 00 normalscan [command-line options]
+
+Note that unlike previous versions of the ROS, it is no longer necessary
+to specifiy the path where the control programs are located (this path
+is now set by default to the USR_BINPATH environment variable).
+
+
+Running the Radar
+-----------------
+
+Two scripts control the operation of the radar:
+
+start.radar   - starts the supporting tasks and scheduler process
+stop.radar    - stops all radar tasks
+
+Three scripts are available for testing the operation of the radar:
+
+test.radar    - tests the operation of both radars
+test.east     - tests the operation of the east radar
+test.west     - tests the operation of the west radar
+
+Note that when using the "dummy" radar simulator with the above test
+scripts, the ROS hostname should be set to the localhost IP address
+(127.0.0.1 by default) using the "-ros" command line option with the
+appropriate control program in the schedule file. Alternatively, the
+"ros.host" value in the site configuration file can be set to 127.0.0.1
+instead.
+
+
+Monitoring the Data
+-------------------
+
+If rtserver is enabled in the start.radar (or test.radar) script,
+the fitted data can be monitored in real-time from the terminal
+using the command
+
+    fitacfclientgui localhost [port]
+
+where [port] is specified by the "-tp" option to rtserver (default
+is 1024). Radar operating parameters are displayed at the top of the
+screen, and ground and ionospheric scatter are displayed with range
+gates running horizontally and beams running vertically down the
+screen. The number of range gates can be adjusted with the "-nrange"
+option. Different fitted parameters can be displayed by pressing the
+'p' (power), 'v' (velocity), 'w' (spectral width), or 'e' (elevation
+angle) keys. The right and left arrow keys can also be used to cycle
+through the fitted parameters, and the up and down arrow keys can be
+used to adjust the color scale. When displaying velocity, the 'g' key
+toggles the ground scatter flag. Press any other key to quit.
