@@ -19,5 +19,7 @@ This repository contains an archive of SuperDARN Radar Operating System (ROS) so
 | ROS 4.1 | [ros.4.1](../../tree/ros.4.1) | 2023-02-20 |
 | ROS 4.2 | [ros.4.2](../../tree/ros.4.2) | 2023-06-23 |
 | ROS 4.3 | [ros.4.3](../../tree/ros.4.3) | 2023-09-25 |
+| ROS 4.4 | [ros.4.4](../../tree/ros.4.4) | 2024-06-06 |
+| ROS 4.5 | [ros.4.5](../../tree/ros.4.5) | 2024-12-03 |
 
 The ROS was originally developed and distributed by Rob Barnes at JHU/APL. Special thanks to Dieter Andre, Simon Shepherd, Julian Thornhill, and Tim Yeoman for providing copies of the ROS source code for this archive.
