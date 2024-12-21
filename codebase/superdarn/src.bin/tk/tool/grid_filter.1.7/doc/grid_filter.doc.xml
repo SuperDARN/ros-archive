@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<project>superdarn</project>
+<name>grid_filter</name>
+<location>src.bin/tk/tool/grid_filter</location>
+
+<syntax>grid_filter --help</syntax>
+<syntax>grid_filter [<ar>gridname</ar>]</syntax>
+<syntax>grid_filter -old [<ar>gridname</ar>]</syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>--version</on><od>print the RST version number and exit.</od>
+</option>
+<option><on>-cpid</on><od>exclude data according to control program ID (CPID).</od>
+</option>
+<option><on>-minrng <ar>minrange</ar></on><od>exclude data from slant ranges nearer than <ar>minrange</ar> km (default is 0 km).</od>
+</option>
+<option><on>-maxrng <ar>maxrange</ar></on><od>exclude data from slant ranges greater than <ar>maxrange</ar> km (default is 10,000 km).</od>
+</option>
+<option><on><ar>gridname</ar></on><od>filename of the <code>grdmap</code> format file. If this is omitted, the file will be read from standard input.</od>
+</option>
+<option><on>-old</on><od>the input file is a <code>grd</code> format file.</od>
+</option>
+
+<synopsis><p>Removes grid vectors from a <code>grdmap</code> file using range and/or CPID criteria.</p></synopsis>
+<description><p>Removes grid vectors from a grid file.</p>
+<p>The task searches for and removes grid vectors that do not meet user-defined slant range or control program ID (CPID) criteria. By default the task will not exclude any data.</p></description>
+
+<example>
+<command>grid_filter -old 20040830.grd &gt; 20040830.grd.s</command>
+<description>Filter the <code>grd</code> format file "<code>20040830.grd</code>" to produce the file "<code>20040830.grd.f</code>".</description>
+</example>
+
+</binary>
