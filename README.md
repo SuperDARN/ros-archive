@@ -12,6 +12,7 @@ This repository contains an archive of SuperDARN Radar Operating System (ROS) so
 | ROS 1.05 | [ros.1.05](../../tree/ros.1.05) | 2004-07-06 |
 | ROS 1.12 | [ros.1.12](../../tree/ros.1.12) | 2006-02-08 |
 | ROS 1.13 | [ros.1.13](../../tree/ros.1.13) | 2006-03-30 |
+| ROS 1.16 | [ros.1.16](../../tree/ros.1.16) | 2006-06-23 |
 | ROS 1.20 | [ros.1.20](../../tree/ros.1.20) | 2007-08-09 |
 | ROS 1.25 | [ros.1.25](../../tree/ros.1.25) | 2008-03-25 |
 | ROS 2.0 | [ros.2.0](../../tree/ros.2.0) | 2009-11-19 |
