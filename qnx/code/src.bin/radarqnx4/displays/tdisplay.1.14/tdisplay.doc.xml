@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>tdisplay</name>
+<location>src.bin/radarqnx4/displays/tdisplay</location>
+<syntax>tdisplay --help</syntax>
+<syntax>tdisplay [<ar>options</ar>]</syntax>
+<syntax>tdisplay -a [<ar>options</ar>]</syntax>
+<syntax>tdisplay -v [<ar>options</ar>]</syntax>
+<syntax>tdisplay -p [<ar>options</ar>]</syntax>
+<syntax>tdisplay -w [<ar>options</ar>]</syntax>
+
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-ec <ar>echoname</ar></on><od>attach to the version of <em>echo_data</em> registered under the name <ar>echoname</ar>.</od>
+</option>
+<option><on>-o <ar>range</ar></on><od>start the display with a range offset of <ar>range</ar>.</od>
+</option>
+<option><on>-m</on><od>when displaying ACFs, plot the range with the maximum power.</od>
+</option>
+<option><on>-a</on><od>start in ACF mode.</od>
+</option>
+<option><on>-p</on><od>start in velocity mode.</od>
+</option>
+<option><on>-p</on><od>start in power mode.</od>
+</option>
+<option><on>-p</on><od>start in spectral width mode.</od>
+</option>
+<synopsis><p>An interactive, terminal based display tool.</p></synopsis>
+</binary>

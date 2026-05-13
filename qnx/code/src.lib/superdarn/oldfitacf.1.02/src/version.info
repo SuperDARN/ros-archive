@@ -1,0 +1,24 @@
+# $Log: version.info,v $
+# Revision 1.2  2006/03/14 19:12:59  barnes
+# Modification to get the number of beams from the hardware file
+#
+# Revision 1.1  2004/07/23 23:49:12  barnes
+# Initial revision
+#
+# 
+oldacf_preproc.c 1.01
+oldbadlags.c 1.01
+oldcalc_phi_res.c 1.01
+olddbl_cmp.c 1.01
+olddo_fit.c 1.01
+oldelev_goose.c 1.02
+oldelevation.c 1.02
+oldfit_acf.c 1.01
+oldfitacf.c 1.02
+oldground_scatter.c 1.01
+oldmore_badlags.c 1.01
+oldnoise_acf.c 1.01
+oldnoise_stat.c 1.01
+oldomega_guess.c 1.01
+oldrang_badlags.c 1.01
+oldremove_noise.c 1.01

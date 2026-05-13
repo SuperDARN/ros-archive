@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.2  2006/04/12 18:48:47  barnes
+# Changed 'o' to 'z' for consistency.
+#
+# Revision 1.1  2006/04/12 18:29:40  barnes
+# Initial revision
+#
+#
+
+mktsg.c 1.02

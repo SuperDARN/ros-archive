@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>tcpipmsg</name>
+<location>src.bin/radarqnx4/main/tcpipmsg</location>
+<syntax>tcpipmsg --help</syntax>
+<syntax>tcpipmsg [<ar>options</ar>] [<ar>port</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-n <ar>taskname</ar></on><od>register the task under the name <ar>taskname</ar> with the Operating System.</od>
+</option>
+<option><on><ar>port</ar></on><od>listen for remote connections on port number <ar>port</ar>.</od>
+</option>
+<synopsis><p>A task for relaying messages over the internet.</p></synopsis>
+</binary>

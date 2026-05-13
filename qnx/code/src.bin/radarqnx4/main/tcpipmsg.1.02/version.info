@@ -1,0 +1,13 @@
+# $Log: version.info,v $
+# Revision 1.2  2004/06/22 13:37:28  barnes
+# QNX4 Code audit.
+#
+# Revision 1.1  2004/05/10 15:40:56  barnes
+# Initial revision
+#
+#
+fork.c 1.02
+connect.c 1.03
+msgmem.c 1.02
+socket.c 1.02
+tcpipmsg.c 1.02

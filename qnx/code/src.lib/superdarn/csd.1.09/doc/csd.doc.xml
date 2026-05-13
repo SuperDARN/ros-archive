@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>csd</name>
+<location>src.lib/superdarn/csd</location>
+<function>
+<name>CSDClose</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csddata.h</header>
+<syntax>void CSDClose(<sn href="structCSDfp.html">struct CSDfp</sn> *fptr);</syntax>
+<description><p>The <fn href="CSDClose.html">CSDClose</fn> function closes <code>CSD</code> data file.</p>
+<p>The open file is pointed to by the argument <ar>ptr</ar>.</p>
+</description>
+<example type="source">CSDClose.c</example>
+</function>
+<function>
+<name>CSDFwrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csddata.h</header>
+<syntax>int CSDFwrite(FILE *fp,<sn href="structCSDdata.html">struct CSDdata</sn> *ptr);</syntax>
+<description><p>The <fn href="CSDFwrite.html">CSDFwrite</fn> function writes a <code>CSD</code> data record to an open stream.</p>
+<p>The data is written to the open stream pointed to by the argument <ar>fp</ar>. The data is contained in the structure pointed to by the argument <ar>ptr</ar>.</p>
+</description>
+<returns>Returns zero on success. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDFwrite.c</example>
+
+</function>
+<function>
+<name>CSDHeaderFwrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdwrite.h</header>
+<syntax>int CSDHeaderFwrite(FILE *fp,<sn href="structCSDdata.html">struct CSDdata</sn>  *ptr);</syntax>
+<description><p>The <fn href="CSDHeaderFwrite.html">CSDHeaderFwrite</fn> function writes a <code>CSD</code> header record to an open stream.</p>
+<p>The data is written to the open stream pointed to by the argument <ar>fp</ar>. The data is contained in the structure pointed to by the argument <ar>ptr</ar>.</p>
+</description>
+<returns>Returns zero on success. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDHeaderFwrite.c</example>
+
+</function>
+
+<function>
+<name>CSDHeaderWrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdwrite.h</header>
+<syntax>int CSDHeaderWrite(int fp,<sn href="structCSDdata.html">struct CSDdata</sn> *ptr);</syntax>
+
+<description><p>The <fn href="CSDHeaderWrite.html">CSDHeaderWrite</fn> function writes a <code>CSD</code> header record to an open file.</p>
+<p>The data is written to the open file with the descriptor given by the a argument <ar>fp</ar>. The data is contained in the structure pointed to by the argument <ar>ptr</ar>.</p>
+</description>
+<returns>Returns zero on success. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDHeaderWrite.c</example>
+
+</function>
+
+
+<function>
+<name>CSDMakeBuffer</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdwrite.h</header>
+<syntax>char *CSDMakeBuffer(int fp,<sn href="structCSDdata.html">struct CSDdata</sn> *ptr,int *sze);</syntax>
+
+<description><p>The <fn href="CSDMakeBuffer.html">CSDMakeBuffer</fn> allocates a memory buffer and stores a <code>CSD</code> data record in it.</p>
+<p>The data is contained in the structure pointed to by the argument <ar>ptr</ar>. The size of the memory buffer allocated to store the data is written to the location pointed to by the argument <ar>sze</ar>.</p>
+<p>The memory buffer should be freed when it is no longer required.</p>
+</description>
+<returns>Returns a pointer to a memory buffer containing the <code>CSD</code> data on success. On error, a <code>NULL</code> pointer is returned.</returns>
+<errors>On error, a <code>NULL</code> pointer is returned.</errors>
+<example type="source">CSDMakeBuffer.c</example>
+
+</function>
+
+<function>
+<name>CSDOpen</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdread.h</header>
+<syntax><sn href="structCSDfp.html">struct CSDfp</sn> *CSDOpen(char *name);</syntax>
+
+<description><p>The <fn href="CSDOpen.html">CSDOpen</fn> function opens a <code>CSD</code> data file for reading.</p>
+<p>The name of the file to open is given by the zero terminated string pointed to by the argument <ar>name</ar>.</p>
+</description>
+<returns>Returns a pointer to the file control structure.On error, a <code>NULL</code> pointer is returned.</returns>
+<errors>On error, a <code>NULL</code> pointer is returned.</errors>
+<example type="source">CSDOpen.c</example>
+
+</function>
+<function>
+<name>CSDRead</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdread.h</header>
+<syntax>int CSDRead(<sn href="structCSDfp.html">struct CSDfp</sn>  *fptr,<sn href="structCSDdata.html">struct CSDdata</sn>  *ptr);</syntax>
+
+<description><p>The <fn href="CSDRead.html">CSDRead</fn> function reads a record from a <code>CSD</code> data file.</p>
+<p>The data is read from the open file pointed to by the argument <ar>ptr</ar>. The data is decoded and used to populate the structure pointed to by the argument <ar>ptr</ar>.</p>  
+</description>
+<returns>Returns zero on success. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDRead.c</example>
+
+</function>
+<function>
+<name>CSDReadRadarScan</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdscan.h</header>
+<syntax>int CSDReadRadarScan(<sn href="structCSDfp.html">struct CSDfp</sn>  *fp,int *state,<sn href="&root;/src.lib/superdarn/scan/structRadarScan.html">struct RadarScan</sn> *ptr,<sn href="structCSDdata.html">struct CSDdata</sn>  *csd,int tlen, int lock,int chn);</syntax>
+
+
+<description><p>The <fn href="CSDReadRadarScan.html">CSDReadRadarScan</fn> function reads one full scan of data from a <code>CSD</code> data file.</p>
+<p>The data is read from the open file pointed to by the argument <ar>fp</ar>.</p>
+<p>The argument <ar>state</ar> is a pointer to an integer that is used internally by the function to track progress through the <code>CFit</code> file. Initially this integer should be set to zero, indicating that no data has been read from the file yet. The other possible value of <ar>state</ar> are (1), indicating that a complete scan was read from the file and data from the next scan is pending, or (2) indicating that a file error occurred.</p>
+<p>The scan data is written to the structure pointed to by the argument <ar>ptr</ar>. Memory is automatically allocated within this structure to store the beam data.</p>
+<p>In order for the function to correctly identify a scan boundary, it must read the first beam from the subsequent scan. This data must be preserved so that it can be included in the next block of scan data returned by the next call to the function. This is done by providing storage for the <code>CSD</code> data pointed to by the argument <ar>csd</ar>.</p>
+<p>If the argument <ar>tlen</ar> has a non-zero value then the function will ignore the scan flag and instead assume the the scan has a length of <ar>tlen</ar> seconds. If the argument <ar>lock</ar> has a non-zero value it is also assumed that the scan boundaries are fixed relative to the start of the day.</p>
+<p>If the final argument <ar>chn</ar>, is compared against the channel number recorded in the radar parameter block, if the two numbers do not match then the data record is excludef from the scan.</p>
+</description> 
+<returns>Returns zero on success, or (1) if the end of file was reached. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDReadRadarScan.c</example>
+
+</function>
+<function>
+<name>CSDSeek</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdread.h</header>
+<syntax>int CSDSeek(<sn href="structCSDfp.html">struct CSDfp</sn> *ptr, int yr,int mo,int dy,int hr,int mt,int sc,double *atme);</syntax>
+
+<description><p>The <fn href="CSDSeek.html">CSDSeek</fn> function searches for a <code>CSD</code> data record for a specific time.</p>
+<p>The search is performed on the file pointed to by the argument <ar>fp</ar>. The time to search for is specified by the arguments <ar>yr</ar>, <ar>mo</ar>,<ar>dy</ar>,<ar>hr</ar>,<ar>mt</ar>,<ar>sc</ar> giving the year, month, day, hour, minute and second.</p>
+<p>The argument <ar>atme</ar> is a pointer to a double precision floating point number that is used to store the time of the closest record to the time requested expressed in seconds from 0:00UT January 1, 1970. If this argument is set to a <code>NULL</code> pointer then the time is not returned.</p>  
+</description>
+<returns>Returns zero on success. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDSeek.c</example>
+
+</function>
+<function>
+<name>CSDWrite</name>
+<location>src.lib/superdarn/csd</location>
+<header>superdarn/csdwrite.h</header>
+<syntax>int CSDWrite(int fp,<sn href="structCSDdata.html">struct CSDdata</sn> *ptr);</syntax>
+
+<description><p>The <fn href="CSDWrite.html">CSDWrite</fn> function writes a <code>CSD</code> data record to an open file.</p>
+<p>The data is written to the open file with the descriptor given by the a argument <ar>fp</ar>. The data is contained in the structure pointed to by the argument <ar>ptr</ar>.</p>
+</description>
+<returns>Returns zero on success. On error, (-1) is returned.</returns>
+<errors>On error, (-1) is returned.</errors>
+<example type="source">CSDWrite.c</example>
+
+</function>
+
+
+<structure>
+ <name>CSDdata</name>
+ <location>src.lib/superdarn/csd</location>
+ <header>superdarn/csddata.h</header>
+ <struct>
+
+  <member>
+     <struct>
+       <member>
+          <code>int32 major;</code>
+          <description>Major revision number.</description>
+       </member>
+       <member>
+          <code>int32 minor;</code>
+          <description>Minor revision number.</description>
+       </member>
+      </struct>
+      <code>revision;</code>
+      <description>Revision number.</description>
+   </member>
+
+   <member>
+      <code>double pmax;</code>
+      <description>Absolute maximum value of power used to scale the data.</description>
+    </member>
+
+   <member>
+      <code>double vmax;</code>
+      <description>Absolute maximum value of velocity used to scale the data.</description>
+    </member>
+
+  <member>
+      <code>double wmax;</code>
+      <description>Absolute maximum value of spectral width used to scale the data.</description>
+    </member>
+
+   <member>
+      <code>int16 stid;</code>
+      <description>Station Identifier number.</description>
+    </member>
+
+
+    <member>
+      <code>double time;</code>
+      <description>Data record time stamp, specified as seconds from 0:00UT January 1, 1970.</description>
+    </member>
+
+
+    <member>
+      <code>int16 scan;</code>
+      <description>Scan flag.</description>
+    </member>
+ 
+    <member>
+      <code>int16 cp;</code>
+      <description>Control program Identifier number.</description>
+    </member>
+
+    <member>
+      <code>int16 bmnum;</code>
+      <description>Beam number.</description>
+    </member>
+
+    <member>
+      <code>int16 channel;</code>
+      <description>Channel number for a stereo radar.</description>
+    </member>
+
+    <member>
+     <struct>
+       <member>
+          <code>int16 sc;</code>
+          <description>Seconds.</description>
+       </member>
+       <member>
+          <code>int32 us;</code>
+          <description>Microseconds.</description>
+       </member>
+      </struct>
+      <code>noise;</code>
+      <description>Integration time.</description>
+   </member>
+
+   <member>
+      <code>int16 frang;</code>
+      <description>Distance to first range (kilometers).</description>
+    </member>
+
+    <member>
+      <code>int16 rsep;</code>
+      <description>Range separation (kilometers).</description>
+    </member>
+
+    <member>
+      <code>int16 rxrise;</code>
+      <description>Receiver rise time (microseconds).</description>
+    </member>
+
+    <member>
+      <code>int16 tfreq;</code>
+      <description>Transmitted frequency.</description>
+    </member>
+
+    <member>
+      <code>int32 noise;</code>
+      <description>Calculated noise from clear frequency search.</description>
+    </member>
+
+    <member>
+      <code>int16 atten;</code>
+      <description>Attenuation level.</description>
+    </member>
+
+    <member>
+      <code>int16 nave;</code>
+      <description>Number of pulse sequences transmitted.</description>
+    </member>
+
+    <member>
+      <code>int16 nrang;</code>
+      <description>Number of ranges.</description>
+    </member>
+
+    <member>
+      <code>unsigned char stored;</code>
+      <description>Parameters stored in the file, if bit zero is set then power is stored, if bit (1) is set then velocity is stored and if bit (2) is set then spectral width is stored.</description>
+    </member>
+
+    <member>
+      <code>unsigned char store[5*MAX_RANGE];</code>
+      <description>Color data table.</description>
+    </member>
+</struct>
+
+<description>
+<p>The <sn href="structCSDdata.html">struct CSDdata</sn> structure stores the CSD data.</p>
+</description>
+</structure>
+
+
+
+
+<structure>
+ <name>CSDfp</name>
+ <location>src.lib/superdarn/csd</location>
+ <header>superdarn/csdread.h</header>
+ <struct>
+
+  <member>
+      <code>int fitfp;</code>
+      <description>File descriptor for the data file.</description>
+  </member>
+ 
+  <member>
+      <code>char *buf;</code>
+      <description>File memory buffer, if the file is small enough it is loaded into memory.</description>
+  </member>
+
+  <member>
+      <code>int fptr;</code>
+      <description>File pointer.</description>
+  </member>
+
+  <member>
+      <code>int fsze;</code>
+      <description>File size.</description>
+  </member>
+
+ <member>
+      <code>int blen;</code>
+      <description>Size in bytes of the last record read from the file.</description>
+  </member>
+
+  <member>
+      <code>double ctime;</code>
+      <description>Current record time of the file, specified as seconds from 0:00UT January 1, 1970.</description>
+  </member>
+
+</struct>
+
+<description>
+<p>The <sn href="structCSDfp.html">struct CSDfp</sn> structure stores the open file descriptor information for a CSD data file.</p>
+</description>
+</structure>
+
+
+</library>

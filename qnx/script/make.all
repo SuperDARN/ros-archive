@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sh $HOME/script/make.lib
+sh $HOME/script/make.bin                                                       
+sh $HOME/script/make.usrlib
+sh $HOME/script/make.usrbin
+

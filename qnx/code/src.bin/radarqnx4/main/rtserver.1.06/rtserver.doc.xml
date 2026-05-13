@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>rtserver</name>
+<location>src.bin/radarqnx4/main/rtserver</location>
+<syntax>rtserver --help</syntax>
+<syntax>rtserver [<ar>options</ar>] [<ar>port</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-n <ar>taskname</ar></on><od>register the task under the name <ar>taskname</ar> with the Operating System.</od>
+</option>
+<option><on>-e <ar>errlogname</ar></on><od>send error messages to the task registered under the name <ar>errlogname</ar> with the Operating System.</od>
+</option>
+
+<option><on>-ec <ar>echoname</ar></on><od>attach the task to the version of <code>echo_data</code> registered under the name <ar>echoname</ar> with the Operating System.</od>
+</option>
+
+
+<option><on>-c <ar>A:B</ar></on><od>filter the data and serve only data from channel A or channel B.</od>
+</option>
+
+<option><on><ar>port</ar></on><od>listen for remote connections on port number <ar>port</ar>.</od>
+</option>
+<synopsis><p>A data relay task for distributing data over the internet.</p></synopsis>
+</binary>

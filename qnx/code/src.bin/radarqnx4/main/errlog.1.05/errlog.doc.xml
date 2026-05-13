@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>errlog</name>
+<location>src.bin/radarqnx4/main/errlog</location>
+<syntax>errlog --help</syntax>
+<syntax>errlog [<ar>taskname</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on><ar>taskname</ar></on><od>register the task under the name <ar>taskname</ar> with the Operating System.</od>
+</option>
+<synopsis><p>Records error message in a log.</p></synopsis>
+</binary>

@@ -1,0 +1,29 @@
+# $Log: version.info,v $
+# Revision 1.8  2005/01/13 15:01:52  barnes
+# Added missing header.
+#
+# Revision 1.7  2004/08/25 19:05:33  barnes
+# Fixes for MacOS 10 (Darwin).
+#
+# Revision 1.6  2004/07/08 16:18:15  barnes
+# Added test for exceptions.
+#
+# Revision 1.5  2004/04/30 22:06:20  barnes
+# Changed macro definition.
+#
+# Revision 1.4  2004/04/29 20:15:12  barnes
+# Added missing header.
+#
+# Revision 1.3  2004/04/28 18:23:11  barnes
+# Added missing header.
+#
+# Revision 1.2  2004/04/26 20:19:12  barnes
+# Audit - Enforced warning set to "all".
+#
+# Revision 1.1  2003/03/01 18:07:42  barnes
+# Initial revision
+#
+#
+connex.c 1.06
+err.c 1.01
+msg.c 1.06

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<binary>
+<name>fitacfwrite</name>
+<location>src.bin/radarqnx4/main/fitacfwrite</location>
+<syntax>fitacfwrite --help</syntax>
+<syntax>fitacfwrite [<ar>options</ar>] [<ar>taskname</ar>]</syntax>
+<option><on>--help</on><od>print the help message and exit.</od>
+</option>
+<option><on>-e <ar>errlogname</ar></on><od>send error messages to the task registered under the name <ar>errlogname</ar> with the Operating System.</od>
+</option>
+<option><on><ar>taskname</ar></on><od>register the task under the name <ar>taskname</ar> with the Operating System.</od>
+</option>
+<synopsis><p>Stores fitted data in <code>fitacf</code> files.</p></synopsis>
+</binary>

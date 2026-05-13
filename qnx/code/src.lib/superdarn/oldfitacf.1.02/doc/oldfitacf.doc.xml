@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<library>
+<name>oldfitacf</name>
+<location>src.lib/superdarn/oldfitacf</location>
+<function>
+<name>OldFitACF</name>
+<location>src.lib/superdarn/oldfitacf</location>
+<header>superdarn/oldfitacf.h</header>
+<syntax>void OldFitACF(<sn href="&root;/src.lib/superdarn/radar/structRadarParm.html">struct RadarParm</sn> *prm,<sn href="&root;/src.lib/superdarn/raw/structRawData.html">struct RawData</sn> *ptr,<sn href="&root;/src.lib/superdarn/fitacf/structFitBlock.html">struct FitBlock</sn> *input,<sn href="&root;/src.lib/superdarn/fit/structFitData.html">struct FitData</sn> *fit);</syntax>
+<description><p>The <fn href="OldFitACF.html">OldFitACF</fn> function applies the <em>fitacf</em> algorithm to raw ACF data.</p>
+<p>The argument <ar>prm</ar> points to the radar parameter block of the data to process and the argument <ar>raw</ar> points to the raw ACF data.</p>
+<p>The configuration used by the algorithm is stored in the structure pointed to by the argument <ar>input</ar>.</p>
+<p>The calculated, fitted parameters are stored in the structure pointed to by the argument <ar>fit</ar>.</p>
+</description>
+<example type="source">OldFitACF.c</example>
+
+</function>
+
+<function>
+<name>OldFitACFEnd</name>
+<location>src.lib/superdarn/oldfitacf</location>
+<header>superdarn/oldfitacf.h</header>
+<syntax>void OldFitACFEnd(<sn href="&root;/src.lib/superdarn/fitacf/structFitBlock.html">struct FitBlock</sn> *fptr);</syntax>
+<description><p>The <fn href="OldFitACFEnd.html">OldFitACFEnd</fn> function frees memory allocated for the <em>fitacf</em> algorithm.</p>
+<p>The argument <ar>fptr</ar> points to the data structure containing the memory buffers used by the algorithm.</p>
+
+</description>
+<example type="source">OldFitACF.c</example>
+
+
+</function>
+<function>
+<name>OldFitACFStart</name>
+<location>src.lib/superdarn/oldfitacf</location>
+<header>superdarn/oldfitacf.h</header>
+<syntax>void OldFitACFStart(<sn href="&root;/src.lib/superdarn/radar/structRadarSite.html">struct RadarSite</sn> *hd,int yr,<sn href="&root;/src.lib/superdarn/fitacf/structFitBlock.html">struct FitBlock</sn> *fptr);</syntax>
+<description><p>The <fn href="OldFitACFStart.html">OldFitACFStart</fn> function sets up a data structure in preparation for using the <em>fitacf</em> algorithm.</p>
+<p>The argument <ar>site</ar> points to the site hardware configuration for the radar. The argument <ar>yr</ar> is the year that the raw ACF data was generated.</p>
+<p>The data structure to set up is pointed to by the argument <ar>fptr</ar>.</p></description>
+<example type="source">OldFitACFStart.c</example>
+
+
+</function>
+
+</library>

@@ -1,0 +1,10 @@
+# $Log: version.info,v $
+# Revision 1.2  2006/04/07 15:23:09  barnes
+# Added rawfeed system.
+#
+# Revision 1.1  2006/03/29 13:28:46  barnes
+# Initial revision
+#
+#
+integrates.c 1.02
+pulses.c 1.01
